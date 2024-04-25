@@ -1,24 +1,39 @@
-import { Redirect } from 'expo-router';
+import { useEffect } from "react";
+import { Redirect, Link, SplashScreen  } from 'expo-router';
 import { StatusBar, StyleSheet, View, Text } from 'react-native';
-import { Link } from 'expo-router';
+import { Urbanist_400Regular, Urbanist_300Light, Urbanist_600SemiBold, Urbanist_700Bold } from '@expo-google-fonts/urbanist'; 
+import { appStyles } from './styles';
+import { useFonts } from 'expo-font';
+
+SplashScreen.preventAutoHideAsync();
 
 const App = () => {
+   const [fontsLoaded, error] = useFonts({
+    Urbanist_300Light,
+    Urbanist_400Regular,
+    Urbanist_600SemiBold,
+    Urbanist_700Bold
+  });
+
+  useEffect(() =>{
+    if(error) throw error;
+    if(fontsLoaded) SplashScreen.hideAsync();
+  }, [fontsLoaded, error])
+
+  if(!fontsLoaded && !error) return null;
+
+
   return (
-    <View style={styles.container}>
-      <Text>Cadence</Text>
+    <View style={appStyles.container}>
+      <Text style={appStyles.defaultText}>Cadence</Text>
       <StatusBar style='auto' />
-      <Link href='/profile'>Go to profile</Link>
+      <Link href='/profile' style={appStyles.defaultText}>Go to profile</Link>
     </View>
   );
 }
 
 export default App;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+
+
