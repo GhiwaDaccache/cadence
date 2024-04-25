@@ -1,11 +1,11 @@
 // Dependencies
 import { useEffect } from "react";
 import { useFonts } from 'expo-font';
+import { View, Text } from 'react-native';
 import { Link, SplashScreen } from 'expo-router';
-import { StatusBar, View, Text } from 'react-native';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 // Styles
-import { appStyles } from './styles';
 import { Urbanist_400Regular, Urbanist_300Light, Urbanist_600SemiBold, Urbanist_700Bold } from '@expo-google-fonts/urbanist'; 
 
 SplashScreen.preventAutoHideAsync();
@@ -27,10 +27,9 @@ const App = () => {
 
 
   return (
-    <View style={appStyles.container}>
-      <Text style={appStyles.defaultText}>Cadence</Text>
-      <StatusBar style='auto' />
-      <Link href='/profile' style={appStyles.defaultText}>Go to profile</Link>
+    <View className='flex-1 items-center justify-center bg-white'>
+      <Text className='text-3xl'>Cadence</Text>
+      <Link href='/profile' >Go to profile</Link>
     </View>
   );
 }
