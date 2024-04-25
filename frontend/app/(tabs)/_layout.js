@@ -1,11 +1,18 @@
-import { View, Text } from 'react-native'
+import { Tabs, Redirect } from "expo-router";
 import React from 'react'
 
 const TabsLayout = () => {
   return (
-    <View>
-      <Text>Tabs Layout</Text>
-    </View>
+    <>
+        <Tabs>
+            <Tabs.Screen 
+            name='discover'
+            options={{
+                headerShown: false,
+                title: 'Discover'
+            }}/>
+        </Tabs>
+    </>
   )
 }
 

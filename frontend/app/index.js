@@ -6,8 +6,8 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text>Cadence</Text>
-      <StatusBar style="auto" />
-      <Link href="/profile">Go to profile</Link>
+      <StatusBar style='auto' />
+      <Link href='/profile'>Go to profile</Link>
     </View>
   );
 }
