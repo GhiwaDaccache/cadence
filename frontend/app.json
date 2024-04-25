@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "cadence",
-    "slug": "cadence",
+    "name": "Cadence",
+    "slug": "Cadence",
+    "scheme": "cadence",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
