@@ -1,9 +1,12 @@
+// Dependencies
 import { useEffect } from "react";
-import { Redirect, Link, SplashScreen  } from 'expo-router';
-import { StatusBar, StyleSheet, View, Text } from 'react-native';
-import { Urbanist_400Regular, Urbanist_300Light, Urbanist_600SemiBold, Urbanist_700Bold } from '@expo-google-fonts/urbanist'; 
-import { appStyles } from './styles';
 import { useFonts } from 'expo-font';
+import { Link, SplashScreen } from 'expo-router';
+import { StatusBar, View, Text } from 'react-native';
+
+// Styles
+import { appStyles } from './styles';
+import { Urbanist_400Regular, Urbanist_300Light, Urbanist_600SemiBold, Urbanist_700Bold } from '@expo-google-fonts/urbanist'; 
 
 SplashScreen.preventAutoHideAsync();
 

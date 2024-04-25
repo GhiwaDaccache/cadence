@@ -1,5 +1,10 @@
 import { Tabs, Redirect } from "expo-router";
 import React from 'react'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import DiscoverIcon from "../../assets/icons/discover-icon";
+import RunIcon from "../../assets/icons/run-icon";
+import ProfileIcon from "../../assets/icons/profile-icon";
+import SettingsIcon from "../../assets/icons/settings-icon";
 
 const TabsLayout = () => {
   return (
@@ -10,7 +15,7 @@ const TabsLayout = () => {
                 options={{
                     headerShown: false,
                     title: 'Discover',
-                    // tabBarIcon
+                    tabBarIcon: () => <DiscoverIcon size={24} color="black" />
             }}/>
 
             <Tabs.Screen 
@@ -18,7 +23,7 @@ const TabsLayout = () => {
                 options={{
                     headerShown: false,
                     title: 'Start Run',
-                    // tabBarIcon
+                    tabBarIcon: () => <RunIcon size={24} color="black" />
             }}/>
 
             <Tabs.Screen 
@@ -26,7 +31,7 @@ const TabsLayout = () => {
                 options={{
                     headerShown: false,
                     title: 'Settings',
-                    // tabBarIcon
+                    tabBarIcon: () => <SettingsIcon size={24} color="black" />
             }}/>
 
             <Tabs.Screen 
@@ -34,7 +39,7 @@ const TabsLayout = () => {
                 options={{
                     headerShown: false,
                     title: 'Profile',
-                    // tabBarIcon
+                    tabBarIcon: () => <ProfileIcon size={24} color="black" />
             }}/>
 
         </Tabs>
