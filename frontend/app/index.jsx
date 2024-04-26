@@ -7,7 +7,7 @@ import images from '../assets/images/images';
 import Logo from '../assets/images/logo';
 
 // Components
-import Button from '../components/Button';
+import PrimaryButton from '../components/PrimaryButton';
 
 const App = () => {
   return (
@@ -18,12 +18,9 @@ const App = () => {
           <Logo width={65} height={81}   />
         </View>
         <View className='absolute bottom-0 w-full'>
-          <Button
-            title='Log in'
-            color='bg-primary'
+          <PrimaryButton
+            title='Log in'           
             width='w-[50%]'
-            textColor='text-white'
-
             handlePress={() => {}}
           />
         </View>
