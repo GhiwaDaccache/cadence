@@ -5,7 +5,7 @@ import icons from "../../assets/icons/icons";
 
 const TabIcon = ({ icon, color, name, focused }) => {
     return (
-      <View className="flex items-center justify-center gap-2" >
+      <View className="flex items-center justify-center gap-1" >
         <Image
           source={icon}
           resizeMode="contain"
@@ -13,7 +13,7 @@ const TabIcon = ({ icon, color, name, focused }) => {
           className="w-6 h-6"
         />
         <Text
-          className={`${focused ? "font-usemibold" : "font-urbanist"} text-xs`}
+          className={`${focused ? "font-urbanistBold" : "font-urbanist"} text-xs`}
           style={{ color: color }}
         >
           {name}
@@ -28,7 +28,12 @@ const TabsLayout = () => {
             <Tabs screenOptions={{ 
               tabBarActiveTintColor: '#A00119',
               tabBarInactiveTintColor: "#000000",
-              tabBarShowLabel: false
+              tabBarShowLabel: false,
+              tabBarStyle:{
+                borderTopWidth: 1,
+                borderTopColor: '#D0D0D0',
+                height: 60,
+              }
             }}>
                 <Tabs.Screen 
                  name="discover"
@@ -39,7 +44,7 @@ const TabsLayout = () => {
                      <TabIcon
                        icon={icons.compass}
                        color={color}
-                       name="discover"
+                       name="Discover"
                        focused={focused}
                      />
                    ),
@@ -54,7 +59,7 @@ const TabsLayout = () => {
                         <TabIcon
                           icon={icons.run}
                           color={color}
-                          name="start-run"
+                          name="Start run"
                           focused={focused}
                         />
                       ),
@@ -69,7 +74,7 @@ const TabsLayout = () => {
                         <TabIcon
                           icon={icons.setting}
                           color={color}
-                          name="settings"
+                          name="Settings"
                           focused={focused}
                         />
                       ),
@@ -84,7 +89,7 @@ const TabsLayout = () => {
                         <TabIcon
                           icon={icons.profile}
                           color={color}
-                          name="profile"
+                          name="Profile"
                           focused={focused}
                         />
                       ),
