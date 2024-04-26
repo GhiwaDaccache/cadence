@@ -1,10 +1,11 @@
 // Dependencies
-import { View, Image } from 'react-native';
+import { router } from 'expo-router';
+import { View, Image, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 // Assets
-import images from '../assets/images/images'; 
 import Logo from '../assets/images/logo';
+import images from '../assets/images/images'; 
 
 // Components
 import PrimaryButton from '../components/PrimaryButton';
@@ -18,21 +19,25 @@ const App = () => {
           <Logo width={65} height={81}   />
         </View>
         <View className='absolute bottom-0 w-full flex flex-row justify-center'>
+
           <PrimaryButton
             title='Log in'           
             width='w-[50%]'
-            handlePress={() => {}}
+            handlePress={() => router.push('/login')}
             rounded={false}
+
           />
           <View className='h-full w-[1] bg-white'></View>
+
           <PrimaryButton
             title='Sign up'           
             width='w-[50%]'
-            handlePress={() => {}}
+            handlePress={() => router.push('/sign-up')}
             rounded={false}
           />
 
         </View>
+      <StatusBar backgroundColor='#FBFBFD'/>
     </SafeAreaView>
   );
 }
