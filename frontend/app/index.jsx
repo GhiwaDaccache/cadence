@@ -17,12 +17,21 @@ const App = () => {
         <View className='absolute top-24 left-8'>
           <Logo width={65} height={81}   />
         </View>
-        <View className='absolute bottom-0 w-full'>
+        <View className='absolute bottom-0 w-full flex flex-row justify-center'>
           <PrimaryButton
             title='Log in'           
             width='w-[50%]'
             handlePress={() => {}}
+            rounded={false}
           />
+          <View className='h-full w-[1] bg-white'></View>
+          <PrimaryButton
+            title='Sign up'           
+            width='w-[50%]'
+            handlePress={() => {}}
+            rounded={false}
+          />
+
         </View>
     </SafeAreaView>
   );
