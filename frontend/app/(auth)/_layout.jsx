@@ -27,6 +27,13 @@ const AuthLayout = () => {
           }}
         />
 
+        <Stack.Screen 
+          name='second-registration'
+          options={{
+            headerShown: false
+          }}
+        />
+
       </Stack>
     </>
   )

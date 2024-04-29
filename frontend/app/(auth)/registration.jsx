@@ -1,7 +1,7 @@
 // Dependencies
 import React from 'react';
-import { Text, View } from 'react-native';
 import { router } from 'expo-router';
+import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 // Components
@@ -10,7 +10,7 @@ import GreyInputBox from '../../components/GreyInputBox'
 import PrimaryButton from '../../components/PrimaryButton';
 
 // Custom Hooks
-import {useRegistrationLogic} from './registration-logic';
+import {useRegistrationLogic} from './logic/registration-logic';
 
 const Registration = () => {
   const { record, setRecord } = useRegistrationLogic();
@@ -38,12 +38,13 @@ const Registration = () => {
         }}
         value={record.lastName}
       />
-      <View className='self-center mt-[60]'>
+
+      <View className='self-center mt-[90]'>
         <PrimaryButton
           title='Next'           
           width='w-[170]'
           handlePress={() => {
-            router.push('./')
+            router.push('/second-registration')
           }}
         />
       </View>

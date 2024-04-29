@@ -9,7 +9,7 @@ import InputBox from '../../components/InputBox';
 import PrimaryButton from '../../components/PrimaryButton'
 
 // Custom Hooks
-import { useAuthenticationLogic } from './logic';
+import { useAuthenticationLogic } from './logic/logic';
 
 const Login = () => {
   const { setCredentials, credentials, handleLogin } =

@@ -12,7 +12,6 @@ const AppName = ({placement}) => {
             <View className='h-[42] flex justify-end mt-[5] ml-[2]'>
             <Text className='text-3xl font-urbanistBold text-primary'>adence</Text>
         </View>
-
     </View>
   )
 }
