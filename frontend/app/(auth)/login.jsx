@@ -24,7 +24,7 @@ const Login = () => {
         title="Email"
         value={credentials.email}
         handleChange={(e) => {
-          setCredentials({ ...credentials, email: e.target.value });
+          setCredentials({ ...credentials, email: e});
         }}
         keyboardType="email-address"
         titleWidth=" w-[18%]"
@@ -34,7 +34,7 @@ const Login = () => {
         title="Password"
         value={credentials.password}
         handleChange={(e) => {
-          setCredentials({ ...credentials, password: e.target.value });
+          setCredentials({ ...credentials, password: e});
         }}
         keyboardType="password"
         titleWidth=" w-[28%]"
