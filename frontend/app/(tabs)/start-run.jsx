@@ -1,6 +1,7 @@
 import { View, Text, SafeAreaView } from 'react-native';
 import React from 'react';
 import LogoSmall from '../../assets/images/LogoSmall';
+import PrimaryButton from '../../components/PrimaryButton';
 
 const StartRun = () => {
   return (
@@ -19,7 +20,14 @@ const StartRun = () => {
           <Text className='text-base font-urbanist'>Avg. pace (min/km)</Text>
           <Text className='text-2xl font-urbanistBold'>00:00</Text>
         </View>
+
       </View>
+
+      <Text className='text-base font-urbanist self-start pt-6 pb-56'>Start run to play music according to your pace</Text>
+      <PrimaryButton 
+        title={'Start'}
+        width='w-[170]'
+      />
     </SafeAreaView>
   )
 }
