@@ -36,9 +36,9 @@ const Login = () => {
         handleChange={(e) => {
           setCredentials({ ...credentials, password: e});
         }}
-        keyboardType="password"
         titleWidth=" w-[28%]"
       />
+      
       <View className='self-center pt-[100] flex items-center'>
         <PrimaryButton 
           title='Log in'           

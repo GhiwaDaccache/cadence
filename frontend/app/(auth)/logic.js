@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 export const useAuthenticationLogic = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [info, setInfo] = useState({ email: "", username: "", password: "" });
+
   const [error, setError] = useState("");
 
 //   useEffect(() => {
@@ -19,10 +21,23 @@ export const useAuthenticationLogic = () => {
 //     setIsLogin(value);
 //  };
 
+const handleLogin = () =>{
+  console.log("logged in")
+};
+
+const handleSignUp = () =>{
+  console.log("signed up")
+};
+
+
   return {
     // isLogin,
     credentials,
     setCredentials,
+    info,
+    setInfo,
+    handleLogin,
+    handleSignUp
     // switcher,
     // setIsLogin,
     // setError,

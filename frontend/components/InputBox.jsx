@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text, TextInput } from 'react-native';
 
-const InputBox = ({ title, value, titleWidth, placeholder, handleChange}) => {
+const InputBox = ({ title, value, titleWidth, keyboardType, handleChange}) => {
   return (
     <View className='relative p-1.5 ml-[23] mb-6'>
       <Text className={`text-lg text-placeholderGrey font-urbanistLight bg-white text-center absolute z-10 ml-8 ${titleWidth}`}>{title}</Text>
@@ -12,6 +12,7 @@ const InputBox = ({ title, value, titleWidth, placeholder, handleChange}) => {
           value={value}
           onChangeText={handleChange}
           secureTextEntry={title ==='Password' ? true : false }
+          keyboardType={keyboardType}
         />
       </View>
     </View>
