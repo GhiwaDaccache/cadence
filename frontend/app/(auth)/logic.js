@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { router } from "expo-router";
+
 export const useAuthenticationLogic = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [credentials, setCredentials] = useState({ email: "", password: "" });
