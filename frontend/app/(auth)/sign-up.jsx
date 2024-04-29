@@ -16,8 +16,10 @@ const SignUp = () => {
     useAuthenticationLogic();
 
   return (
-    <SafeAreaView className='bg-white h-full'>
-      <AppName />
+    <SafeAreaView className='bg-white h-full flex justify-center'>
+      <AppName 
+      placement={'ml-[29]'}
+      />
       <Text className='font-urbanistLight text-lg ml-[29] mb-[53]'>Let's get ready to hit the track</Text>
 
       <InputBox 

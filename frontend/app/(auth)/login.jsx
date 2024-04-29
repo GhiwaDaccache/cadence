@@ -16,8 +16,10 @@ const Login = () => {
     useAuthenticationLogic();
 
   return (
-    <SafeAreaView className='bg-white h-full'>
-      <AppName />
+    <SafeAreaView className='bg-white h-full flex justify-center'>
+      <AppName 
+        placement={'ml-[29]'}
+      />
       <Text className='font-urbanistLight text-lg ml-[29] mb-[73]'>Let's get back on track in no time</Text>
 
       <InputBox 
