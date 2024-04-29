@@ -1,10 +1,12 @@
 // Dependencies
 import React from 'react';
+import { Link } from 'expo-router';
 import { View, Text, SafeAreaView } from 'react-native';
 
 // Components
 import AppName from '../../components/AppName';
 import InputBox from '../../components/InputBox';
+import PrimaryButton from '../../components/PrimaryButton'
 
 // Custom Hooks
 import { useAuthenticationLogic } from './logic';
@@ -25,7 +27,7 @@ const Login = () => {
           setCredentials({ ...credentials, email: e.target.value });
         }}
         keyboardType="email-address"
-        titleWidth=" w-[20%]"
+        titleWidth=" w-[18%]"
       />
 
       <InputBox 
@@ -35,8 +37,17 @@ const Login = () => {
           setCredentials({ ...credentials, password: e.target.value });
         }}
         keyboardType="password"
-        titleWidth=" w-[30%]"
+        titleWidth=" w-[28%]"
       />
+      <View className='self-center pt-[100] flex items-center'>
+        <PrimaryButton 
+          title='Log in'           
+          width='w-[170]'
+          handlePress={handleLogin}
+        />
+        <Text className='font-urbanist text-sm'>Don't have an account?</Text>
+        <Link href="/sign-up" className='font-urbanistBold text-sm text-primary'>Sign up</Link>
+      </View>
 
 
     </SafeAreaView>
