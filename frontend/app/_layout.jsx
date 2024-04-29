@@ -1,8 +1,7 @@
 // Dpendencies
 import { useEffect } from "react";
-import { Stack, SplashScreen } from "expo-router";
-import { StyleSheet } from "react-native";
 import { useFonts } from 'expo-font';
+import { Stack, SplashScreen } from "expo-router";
 
 
 SplashScreen.preventAutoHideAsync();

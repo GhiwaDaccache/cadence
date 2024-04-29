@@ -4,7 +4,7 @@ import { View, Image, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 // Assets
-import Logo from '../assets/images/logo';
+import Logo from '../assets/images/Logo';
 import images from '../assets/images/images'; 
 
 // Components
