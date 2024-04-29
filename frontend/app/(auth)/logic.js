@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { router } from "expo-router";
 export const useAuthenticationLogic = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -7,10 +7,10 @@ export const useAuthenticationLogic = () => {
 
   const [error, setError] = useState("");
 
-//   useEffect(() => {
-//     if (!credentials.email.includes("@")) {
-//       setError("Invalid email");
-//     } else if (credentials.password.length < 6) {
+  // useEffect(() => {
+  //   if (!credentials.email.includes("@")) {
+  //     setError("Invalid email");
+  //   } else if (credentials.password.length < 6) {
 //       setError("Short password");
 //     } else {
 //       setError("");
@@ -23,10 +23,12 @@ export const useAuthenticationLogic = () => {
 
 const handleLogin = () =>{
   console.log("logged in")
+
 };
 
 const handleSignUp = () =>{
   console.log("signed up")
+  router.push("/registration")
 };
 
 

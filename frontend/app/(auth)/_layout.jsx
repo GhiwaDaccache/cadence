@@ -1,3 +1,4 @@
+
 import {Stack} from 'expo-router';
 import { View, Text } from 'react-native';
 
@@ -14,6 +15,13 @@ const AuthLayout = () => {
 
         <Stack.Screen 
           name='sign-up'
+          options={{
+            headerShown: false
+          }}
+        />
+
+        <Stack.Screen 
+          name='registration'
           options={{
             headerShown: false
           }}
