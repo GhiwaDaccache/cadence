@@ -22,7 +22,7 @@ const SecondRegistration = () => {
         <AppName
         placement={'ml-[29] mt-[75]'}
         />
-        <Text className='font-urbanistLight text-lg ml-[29] mb-[10]'>Welcome to Cadence! Let's get to {"\n"}know you first</Text>
+        <Text className='font-urbanistLight text-lg ml-[29] mb-[45]'>Welcome to Cadence! Let's get to {"\n"}know you first</Text>
         <GreyInputBox
             autoComplete='birthdate-full'
             title={'Age'} 
@@ -40,16 +40,7 @@ const SecondRegistration = () => {
             value={record.sex}
         />
 
-        <GreyInputBox
-            title={'Weight (kg)'} 
-            handleChange={(e)=>{
-            setRecord({...record, sex: e});
-            }}
-            value={record.sex}
-        />
-
-
-        <View className='self-center mt-[25]'>
+        <View className='self-center mt-[90]'>
             <PrimaryButton
             title='Finish'           
             width='w-[170]'
