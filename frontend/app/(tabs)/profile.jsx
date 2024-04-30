@@ -40,9 +40,11 @@ const Profile = () => {
           title={'Badges'}
           icon={icons.medal} 
         />
-
+      
       </View>
-     
+      <Text className='font-urbanistsemibold text-base self-start pl-[29] pt-8'>Saved playlists</Text>
+
+      
     </SafeAreaView>
   )
 }
