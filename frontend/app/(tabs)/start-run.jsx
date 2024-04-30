@@ -1,7 +1,11 @@
-import { View, Text, SafeAreaView } from 'react-native';
+// Dependencies
 import React from 'react';
+import { View, Text, SafeAreaView } from 'react-native';
+
+// Components
 import LogoSmall from '../../assets/images/LogoSmall';
 import PrimaryButton from '../../components/PrimaryButton';
+
 
 const StartRun = () => {
   return (

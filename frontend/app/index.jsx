@@ -2,8 +2,6 @@
 import { router } from 'expo-router';
 import { View, Image, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { enGB, registerTranslation } from 'react-native-paper-dates';
-registerTranslation('en-GB', enGB);
 
 // Assets
 import Logo from '../assets/images/Logo';
