@@ -2,8 +2,11 @@
 import React from 'react';
 import { SafeAreaView, Text, Image, View, StatusBar } from 'react-native';
 
+// Components
+import ProfileCard from '../../components/ProfileCard';
+
 // Assets
-import icons, { history } from '../../assets/icons/icons'
+import icons from '../../assets/icons/icons';
 import images from '../../assets/images/images'; 
 
 const Profile = () => {
@@ -20,14 +23,7 @@ const Profile = () => {
 
       <Text className='font-usemibold text-lg'>John Doe</Text>
 
-      <View className='w-20 h-20 bg-grey rounded-md flex items-center pt-2'>
-        <Image 
-          source={icons.history} 
-          resizeMode="contain" 
-          className='w-8 h-8'
-          />
-          <Text className='font-urbanistLight pt-2'>Previous</Text>
-      </View>
+     
     </SafeAreaView>
   )
 }
