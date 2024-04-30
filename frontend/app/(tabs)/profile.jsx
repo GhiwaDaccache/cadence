@@ -45,6 +45,12 @@ const Profile = () => {
       </View>
       <Text className='font-urbanistBold text-base self-start pl-[29] pt-8'>Saved playlists</Text>
 
+      <PlaylistCard 
+        image={images.playlist}
+        time={'20:12'}
+        level={'Intermediate'}
+        title={'Monday runs'}
+      />
       
     </SafeAreaView>
   )
