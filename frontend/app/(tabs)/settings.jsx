@@ -1,12 +1,40 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+// Dependencies
+import React from 'react';
+import { SafeAreaView, Text, Image, View, StatusBar } from 'react-native';
 
-const settings = () => {
+// Assets
+import images from '../../assets/images/images'; 
+
+// Components
+import GreyInputBox from '../../components/GreyInputBox';
+import PrimaryButton from '../../components/PrimaryButton';
+import OutlineButton from '../../components/OutlineButton';
+
+const Settings = () => {
   return (
-    <View>
-      <Text>settings</Text>
-    </View>
+    <SafeAreaView className='bg-white h-full'>
+      <StatusBar backgroundColor='white'/>
+      <View className='w-full h-[250]'>
+        <Image source={images.cover} className='h-full w-full'  />
+      </View>
+
+      <View className='absolute z-10 top-48 left-[29] w-24 h-24'>
+        <Image source={images.profile} className='h-full w-full'  />
+      </View>
+
+      <View className='pt-14 pb-24'>
+        <GreyInputBox 
+          title={'Full name'}   
+        />
+
+        <GreyInputBox 
+          title={'email'}   
+        />
+      </View>
+
+
+    </SafeAreaView>
   )
 }
 
-export default settings
+export default Settings;
