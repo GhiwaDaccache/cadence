@@ -32,6 +32,17 @@ const Settings = () => {
         />
       </View>
 
+      <View className='flex flex-row self-center justify-between'>
+        <PrimaryButton
+          title={'Save'}
+          width={'w-[120]'}
+        />
+
+        <OutlineButton
+          title={'Log out'}
+          width={'w-[120]'}
+        />
+      </View>
 
     </SafeAreaView>
   )
