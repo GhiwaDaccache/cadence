@@ -4,6 +4,7 @@ import { SafeAreaView, Text, Image, View, StatusBar } from 'react-native';
 
 // Components
 import ProfileCard from '../../components/ProfileCard';
+import PlaylistCard from '../../components/PlaylistCard';
 
 // Assets
 import icons from '../../assets/icons/icons';
@@ -42,7 +43,7 @@ const Profile = () => {
         />
       
       </View>
-      <Text className='font-urbanistsemibold text-base self-start pl-[29] pt-8'>Saved playlists</Text>
+      <Text className='font-urbanistBold text-base self-start pl-[29] pt-8'>Saved playlists</Text>
 
       
     </SafeAreaView>
