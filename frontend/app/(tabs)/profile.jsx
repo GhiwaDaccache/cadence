@@ -22,7 +22,23 @@ const Profile = () => {
       </View>
 
       <Text className='font-usemibold text-lg'>John Doe</Text>
+      <View className='flex flex-row w-full pt-10 px-[29] justify-between'>
+        <ProfileCard
+          title={'Previous'}
+          icon={icons.history} 
+        />
 
+        <ProfileCard
+          title={'Previous'}
+          icon={icons.history} 
+        />
+
+        <ProfileCard
+          title={'Previous'}
+          icon={icons.history} 
+        />
+
+      </View>
      
     </SafeAreaView>
   )
