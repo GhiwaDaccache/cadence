@@ -32,13 +32,13 @@ const Profile = () => {
         <ProfileCard
           // source={'previous'}
           title={'My plan'}
-          icon={icons.history} 
+          icon={icons.calendar} 
         />
 
         <ProfileCard
           // source={'previous'}
           title={'Badges'}
-          icon={icons.history} 
+          icon={icons.medal} 
         />
 
       </View>
