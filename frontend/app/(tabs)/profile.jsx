@@ -29,12 +29,12 @@ const Profile = () => {
         />
 
         <ProfileCard
-          title={'Previous'}
+          title={'My plan'}
           icon={icons.history} 
         />
 
         <ProfileCard
-          title={'Previous'}
+          title={'Badges'}
           icon={icons.history} 
         />
 
