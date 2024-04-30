@@ -18,6 +18,8 @@ const Profile = () => {
       </View>
 
       <Text className='font-usemibold text-lg'>John Doe</Text>
+
+      
     </SafeAreaView>
   )
 }
