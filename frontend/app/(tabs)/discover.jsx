@@ -31,8 +31,32 @@ const Discover = () => {
             </View>
           </View>
         </View>
+        <View>
+          <Text>Week: 2</Text>
+          <Text>Total runs: 2</Text>
+          <View className='flex flex-row'>
+          <View className='h-5 w-5 bg-grey rounded-md'></View>
+          <Text>Mon</Text>
+          <Text>2.4 km</Text>
+          <Text>15:32</Text>
+          </View>
 
-        
+          <View className='flex flex-row'>
+          <View className='h-5 w-5 bg-black rounded-md'></View>
+          <Text>Mon</Text>
+          <Text>2.4 km</Text>
+          <Text>15:32</Text>
+          </View>
+
+          <View className='flex flex-row'>
+          <View className='h-5 w-5 bg-black rounded-md'></View>
+          <Text>Mon</Text>
+          <Text>2.4 km</Text>
+          <Text>15:32</Text>
+          </View>
+
+        </View>
+
       </View>
     </View>
   )
