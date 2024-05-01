@@ -1,4 +1,5 @@
 import run from "../icons/run.png";
+import dot from "../icons/dot.png";
 import medal from "../icons/medal.png";
 import timer from "../icons/timer.png";
 import trophy from "../icons/trophy.png";
@@ -21,5 +22,6 @@ export default {
     distance,
     sunrise,
     timer,
-    trophy
+    trophy,
+    dot
 }
