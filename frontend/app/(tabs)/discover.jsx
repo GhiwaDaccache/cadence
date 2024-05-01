@@ -6,8 +6,8 @@ import icons from '../../assets/icons/icons';
 const Discover = () => {
   return (
     <View className='bg-white h-full flex jusitify-center pt-20'>
-          <View className='flex pt-4 bg-primary px-6 mx-7'>
-        <Text  className='font-urbanistBold text-base'>Plan name</Text>
+          <View className='flex py-4 px-6 mx-7 bg-grey rounded-md'>
+        <Text className='font-urbanistBold text-base'>Plan name</Text>
         <View className='flex flex-row justify-between pt-2'>
           <View>
             <Text className='font-urbanist text-base'>Total weeks</Text>
@@ -31,28 +31,28 @@ const Discover = () => {
             </View>
           </View>
         </View>
-        <View>
-          <Text>Week: 2</Text>
-          <Text>Total runs: 2</Text>
-          <View className='flex flex-row'>
-          <View className='h-5 w-5 bg-grey rounded-md'></View>
-          <Text>Mon</Text>
-          <Text>2.4 km</Text>
-          <Text>15:32</Text>
+        <View className='py-2 px-3 mt-5 bg-white rounded-md'>
+          <Text className='font-urbanist text-base'>Week: 2</Text>
+          <Text className='font-urbanist text-base'>Total runs: 2</Text>
+          <View className='flex flex-row py-2'>
+            <View className='h-5 w-5 bg-primary rounded-md px-2'></View>
+            <Text className='font-urbanist text-base px-3'>Mon</Text>
+            <Text className='font-urbanist text-base px-3'>2.4 km</Text>
+            <Text className='font-urbanist text-base px-3'>15:32</Text>
           </View>
 
-          <View className='flex flex-row'>
-          <View className='h-5 w-5 bg-black rounded-md'></View>
-          <Text>Mon</Text>
-          <Text>2.4 km</Text>
-          <Text>15:32</Text>
+          <View className='flex flex-row py-2'>
+            <View className='h-5 w-5 bg-grey rounded-md'></View>
+            <Text className='font-urbanist text-base px-3'>Mon</Text>
+            <Text className='font-urbanist text-base px-3'>2.4 km</Text>
+            <Text className='font-urbanist text-base px-3'></Text>
           </View>
 
-          <View className='flex flex-row'>
-          <View className='h-5 w-5 bg-black rounded-md'></View>
-          <Text>Mon</Text>
-          <Text>2.4 km</Text>
-          <Text>15:32</Text>
+          <View className='flex flex-row py-2'>
+            <View className='h-5 w-5 bg-grey rounded-md'></View>
+            <Text className='font-urbanist text-base px-3'>Mon</Text>
+            <Text className='font-urbanist text-base px-3'>2.4 km</Text>
+            <Text className='font-urbanist text-base px-3'></Text>
           </View>
 
         </View>
