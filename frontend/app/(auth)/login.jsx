@@ -18,9 +18,9 @@ const Login = () => {
   return (
     <SafeAreaView className='bg-white h-full flex justify-center'>
       <AppName 
-        placement={'ml-[29]'}
+        placement={'ml-7'}
       />
-      <Text className='font-urbanistLight text-lg ml-[29] mb-[73]'>Let's get back on track in no time</Text>
+      <Text className='font-urbanistLight text-lg ml-7 mb-[73]'>Let's get back on track in no time</Text>
 
       <InputBox 
         title="Email"

@@ -18,9 +18,9 @@ const SignUp = () => {
   return (
     <SafeAreaView className='bg-white h-full flex justify-center'>
       <AppName 
-      placement={'ml-[29]'}
+      placement={'ml-7'}
       />
-      <Text className='font-urbanistLight text-lg ml-[29] mb-[53]'>Let's get ready to hit the track</Text>
+      <Text className='font-urbanistLight text-lg ml-7 mb-[53]'>Let's get ready to hit the track</Text>
 
       <InputBox 
         title="Email"

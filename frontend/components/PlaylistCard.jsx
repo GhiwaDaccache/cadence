@@ -4,7 +4,7 @@ import { View, Text, Image } from 'react-native';
 
 const PlaylistCard = ({ image, title, time, level }) => {
   return (
-    <View className='flex flex-row pt-6 self-start pl-[29]'>
+    <View className='flex flex-row pt-6'>
         <Image 
           source={image}
         />

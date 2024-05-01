@@ -9,7 +9,7 @@ import PrimaryButton from '../../components/PrimaryButton';
 
 const StartRun = () => {
   return (
-    <SafeAreaView className='bg-white h-full pt-[80] px-[29] flex items-center'>
+    <SafeAreaView className='bg-white h-full pt-[80] px-7 flex items-center'>
       <LogoSmall/>
       <Text className='font-urbanistBold text-2xl pt-4'>00:00:00</Text>
 

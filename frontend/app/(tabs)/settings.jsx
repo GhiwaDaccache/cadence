@@ -18,7 +18,7 @@ const Settings = () => {
         <Image source={images.cover} className='h-full w-full'  />
       </View>
 
-      <View className='absolute z-10 top-48 left-[29] w-24 h-24'>
+      <View className='absolute z-10 top-48 left-7 w-24 h-24'>
         <Image source={images.profile} className='h-full w-full'  />
       </View>
 
