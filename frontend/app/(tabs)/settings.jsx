@@ -24,11 +24,11 @@ const Settings = () => {
 
       <View className='pt-14 pb-24'>
         <GreyInputBox 
-          title={'Full name'}   
+          title={'Full Name'}   
         />
 
         <GreyInputBox 
-          title={'email'}   
+          title={'Email'}   
         />
       </View>
 
