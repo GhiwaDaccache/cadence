@@ -8,7 +8,7 @@ const OutlineButton = ({ title, handlePress, width}) => {
         onPress={handlePress}
         activeOpacity={0.6}
         className={`flex justify-center items-center h-12 border-2 border-primary rounded-md ${width}`}>
-      <Text className={`font-usemibold text-2xl text-primary`}>{title}</Text>
+      <Text className={`font-usemibold text-xl text-primary`}>{title}</Text>
     </TouchableOpacity>
   )
 }
