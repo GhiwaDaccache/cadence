@@ -32,7 +32,7 @@ const Settings = () => {
         />
       </View>
 
-      <View className='flex flex-row self-center justify-between'>
+      <View className='flex flex-row self-center justify-evenly w-full'>
         <PrimaryButton
           title={'Save'}
           width={'w-[120]'}

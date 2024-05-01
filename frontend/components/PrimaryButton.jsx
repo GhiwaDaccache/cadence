@@ -7,7 +7,7 @@ const PrimaryButton = ({ title, handlePress, width, rounded = true}) => {
     <TouchableOpacity 
         onPress={handlePress}
         activeOpacity={0.8}
-        className={`flex justify-center items-center h-[50] ${rounded ? 'rounded-md' : 'rounded-none'} bg-primary ${width}`}>
+        className={`flex justify-center items-center h-12 bg-primary ${width} ${rounded ? 'rounded-md' : 'rounded-none'}`}>
       <Text className={`font-usemibold text-2xl text-white`}>{title}</Text>
     </TouchableOpacity>
   )
