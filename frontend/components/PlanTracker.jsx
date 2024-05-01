@@ -23,11 +23,11 @@ const PlanTracker = () => {
 
           <View>
             <Text className='font-urbanist text-base'>Total distance</Text>
-            <View className='flex flex-row'>
-              <Text className='font-urbanist text-base'>15.32 km</Text>
+            <View className='flex flex-row items-center'>
+              <Text className='font-urbanist text-base pr-2'>15.32 km</Text>
               <Image 
                 source={icons.road} 
-                className='w-6 h-6' 
+                className='w-4 h-4' 
               />
             </View>
           </View>
