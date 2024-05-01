@@ -5,7 +5,7 @@ import PlaylistCard from '../components/PlaylistCard'
 import images from '../assets/images/images'
 const NextRun = () => {
   return (
-    <View className='flex py-4 px-6 mx-7 mt-5 bg-grey rounded-md'>
+    <View className='flex py-2 px-6 mx-7 mt-5 bg-grey rounded-md'>
       <Text className='font-urbanistBold text-base'>Next run</Text>
 
       <View className='flex flex-row justify-between'>
