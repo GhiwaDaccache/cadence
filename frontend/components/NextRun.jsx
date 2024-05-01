@@ -40,4 +40,4 @@ const NextRun = ({ distance, scheduleDate }) => {
   )
 }
 
-export default NextRun
+export default NextRun;
