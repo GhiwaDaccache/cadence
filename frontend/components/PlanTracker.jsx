@@ -33,8 +33,15 @@ const PlanTracker = () => {
           </View>
         </View>
         <View className='py-2 px-3 mt-5 bg-white rounded-md'>
-          <Text className='font-urbanist text-base'>Week: 2</Text>
-          <Text className='font-urbanist text-base'>Total runs: 2</Text>
+          <View className='flex flex-row justify-between'>
+            <Text className='font-urbanistsemibold text-base'>Week:</Text>
+            <Text className='font-urbanist text-base pr-10'>2</Text>
+          </View>
+          <View className='flex flex-row justify-between'>
+            <Text className='font-urbanistsemibold text-base'>Total runs:</Text>
+            <Text className='font-urbanist text-base pr-10'>3</Text>
+          </View>
+          
           <View className='flex flex-row py-1'>
             <View className='h-5 w-5 bg-primary rounded-md px-2'></View>
             <Text className='font-urbanist text-base px-3'>Mon</Text>
