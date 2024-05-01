@@ -7,7 +7,7 @@ import icons from '../assets/icons/icons';
 
 const PlanTracker = () => {
   return (
-    <View className='flex py-4 px-6 mx-7 bg-grey rounded-md'>
+    <View className='flex py-2 px-6 mx-7 bg-grey rounded-md'>
         <Text className='font-urbanistBold text-base'>Plan name</Text>
         <View className='flex flex-row justify-between pt-2'>
           <View>
@@ -32,7 +32,7 @@ const PlanTracker = () => {
             </View>
           </View>
         </View>
-        <View className='py-2 px-3 mt-5 bg-white rounded-md'>
+        <View className='py-2 px-3 mt-2 bg-white rounded-md'>
           <View className='flex flex-row justify-between'>
             <Text className='font-urbanistsemibold text-base'>Week:</Text>
             <Text className='font-urbanist text-base pr-10'>2</Text>
