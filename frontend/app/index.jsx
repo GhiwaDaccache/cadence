@@ -14,7 +14,7 @@ const App = () => {
   return (
     <SafeAreaView className='h-full flex flex-row justify-center items-end'>
         <Image source={images.landingBg} className='h-full'/>
-        <View className='w-[60]'></View>
+        <View className='w-16'></View>
         <View className='absolute top-24 left-8'>
           <Logo width={65} height={81}   />
         </View>
@@ -27,7 +27,7 @@ const App = () => {
             rounded={false}
 
           />
-          <View className='h-full w-[1] bg-white'></View>
+          <View className='h-full w-px bg-white'></View>
 
           <PrimaryButton
             title='Sign up'           

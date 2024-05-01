@@ -1,6 +1,6 @@
 // Dependencies
 import React from 'react';
-import { SafeAreaView, Text, Image, View, StatusBar } from 'react-native';
+import { SafeAreaView, Image, View, StatusBar } from 'react-native';
 
 // Assets
 import images from '../../assets/images/images'; 

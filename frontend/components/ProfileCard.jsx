@@ -6,9 +6,10 @@ import { Text, Image, TouchableOpacity } from 'react-native';
 const ProfileCard = ({ title, icon, source }) => {
   return (
     <TouchableOpacity className='w-20 h-20 bg-grey rounded-md flex items-center pt-2'
-        onPress={()=> {
-            router.push(`./${source}`)
-        }}
+        // onPress={()=> {
+        //     router.push(`./${source}`)
+        // }}
+        // onPress={handleNavigation}
     >
     <Image 
       source={icon} 

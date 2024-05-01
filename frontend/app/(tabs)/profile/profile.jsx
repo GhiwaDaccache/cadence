@@ -10,6 +10,11 @@ import PlaylistCard from '../../../components/PlaylistCard';
 // Assets
 import icons from '../../../assets/icons/icons';
 import images from '../../../assets/images/images'; 
+import { router } from 'expo-router';
+
+// const handlePrev = () =>{
+//   router.push('/profile/previous')
+// }
 
 const Profile = () => {
   return (
@@ -26,7 +31,8 @@ const Profile = () => {
       <Text className='font-usemibold text-lg'>John Doe</Text>
       <View className='flex flex-row w-full pt-10 px-7 justify-between'>
         <ProfileCard
-          // source={'previous'}
+          // handleNavigation={handlePrev}
+          // source={'profile/previous'}
           title={'Previous'}
           icon={icons.history} 
         />
