@@ -14,6 +14,14 @@ const NextRun = () => {
                 className='w-5 h-5'  
               />
             </View>
+
+            <View className='py-2 px-3 mt-5 bg-white rounded-sm'>
+                <Text>Week 2 Day 2:</Text>
+                <Text>Intervals</Text>
+                <View className='w-full bg-black rounded-md h-4'>
+
+                </View>
+            </View>
       </View>
   )
 }

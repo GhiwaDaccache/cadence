@@ -38,7 +38,7 @@ const Profile = () => {
         />
 
         <ProfileCard
-          // source={'previous'}
+          source={'previous'}
           title={'My plan'}
           icon={icons.calendar} 
         />

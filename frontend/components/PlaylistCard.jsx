@@ -9,8 +9,8 @@ const PlaylistCard = ({ image, title, time, level }) => {
           source={image}
         />
         <View className='flex justify-center pl-4'>
-          <Text className='font-urbanistsemibold text-base'>{title}</Text>
-          <Text className=' pt-6'>{level}</Text>
+          <Text className='font-urbanistBold text-base'>{title}</Text>
+          <Text className=' pt-6 font-urbanist'>{level}</Text>
           <Text>{time}</Text>
         </View>
       </View>

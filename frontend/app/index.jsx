@@ -21,7 +21,7 @@ const App = () => {
         <View className='absolute bottom-0 w-full flex flex-row justify-center'>
 
           <PrimaryButton
-            title='Log in'           
+            title='Login'           
             width='w-[50%]'
             handlePress={() => router.push('/login')}
             rounded={false}
@@ -30,7 +30,7 @@ const App = () => {
           <View className='h-full w-px bg-white'></View>
 
           <PrimaryButton
-            title='Sign up'           
+            title='Sign Up'           
             width='w-[50%]'
             handlePress={() => router.push('/sign-up')}
             rounded={false}
