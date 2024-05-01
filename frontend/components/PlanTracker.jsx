@@ -1,5 +1,8 @@
+// Dependencies
+import React from 'react';
 import { View, Text, Image } from 'react-native'
-import React from 'react'
+
+// Assets
 import icons from '../assets/icons/icons';
 
 const PlanTracker = () => {
