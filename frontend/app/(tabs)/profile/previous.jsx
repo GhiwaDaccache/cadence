@@ -7,7 +7,7 @@ import Run from '../../../components/Run';
 
 const previous = () => {
   return (
-    <View>
+    <View className='h-full bg-white flex items-center pt-3'>
       <Run 
         title={'Monday run'}
         date={'02-04-2024'}
