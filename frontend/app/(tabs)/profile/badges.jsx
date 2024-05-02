@@ -12,12 +12,22 @@ const Badges = () => {
   return (
     <View>
       <Badge
+        title={'First run'}
+        icon={icons.trophy}
+        timing={'00:00'}
+        date={'00-00-2000'}
+        distance={'00.00'}
+      />
+
+      <Badge
         title={'Early bird'}
         icon={icons.sunrise}
         timing={'00:00'}
         date={'00-00-2000'}
         distance={'00.00'}
       />
+
+      
     </View>
   )
 }
