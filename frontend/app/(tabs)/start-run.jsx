@@ -21,7 +21,7 @@ const StartRun = () => {
         </View>
 
         <View>
-          <Text className='text-base font-urbanist'>Avg. pace (min/km)</Text>
+          <Text className='text-base font-urbanist'>Pace (min/km)</Text>
           <Text className='text-2xl font-urbanistBold'>00:00</Text>
         </View>
 
