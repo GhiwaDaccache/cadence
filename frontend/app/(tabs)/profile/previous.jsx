@@ -5,6 +5,18 @@ const previous = () => {
   return (
     <View>
       <Text>previous</Text>
+      <Text>previous</Text>
+      <Text>previous</Text>
+      <Text>previous</Text>
+      <Text>previous</Text>
+      <Text>previous</Text>
+      <Text>previous</Text>
+      <Text>previous</Text>
+      <Text>previous</Text>
+      <Text>previous</Text>
+      <Text>previous</Text>
+      <Text>previous</Text>
+      <Text>previous</Text>
     </View>
   )
 }

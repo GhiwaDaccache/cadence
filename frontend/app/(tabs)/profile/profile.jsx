@@ -32,19 +32,19 @@ const Profile = () => {
       <View className='flex flex-row w-full pt-10 px-7 justify-between'>
         <ProfileCard
           // handleNavigation={handlePrev}
-          // source={'profile/previous'}
+          source={'previous'}
           title={'Previous'}
           icon={icons.history} 
         />
 
         <ProfileCard
-          source={'previous'}
+          source={'plan/'}
           title={'My plan'}
           icon={icons.calendar} 
         />
 
         <ProfileCard
-          // source={'previous'}
+          source={'badges'}
           title={'Badges'}
           icon={icons.medal} 
         />
