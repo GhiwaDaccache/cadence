@@ -36,7 +36,7 @@ const Badges = () => {
       />
 
       <Badge
-        title={'Longest durantion'}
+        title={'Longest duration'}
         icon={icons.timer}
         timing={'00:00'}
         date={'00-00-2000'}
