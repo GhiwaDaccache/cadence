@@ -4,7 +4,7 @@ import icons from '../assets/icons/icons'
 
 const Run = ({ title, time, distance, pace, date }) => {
   return (
-    <View className='bg-grey flex flex-row w-[303] justify-center py-2 rounded-md'>
+    <View className='bg-grey flex flex-row w-[303] justify-center py-2 rounded-md my-2'>
         <Image 
           source={icons.run} 
           resizeMode="contain" 
