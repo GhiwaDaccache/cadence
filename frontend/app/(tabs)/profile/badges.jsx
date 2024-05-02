@@ -27,7 +27,22 @@ const Badges = () => {
         distance={'00.00'}
       />
 
-      
+      <Badge
+        title={'Longest distance'}
+        icon={icons.distance}
+        timing={'00:00'}
+        date={'00-00-2000'}
+        distance={'00.00'}
+      />
+
+      <Badge
+        title={'Longest durantion'}
+        icon={icons.timer}
+        timing={'00:00'}
+        date={'00-00-2000'}
+        distance={'00.00'}
+      />
+
     </View>
   )
 }
