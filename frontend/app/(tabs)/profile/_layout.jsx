@@ -9,7 +9,7 @@ const ProfileLayout = () => {
       <Stack.Screen name="profile" options={{ headerShown: false}} />
       <Stack.Screen name="badges" 
         options={{
-          title: 'Badges',          
+          title: 'Badges'          
         }}
       
       />

@@ -10,7 +10,7 @@ import icons from '../../../assets/icons/icons';
 
 const Badges = () => {
   return (
-    <View>
+    <View className='h-full bg-white flex items-center pt-3'>
       <Badge
         title={'First run'}
         icon={icons.trophy}
