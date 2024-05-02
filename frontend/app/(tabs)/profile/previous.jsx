@@ -1,22 +1,29 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+// Dependencies
+import React from 'react';
+import { View, Text } from 'react-native';
+ 
+// Components
+import Run from '../../../components/Run';
 
 const previous = () => {
   return (
     <View>
-      <Text>previous</Text>
-      <Text>previous</Text>
-      <Text>previous</Text>
-      <Text>previous</Text>
-      <Text>previous</Text>
-      <Text>previous</Text>
-      <Text>previous</Text>
-      <Text>previous</Text>
-      <Text>previous</Text>
-      <Text>previous</Text>
-      <Text>previous</Text>
-      <Text>previous</Text>
-      <Text>previous</Text>
+      <Run 
+        title={'Monday run'}
+        date={'02-04-2024'}
+        distance={'7.54'}
+        pace={'8:15'}
+        time={'58:21'}
+      />
+
+      <Run 
+        title={'Warm up'}
+        date={'07-04-2024'}
+        distance={'3.21'}
+        pace={'6:21'}
+        time={'23:18'}
+      />
+
     </View>
   )
 }
