@@ -4,3 +4,4 @@ from .SegmentModel import Segment;
 from .Usermodel import UserProfile;
 from .PlaylistModel import Playlist;
 from .SpotifySongModel import SpotifySong;
+from .RecordedRunModel import RecordedRun;
