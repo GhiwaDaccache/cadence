@@ -26,7 +26,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cadence',
     'cadence.apps.CadenceConfig',
     'rest_framework',
     'rest_framework_simplejwt',
