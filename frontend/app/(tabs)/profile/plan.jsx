@@ -1,6 +1,6 @@
 // Dependencies
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View } from 'react-native';
 
 // Components
 import NextRun from '../../../components/NextRun';
@@ -18,4 +18,4 @@ const Plan = () => {
   )
 }
 
-export default Plan
+export default Plan;
