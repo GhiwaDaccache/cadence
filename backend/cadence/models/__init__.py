@@ -8,3 +8,4 @@ from .PlaylistModel import Playlist;
 from .EarnedBadgeModel import EarnedBadge;
 from .SpotifySongModel import SpotifySong;
 from .RecordedRunModel import RecordedRun;
+from .FavoritePlaylistModel import FavoritePlaylist;
