@@ -2,6 +2,7 @@ from .RunModel import Run;
 from .PlanModel import Plan;
 from .BadgeModel import Badge;
 from .SegmentModel import Segment;
+from .PlanRunModel import PlanRun;
 from .Usermodel import UserProfile;
 from .PlaylistModel import Playlist;
 from .EarnedBadgeModel import EarnedBadge;
