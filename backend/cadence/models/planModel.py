@@ -7,3 +7,5 @@ class Plan(models.Model):
     level = models.CharField(max_length=100)
     image = models.CharField(max_length=255)
 
+    class Meta:
+        db_table = 'plans'
