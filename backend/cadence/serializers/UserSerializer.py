@@ -19,14 +19,16 @@ class UserProfileSerializer(serializers.ModelSerializer):
         model = UserProfile
         fields = ['user', 'profile_photo', 'cover_photo', 'plan']
 
-
     def create(self, validated_data):
-        # validated_data['password'] = make_password(validated_data.pop('password', None))
-        # password = validated_data.pop('password', None)
         user_data = validated_data.pop('user')
-        user = User.objects.create(**user_data)
+        password = user_data.pop('password', None)  # Extracting password from user_data
+        hashed_password = make_password(password)   # Hashing the password
 
-        user.password = make_password(validated_data.pop('password', None))  
-        user.save()
+        # Creating the user instance with hashed password
+        user = User.objects.create(**user_data, password=hashed_password)
+
         profile = UserProfile.objects.create(user=user, **validated_data)
         return profile
+    
+    # def update(self, validated_data):
+    #     user_profile = get_object_or_404(UserProfile, user_id=user_id)

@@ -32,5 +32,14 @@ def get_user_by_id(request, user_id):
     user_profile = get_object_or_404(UserProfile, user_id=user_id)
     
     serializer = UserProfileSerializer(user_profile)
-    
     return Response(serializer.data)
+
+@api_view(['PUT'])
+def edit_user(request, user_id):
+    user_profile = get_object_or_404(UserProfile, user_id=user_id)
+    serializer = UserProfileSerializer(user_profile, data=request.data)
+    
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
