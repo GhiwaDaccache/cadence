@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from ..models.Usermodel import UserProfileSerializer
+from ..serializers.UserSerializer import UserProfileSerializer
 from ..models.Usermodel import UserProfile
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
@@ -31,12 +31,6 @@ def create_user(request):
 def get_user_by_id(request, user_id):
     user_profile = get_object_or_404(UserProfile, user_id=user_id)
     
-    user_data = {
-        'id': user_profile.user.id,
-        'username': user_profile.user.username,
-        'email': user_profile.user.email,
-        'profile_photo': user_profile.profile_photo,
-        'cover_photo': user_profile.cover_photo,
-    }
+    serializer = UserProfileSerializer(user_profile)
     
-    return JsonResponse(user_data)
+    return Response(serializer.data)
