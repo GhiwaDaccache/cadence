@@ -21,10 +21,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user_data = validated_data.pop('user')
-        password = user_data.pop('password', None)  # Extracting password from user_data
-        hashed_password = make_password(password)   # Hashing the password
-
-        # Creating the user instance with hashed password
+        password = user_data.pop('password', None) 
+        hashed_password = make_password(password)   
         user = User.objects.create(**user_data, password=hashed_password)
 
         profile = UserProfile.objects.create(user=user, **validated_data)
