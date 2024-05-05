@@ -23,7 +23,6 @@ class PlanViews(APIView):
         except Exception as error:
             return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-
     # works without authentication 
     @api_view(['GET'])
     def get_all_plans(request):
@@ -46,7 +45,7 @@ class PlanViews(APIView):
         except Exception as error:
             return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
-     # works without authentication
+    # works without authentication
     @api_view(['DELETE'])
     def delete_plan(request, id):
         try:
