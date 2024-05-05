@@ -6,19 +6,24 @@ from ..models.PlanModel import Plan
 from ..serializers.PlanSerializer import PlanSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
-from django.views.decorators.csrf import csrf_exempt
 
 class PlanViews(APIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
+    # "detail": "Authentication credentials were not provided."
+    @api_view(['POST'])
     def post(self, request):
-        serializer = PlanSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            serializer = PlanSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as error:
+            return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+    
     @api_view(['GET'])
     def get_all_plans(request):
         plans = Plan.objects.all()
