@@ -10,4 +10,5 @@ urlpatterns = [
     path('api/plan/add_plan/', PlanViews.as_view(), name='add_plan'),
     path('api/plan/get_all_plans/', PlanViews.get_all_plans,),
     path('api/plan/delete_plan/<int:id>', PlanViews.delete_plan,),
+    path('api/plan/get_plan_by_id/<int:id>', PlanViews.get_plan_by_id,),
 ]
