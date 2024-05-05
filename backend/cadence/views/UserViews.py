@@ -7,7 +7,6 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from ..serializers.UserSerializer import UserProfileSerializer
 from ..models.Usermodel import UserProfile
-from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
     
 @api_view(['POST'])
@@ -25,13 +24,15 @@ def register(request):
 class User(APIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
-      
+
 @api_view(['GET'])
-def get_user_by_id(request, user_id):
-    user_profile = get_object_or_404(UserProfile, user_id=user_id)
-    
-    serializer = UserProfileSerializer(user_profile)
-    return Response(serializer.data)
+def get_user_by_id(request, id):
+    try:
+        user_profile = get_object_or_404(UserProfile, user_id=id)
+        serializer = UserProfileSerializer(user_profile)
+        return Response(serializer.data)
+    except Exception as error:
+        return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 @api_view(['PUT'])
 def edit_user(request, user_id):
