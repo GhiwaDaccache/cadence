@@ -23,21 +23,25 @@ class PlanViews(APIView):
         except Exception as error:
             return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-    
+
+    # works without authentication 
     @api_view(['GET'])
     def get_all_plans(request):
-        plans = Plan.objects.all()
-        serializer = PlanSerializer(plans, many=True)
-        return Response(serializer.data)
-    
+        try:
+            plans = Plan.objects.all()
+            serializer = PlanSerializer(plans, many=True)
+            return Response(serializer.data)
+        except Exception as error:
+            return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
     @api_view(['DELETE'])
     def delete_plan(request, id):
         try:
             plan = Plan.objects.get(pk=id)
         except Plan.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+            return Response({'message': 'Plan not found.'}, status=status.HTTP_404_NOT_FOUND)
         plan.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response({'message': 'Plan successfully deleted.'}, status=status.HTTP_204_NO_CONTENT)
     
 
     
