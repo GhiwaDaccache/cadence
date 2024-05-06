@@ -3,6 +3,7 @@ from .views.PlanViews import *
 from .views.UserViews import *
 from .views.BadgeViews import *
 from .views.PlaylistViews import *
+
 urlpatterns = [
     path('', User.as_view()), 
     path('api/user/register/', register, name='create_user'),

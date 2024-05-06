@@ -21,3 +21,11 @@ class BadgeViews(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception as error:
             return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+    def get(self, request):
+        try:
+            badges = Badge.objects.all()
+            serializer = BadgeSerializer(badges, many=True)
+            return Response({'message': 'Success.'}, serializer.data)
+        except Exception as error:
+            return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
