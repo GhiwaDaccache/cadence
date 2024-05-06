@@ -25,4 +25,5 @@ urlpatterns = [
     path('api/run/', RunViews.as_view()),
     path('api/run/<int:id>', RunViews.as_view()),
     path('api/favorite_playlist/', FavoritePlaylistViews.as_view()),
+    path('api/favorite_playlist/<int:user_id>', FavoritePlaylistViews.as_view()),
 ]
