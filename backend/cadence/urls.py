@@ -1,4 +1,5 @@
 from django.urls import path
+from .views.RunViews import *
 from .views.PlanViews import *
 from .views.UserViews import *
 from .views.BadgeViews import *
@@ -20,4 +21,5 @@ urlpatterns = [
     path('api/playlist/get_playlist_by_id/<int:id>', PlaylistViews.get_playlist_by_id, name='get_playlist_by_id'),
     path('api/badge/', BadgeViews.as_view()),
     path('api/earned_badge/', EarnedBadgeViews.as_view()),
+    path('api/run/', RunViews.as_view()),
 ]
