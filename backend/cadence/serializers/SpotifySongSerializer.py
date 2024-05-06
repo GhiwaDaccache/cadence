@@ -4,4 +4,4 @@ from ..models.SpotifySongModel import SpotifySong
 class SpotifySongSerializer(serializers.ModelSerializer):
     class Meta:
         model = SpotifySong
-        fields = ['id', 'name', 'playlist']
+        fields = ['id', 'name', 'playlist', 'spotify_id']
