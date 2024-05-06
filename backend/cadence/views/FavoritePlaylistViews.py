@@ -3,7 +3,9 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from ..models.FavoritePlaylistModel import FavoritePlaylist
+from ..models.PlaylistModel import Playlist
 from ..serializers.FavoritePlaylistSerializer import FavoritePlaylistSerializer
+from ..serializers.PlaylistSerializer import PlaylistSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
@@ -21,7 +23,15 @@ class FavoritePlaylistViews(APIView):
             return Response({'message': 'Failed to add to favorites', 'errors': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
         except Exception as error:
             return Response({'message': 'Failed to add to favorites', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    
-   
+
+    def get(self, request, user_id):
+        try:
+            favorite_playlists = FavoritePlaylist.objects.filter(user_id=user_id)
+            playlist_ids = favorite_playlists.values_list('playlist_id', flat=True)
+            playlists = Playlist.objects.filter(id__in=playlist_ids)
+            serializer = PlaylistSerializer(playlists, many=True)
+            return Response({'data': serializer.data}, status=status.HTTP_200_OK)
+        except Exception as error:
+            return Response({'message': 'Failed to retrieve playlists', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
 
