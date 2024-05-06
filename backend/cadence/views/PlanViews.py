@@ -28,9 +28,9 @@ class PlanViews(APIView):
         try:
             plans = Plan.objects.all()
             serializer = PlanSerializer(plans, many=True)
-            return Response(serializer.data)
+            return Response({'message': 'success.'}, serializer.data)
         except Exception as error:
-            return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'message': 'Failed to get plans.'}, {'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
     # works without authentication
     @api_view(['GET'])
@@ -42,7 +42,7 @@ class PlanViews(APIView):
         except Plan.DoesNotExist:
             return Response({'message': 'Plan not found.'}, status=status.HTTP_404_NOT_FOUND)
         except Exception as error:
-            return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'message': 'Failed to get plan.'}, {'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
     # works without authentication
     @api_view(['DELETE'])
