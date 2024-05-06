@@ -3,6 +3,7 @@ from .views.PlanViews import *
 from .views.UserViews import *
 from .views.BadgeViews import *
 from .views.PlaylistViews import *
+from .views.EarnedBadgeViews import *
 
 urlpatterns = [
     path('', User.as_view()), 
@@ -17,5 +18,6 @@ urlpatterns = [
     path('api/playlist/get_all_playlists/', PlaylistViews.get_all_playlists, name='get_all_playlists'),
     path('api/playlist/delete_playlist/<int:id>', PlaylistViews.delete_playlist, name='delete_playlist'),
     path('api/playlist/get_playlist_by_id/<int:id>', PlaylistViews.get_playlist_by_id, name='get_playlist_by_id'),
-    path('api/badge/', BadgeViews.as_view(), name='add_badge'),
+    path('api/badge/', BadgeViews.as_view()),
+    path('api/earned_badge/', EarnedBadgeViews.as_view()),
 ]
