@@ -30,7 +30,10 @@ class FavoritePlaylistViews(APIView):
             playlist_ids = favorite_playlists.values_list('playlist_id', flat=True)
             playlists = Playlist.objects.filter(id__in=playlist_ids)
             serializer = PlaylistSerializer(playlists, many=True)
-            return Response({'data': serializer.data}, status=status.HTTP_200_OK)
+            if len(serializer.data) >= 1:
+                return Response({'message':'Success', 'data': serializer.data}, status=status.HTTP_200_OK)
+            else:
+                return Response({'message':'No data', 'data': serializer.data}, status=status.HTTP_200_OK)
         except Exception as error:
             return Response({'message': 'Failed to retrieve playlists', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
