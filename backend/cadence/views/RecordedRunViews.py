@@ -14,7 +14,7 @@ class RecordedRunViews(APIView):
 
     def post(self, request):
         try:
-            serializer = RecordedRun(data=request.data)
+            serializer = RecordedRunSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
                 return Response({'message': 'Run added successfully', 'data': serializer.data}, status=status.HTTP_201_CREATED)
