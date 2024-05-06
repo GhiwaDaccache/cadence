@@ -3,6 +3,7 @@ from .views.RunViews import *
 from .views.PlanViews import *
 from .views.UserViews import *
 from .views.BadgeViews import *
+from .views.PlanRunViews import *
 from .views.PlaylistViews import *
 from .views.EarnedBadgeViews import *
 from .views.RecordedRunViews import *
@@ -28,6 +29,6 @@ urlpatterns = [
     path('api/favorite_playlist/', FavoritePlaylistViews.as_view(), name='favorite_playlist'),
     path('api/favorite_playlist/<int:user_id>', FavoritePlaylistViews.as_view(), name='get_favorite_playlists'),
     path('api/recorded_run/', RecordedRunViews.as_view()),
-
+    path('api/plan_run/', PlanRunViews.as_view()),
 ]
 
