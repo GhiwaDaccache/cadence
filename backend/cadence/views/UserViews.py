@@ -25,10 +25,11 @@ class User(APIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
+# Not working
 @api_view(['GET'])
-def get_user_by_id(request, id):
+def get_user_by_id(request, user_id):
     try:
-        user_profile = get_object_or_404(UserProfile, user_id=id)
+        user_profile = get_object_or_404(UserProfile, user_id=user_id)
         serializer = UserProfileSerializer(user_profile)
         return Response(serializer.data)
     except Exception as error:

@@ -1,6 +1,7 @@
 from django.urls import path
 from .views.UserViews import *
 from .views.PlanViews import *
+from .views.PlaylistViews import *
 
 urlpatterns = [
     path('', User.as_view()), 
@@ -11,4 +12,5 @@ urlpatterns = [
     path('api/plan/get_all_plans/', PlanViews.get_all_plans,),
     path('api/plan/delete_plan/<int:id>', PlanViews.delete_plan,),
     path('api/plan/get_plan_by_id/<int:id>', PlanViews.get_plan_by_id,),
+    path('api/playlist/add_playlist/', PlaylistViews.post, name='add_playlist'),
 ]
