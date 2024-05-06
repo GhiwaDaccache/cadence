@@ -11,7 +11,6 @@ class PlanViews(APIView):
     # authentication_classes = [JWTAuthentication]
     # permission_classes = [IsAuthenticated]
 
-    # "detail": "Authentication credentials were not provided."
     def post(self, request):
         try:
             serializer = PlanSerializer(data=request.data)
