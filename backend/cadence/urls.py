@@ -22,4 +22,5 @@ urlpatterns = [
     path('api/badge/', BadgeViews.as_view()),
     path('api/earned_badge/', EarnedBadgeViews.as_view()),
     path('api/run/', RunViews.as_view()),
+    path('api/run/<int:id>', RunViews.as_view()),
 ]
