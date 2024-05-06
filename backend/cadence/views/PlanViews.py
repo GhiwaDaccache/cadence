@@ -17,10 +17,10 @@ class PlanViews(APIView):
             serializer = PlanSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+                return Response({'message': 'Plan created successfully.'}, serializer.data, status=status.HTTP_201_CREATED)
+            return Response({'message': 'Failed to create plan.'}, serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception as error:
-            return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'message': 'Failed to create plan.'}, {'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     # works without authentication 
     @api_view(['GET'])
