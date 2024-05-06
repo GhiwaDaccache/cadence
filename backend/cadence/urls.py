@@ -5,6 +5,7 @@ from .views.UserViews import *
 from .views.BadgeViews import *
 from .views.PlaylistViews import *
 from .views.EarnedBadgeViews import *
+from .views.RecordedRunViews import *
 from .views.FavoritePlaylistViews import *
 
 urlpatterns = [
@@ -26,4 +27,7 @@ urlpatterns = [
     path('api/run/<int:id>', RunViews.as_view()),
     path('api/favorite_playlist/', FavoritePlaylistViews.as_view(), name='favorite_playlist'),
     path('api/favorite_playlist/<int:user_id>', FavoritePlaylistViews.as_view(), name='get_favorite_playlists'),
+    path('api/recorded_run/', RecordedRunViews.as_view()),
+
 ]
+
