@@ -22,13 +22,12 @@ class RunViews(APIView):
         except Exception as error:
             return Response({'message': 'Failed to add run', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
-    def delete(request, id):
+    def delete(self, request, id):
         try:
             run = Run.objects.get(pk=id)
+            run.delete()
+            return Response({'message': 'Run successfully deleted.'}, status=status.HTTP_204_NO_CONTENT)
         except Run.DoesNotExist:
             return Response({'message': 'Run not found.'}, status=status.HTTP_404_NOT_FOUND)
-        run.delete()
-        return Response({'message': 'Run successfully deleted.'}, status=status.HTTP_204_NO_CONTENT)
-
         
 
