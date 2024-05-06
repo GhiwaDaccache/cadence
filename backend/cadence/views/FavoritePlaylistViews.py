@@ -35,6 +35,16 @@ class FavoritePlaylistViews(APIView):
             else:
                 return Response({'message':'No data', 'data': serializer.data}, status=status.HTTP_200_OK)
         except Exception as error:
-            return Response({'message': 'Failed to retrieve playlists', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'message': 'Failed to get playlists', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
-
+    def delete(self, request, playlist_id):
+        try:
+            user = request.user
+            favorite_playlist = FavoritePlaylist.objects.filter(user=user, playlist_id=playlist_id).first()
+            if favorite_playlist:
+                favorite_playlist.delete()  
+                return Response({'message': 'Playlist removed from favorites'}, status=status.HTTP_204_NO_CONTENT)
+            else:
+                return Response({'message': 'Playlist not found'}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as error:
+            return Response({'message': 'Failed to remove playlist from favorites', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
