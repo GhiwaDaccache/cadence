@@ -18,5 +18,4 @@ urlpatterns = [
     path('api/playlist/delete_playlist/<int:id>', PlaylistViews.delete_playlist, name='delete_playlist'),
     path('api/playlist/get_playlist_by_id/<int:id>', PlaylistViews.get_playlist_by_id, name='get_playlist_by_id'),
     path('api/badge/', BadgeViews.as_view(), name='add_badge'),
-
 ]
