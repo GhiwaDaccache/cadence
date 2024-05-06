@@ -13,4 +13,8 @@ urlpatterns = [
     path('api/plan/delete_plan/<int:id>', PlanViews.delete_plan,),
     path('api/plan/get_plan_by_id/<int:id>', PlanViews.get_plan_by_id,),
     path('api/playlist/add_playlist/', PlaylistViews.as_view(), name='add_playlist'),
+    path('api/playlist/get_all_playlists/', PlaylistViews.get_all_playlists,),
+    path('api/playlist/delete_playlist/<int:id>', PlaylistViews.delete_playlist,),
+    path('api/playlist/get_playlist_by_id/<int:id>', PlaylistViews.get_playlist_by_id,),
+    path('api/playlist/', PlaylistViews.as_view(), name='playlist-create'),
 ]

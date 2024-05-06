@@ -8,11 +8,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 class PlanViews(APIView):
-    authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [JWTAuthentication]
+    # permission_classes = [IsAuthenticated]
 
     # "detail": "Authentication credentials were not provided."
-    @api_view(['POST'])
     def post(self, request):
         try:
             serializer = PlanSerializer(data=request.data)
