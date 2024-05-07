@@ -2,6 +2,7 @@ from rest_framework import serializers;
 from ..models.Usermodel import UserProfile;
 from django.contrib.auth.models import User;
 from django.contrib.auth.hashers import make_password;
+from django.shortcuts import get_object_or_404
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -24,9 +25,11 @@ class UserProfileSerializer(serializers.ModelSerializer):
         password = user_data.pop('password', None) 
         hashed_password = make_password(password)   
         user = User.objects.create(**user_data, password=hashed_password)
-
         profile = UserProfile.objects.create(user=user, **validated_data)
         return profile
     
-    # def update(self, validated_data):
-    #     user_profile = get_object_or_404(UserProfile, user_id=user_id)
+    # def update(self, instance, validated_data):
+    #     instance.__dict__.update(validated_data)
+    #     instance.save()
+    #     # user = get_object_or_404(User, id=validated_data.)
+    #     return instance
