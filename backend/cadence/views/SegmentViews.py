@@ -27,8 +27,17 @@ class SegmentViews(APIView):
         except Exception as error:
             return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-    
-   
+
+    def get(self, request, run_id):
+        try:
+            segments = Segment.objects.filter(run_id=run_id)
+            serializer = SegmentSerializer(segments, many=True)
+            return Response({'message': 'success.', 'data': serializer.data}, status=status.HTTP_200_OK) 
+       
+        except Segment.DoesNotExist:
+            return Response({'message': 'No segments found.'}, status=status.HTTP_404_NOT_FOUND)
+        
+
     def delete(self, request, pk):
         try:
             segment = Segment.objects.get(pk=pk)
