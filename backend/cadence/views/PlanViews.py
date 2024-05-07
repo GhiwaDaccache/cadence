@@ -25,35 +25,33 @@ class PlanViews(APIView):
         except Exception as error:
             return Response({'message': 'Failed to create plan.', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-    def get(self, request):
+
+    def get(self, request, pk=None):  
         try:
-            plans = Plan.objects.all()
-            serializer = PlanSerializer(plans, many=True)
-            return Response({'message': 'success.', 'data': serializer.data})
+            if pk is not None:
+                plan = Plan.objects.get(pk=pk)
+                serializer = PlanSerializer(plan)
+                return Response({'message': 'Success.', 'data': serializer.data}, status=status.HTTP_200_OK)
+            
+            else:
+                plans = Plan.objects.all()
+                serializer = PlanSerializer(plans, many=True)
+                return Response({'message': 'success.', 'data': serializer.data}, status=status.HTTP_200_OK)
+            
+        except Plan.DoesNotExist:
+            return Response({'message': 'Plan not found.'}, status=status.HTTP_404_NOT_FOUND)
+        
         except Exception as error:
-            return Response({'message': 'Failed to get plans.', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'message': 'Failed to get plan.', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
-    # # works without authentication
-    # @api_view(['GET'])
-    # def get_plan_by_id(request, id):
-    #     try:
-    #         plan = Plan.objects.get(pk=id)
-    #         serializer = PlanSerializer(plan)
-    #         return Response(serializer.data, status=status.HTTP_200_OK)
-    #     except Plan.DoesNotExist:
-    #         return Response({'message': 'Plan not found.'}, status=status.HTTP_404_NOT_FOUND)
-    #     except Exception as error:
-    #         return Response({'message': 'Failed to get plan.'}, {'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        
-    # # works without authentication
-    # @api_view(['DELETE'])
-    # def delete_plan(request, id):
-    #     try:
-    #         plan = Plan.objects.get(pk=id)
-    #     except Plan.DoesNotExist:
-    #         return Response({'message': 'Plan not found.'}, status=status.HTTP_404_NOT_FOUND)
-    #     plan.delete()
-    #     return Response({'message': 'Plan successfully deleted.'}, status=status.HTTP_204_NO_CONTENT)
+
+    def delete(self, request, id):
+        try:
+            plan = Plan.objects.get(pk=id)
+        except Plan.DoesNotExist:
+            return Response({'message': 'Plan not found.'}, status=status.HTTP_404_NOT_FOUND)
+        plan.delete()
+        return Response({'message': 'Plan successfully deleted.'}, status=status.HTTP_204_NO_CONTENT)
     
 
     
