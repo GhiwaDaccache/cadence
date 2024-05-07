@@ -46,13 +46,13 @@ class PlaylistViews(APIView):
             return Response({'message': 'Failed to get playlist.', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
    
-    # def delete_playlist(request, id):
-    #     try:
-    #         playlist = Playlist.objects.get(pk=id)
-    #     except Playlist.DoesNotExist:
-    #         return Response({'message': 'Playlist not found.'}, status=status.HTTP_404_NOT_FOUND)
-    #     playlist.delete()
-    #     return Response({'message': 'Playlist successfully deleted.'}, status=status.HTTP_204_NO_CONTENT)
-    
-
-    
+    def delete(self, request, pk):
+        try:
+            playlist = Playlist.objects.get(pk=pk)
+            playlist.delete()
+            return Response({'message': 'Playlist successfully deleted.'}, status=status.HTTP_204_NO_CONTENT)
+        
+        except Playlist.DoesNotExist:
+            return Response({'message': 'Playlist not found.'}, status=status.HTTP_404_NOT_FOUND)
+        
+        
