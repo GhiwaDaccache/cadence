@@ -1,4 +1,7 @@
+# Dependencies
 from django.urls import path
+
+# Views
 from .views.RunViews import *
 from .views.PlanViews import *
 from .views.UserViews import *
@@ -28,5 +31,6 @@ urlpatterns = [
     path('api/favorite_playlist/', FavoritePlaylistViews.as_view()),
     path('api/recorded_run/', RecordedRunViews.as_view()),
     path('api/plan_run/', PlanRunViews.as_view()),
+    path('api/plan_run/<int:pk>', PlanRunViews.as_view()),
 ]
 
