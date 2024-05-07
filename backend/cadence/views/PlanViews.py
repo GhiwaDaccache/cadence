@@ -29,9 +29,9 @@ class PlanViews(APIView):
         try:
             plans = Plan.objects.all()
             serializer = PlanSerializer(plans, many=True)
-            return Response({'message': 'success.'}, serializer.data)
+            return Response({'message': 'success.', 'data': serializer.data})
         except Exception as error:
-            return Response({'message': 'Failed to get plans.'}, {'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'message': 'Failed to get plans.', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
     # # works without authentication
     # @api_view(['GET'])
