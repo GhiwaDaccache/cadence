@@ -11,11 +11,13 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
 class FavoritePlaylistViews(APIView):
-    # authentication_classes = [JWTAuthentication]
-    # permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         try:
+            user_id = request.user.id
+            request.data['user'] = user_id
             serializer = FavoritePlaylistSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
