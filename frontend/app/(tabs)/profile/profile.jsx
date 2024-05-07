@@ -30,6 +30,7 @@ const Profile = () => {
 
       <Text className='font-usemibold text-lg'>John Doe</Text>
       <View className='flex flex-row w-full pt-10 px-7 justify-between'>
+        // map over an array of objects containin profile cards info
         <ProfileCard
           // handleNavigation={handlePrev}
           source={'previous'}

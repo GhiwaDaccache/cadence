@@ -55,4 +55,25 @@ class PlaylistViews(APIView):
         except Playlist.DoesNotExist:
             return Response({'message': 'Playlist not found.'}, status=status.HTTP_404_NOT_FOUND)
         
+    # def generate_playlist(request):
+    #     for segment in request.data.segments:
+            
+
+    #     [
+    #     segment1: {
+    #         "duration": 1860,
+    #         "pace": 12.3
+    #      },
+
+    #     segment2: {
+    #         "duration": 1860,
+    #         "pace": 10.2
+    #      },
+
+    #     segment3: {
+    #         "duration": 1860,
+    #         "pace": 12.3
+    #      }
+    #     ]
+        
         
