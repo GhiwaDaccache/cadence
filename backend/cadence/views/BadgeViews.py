@@ -9,8 +9,8 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
 class BadgeViews(APIView):
-    # authentication_classes = [JWTAuthentication]
-    # permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         try:
