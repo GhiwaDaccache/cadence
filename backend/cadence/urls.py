@@ -15,7 +15,7 @@ from .views.FavoritePlaylistViews import *
 urlpatterns = [
     path('api/user/register/', RegistrationViews.as_view(), name='register'),
     path('api/user/', UserViews.as_view()),
-    path('api/plan/add_plan/', PlanViews.as_view(), name='add_plan'),
+    path('api/plan/', PlanViews.as_view()),
     # path('api/plan/get_all_plans/', PlanViews.get_all_plans, name='get_all_plans'),
     # path('api/plan/delete_plan/<int:id>', PlanViews.delete_plan, name='delete_plans'),
     # path('api/plan/get_plan_by_id/<int:id>', PlanViews.get_plan_by_id, name='get_plan_by_id'),
