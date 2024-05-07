@@ -25,8 +25,7 @@ urlpatterns = [
     path('api/earned_badge/', EarnedBadgeViews.as_view(), name='earned_badge'),
     path('api/run/', RunViews.as_view()),
     path('api/run/<int:id>', RunViews.as_view()),
-    path('api/favorite_playlist/', FavoritePlaylistViews.as_view(), name='favorite_playlist'),
-    path('api/favorite_playlist/<int:user_id>', FavoritePlaylistViews.as_view(), name='get_favorite_playlists'),
+    path('api/favorite_playlist/', FavoritePlaylistViews.as_view()),
     path('api/recorded_run/', RecordedRunViews.as_view()),
     path('api/plan_run/', PlanRunViews.as_view()),
 ]
