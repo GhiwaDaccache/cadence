@@ -1,16 +1,15 @@
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from ..serializers.UserSerializer import UserProfileSerializer
 from ..models.Usermodel import UserProfile
 from django.shortcuts import get_object_or_404
-from rest_framework.permissions import AllowAny
     
-class UserViews(APIView):
+class RegistrationViews(APIView):
     permission_classes = [AllowAny]
     def post(self, request):
         try:
@@ -22,15 +21,18 @@ class UserViews(APIView):
         except Exception as error:
             return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+class UserViews(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
 
-# @api_view(['GET'])
-# def get_user_by_id(request, user_id):
-#     try:
-#         user_profile = get_object_or_404(UserProfile, user_id=user_id)
-#         serializer = UserProfileSerializer(user_profile)
-#         return Response(serializer.data)
-#     except Exception as error:
-#         return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    def get(self, request):
+        print("request: ", request)
+        try:
+            user_profile = request.user.userprofile
+            serializer = UserProfileSerializer(user_profile)
+            return Response(serializer.data)
+        except Exception as error:
+            return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
 # # Fix user serializer
 # @api_view(['PUT'])
