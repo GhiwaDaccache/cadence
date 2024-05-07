@@ -36,9 +36,12 @@ urlpatterns = [
     path('api/playlist/', PlaylistViews.as_view(), name='playlist'),
     path('api/playlist/<int:pk>/', PlaylistViews.as_view(), name='playlist_id'),
 
-    path('api/run/', RunViews.as_view()),
-    path('api/run/<int:id>', RunViews.as_view()),
-    path('api/recorded_run/', RecordedRunViews.as_view()),
+    # Run
+    path('api/run/', RunViews.as_view(), name="run"),
+    path('api/run/<int:pk>/', RunViews.as_view(), name='run_id'),
+
+    # Reacorded run
+    path('api/recorded_run/', RecordedRunViews.as_view(), name='recorded_run'),
     
 ]
 
