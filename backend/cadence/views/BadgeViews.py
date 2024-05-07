@@ -27,7 +27,7 @@ class BadgeViews(APIView):
         except Exception as error:
             return Response({'message': 'Failed to add badge', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
-        
+
     def get(self, request):
         try:
             badges = Badge.objects.all()
