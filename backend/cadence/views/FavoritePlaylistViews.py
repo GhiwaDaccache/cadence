@@ -26,8 +26,9 @@ class FavoritePlaylistViews(APIView):
         except Exception as error:
             return Response({'message': 'Failed to add to favorites', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-    def get(self, request, user_id):
+    def get(self, request):
         try:
+            user_id = request.user.id
             favorite_playlists = FavoritePlaylist.objects.filter(user_id=user_id)
             playlist_ids = favorite_playlists.values_list('playlist_id', flat=True)
             playlists = Playlist.objects.filter(id__in=playlist_ids)
