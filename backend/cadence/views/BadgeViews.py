@@ -1,11 +1,16 @@
-from rest_framework import status
-from rest_framework.views import APIView
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from ..models.BadgeModel import Badge
-from ..serializers.BadgeSerializer import BadgeSerializer
-from rest_framework.permissions import IsAuthenticated
-from rest_framework_simplejwt.authentication import JWTAuthentication
+# Dependencies
+from rest_framework import status;
+from rest_framework.views import APIView;
+from rest_framework.response import Response;
+from rest_framework.permissions import IsAuthenticated;
+from rest_framework_simplejwt.authentication import JWTAuthentication;
+
+# models
+from ..models.BadgeModel import Badge;
+
+# Serializers
+from ..serializers.BadgeSerializer import BadgeSerializer;
+
 
 
 class BadgeViews(APIView):
@@ -21,6 +26,7 @@ class BadgeViews(APIView):
             return Response({'message': 'Failed to add badge'}, serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception as error:
             return Response({'message': 'Failed to add badge', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
         
     def get(self, request):
         try:
