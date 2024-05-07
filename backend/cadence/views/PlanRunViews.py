@@ -1,10 +1,15 @@
-from rest_framework import status
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from ..models.PlanRunModel import PlanRun
-from ..serializers.PlanRunSerializer import PlanRunSerializer
-from rest_framework.permissions import IsAuthenticated
-from rest_framework_simplejwt.authentication import JWTAuthentication
+# Dependencies
+from rest_framework import status;
+from rest_framework.views import APIView;
+from rest_framework.response import Response;
+from rest_framework.permissions import IsAuthenticated;
+from rest_framework_simplejwt.authentication import JWTAuthentication;
+
+# Models
+from ..models.PlanRunModel import PlanRun;
+
+# Serializers
+from ..serializers.PlanRunSerializer import PlanRunSerializer;
 
 
 class PlanRunViews(APIView):
