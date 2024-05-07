@@ -8,9 +8,13 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 class PlaylistViews(APIView):
-    # authentication_classes = [JWTAuthentication]
-    # permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
 
+    def get(self, request):
+        content = {'message': 'Hello, World!'}
+        return Response(content)
+    
     # "detail": "Authentication credentials were not provided."
     def post(self, request):
         try:
