@@ -6,12 +6,14 @@ from .views.RunViews import *
 from .views.PlanViews import *
 from .views.UserViews import *
 from .views.BadgeViews import *
+from .views.SpotifyViews import *
 from .views.PlanRunViews import *
 from .views.SegmentViews import *
 from .views.PlaylistViews import *
 from .views.EarnedBadgeViews import *
 from .views.RecordedRunViews import *
 from .views.FavoritePlaylistViews import *
+
 urlpatterns = [
     # User
     path('api/user/register/', RegistrationViews.as_view(), name='register'),
@@ -48,5 +50,8 @@ urlpatterns = [
     path('api/segment/<int:pk>', SegmentViews.as_view(), name='segment_id'),
     path('api/segment/<int:run_id>/', SegmentViews.as_view(), name='segment_run'),
     
+    # Spotify
+    path('api/spotify/create_spotify_token', SpotifyViews.create_spotify_token, name='spotify_token'),
+    path('api/spotify/generate_playlist', SpotifyViews.as_view(), name='generate_playlist'),
 ]
 

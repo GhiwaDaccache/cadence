@@ -1,9 +1,12 @@
 # Dependencies
+import requests; 
 from rest_framework import status;
 from rest_framework.views import APIView;
 from rest_framework.response import Response;
 from rest_framework.permissions import IsAuthenticated;
 from rest_framework_simplejwt.authentication import JWTAuthentication;
+from django.http import JsonResponse
+from urllib.parse import urlencode
 
 # Models
 from ..models.PlaylistModel import Playlist;
@@ -55,25 +58,7 @@ class PlaylistViews(APIView):
         except Playlist.DoesNotExist:
             return Response({'message': 'Playlist not found.'}, status=status.HTTP_404_NOT_FOUND)
         
-    # def generate_playlist(request):
-    #     for segment in request.data.segments:
+    
             
-
-    #     [
-    #     segment1: {
-    #         "duration": 1860,
-    #         "pace": 12.3
-    #      },
-
-    #     segment2: {
-    #         "duration": 1860,
-    #         "pace": 10.2
-    #      },
-
-    #     segment3: {
-    #         "duration": 1860,
-    #         "pace": 12.3
-    #      }
-    #     ]
         
         
