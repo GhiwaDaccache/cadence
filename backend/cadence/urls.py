@@ -7,11 +7,11 @@ from .views.PlanViews import *
 from .views.UserViews import *
 from .views.BadgeViews import *
 from .views.PlanRunViews import *
+from .views.SegmentViews import *
 from .views.PlaylistViews import *
 from .views.EarnedBadgeViews import *
 from .views.RecordedRunViews import *
 from .views.FavoritePlaylistViews import *
-
 urlpatterns = [
     # User
     path('api/user/register/', RegistrationViews.as_view(), name='register'),
@@ -42,6 +42,9 @@ urlpatterns = [
 
     # Reacorded run
     path('api/recorded_run/', RecordedRunViews.as_view(), name='recorded_run'),
+
+    # Segment
+    path('api/segment/', SegmentViews.as_view(), name='recorded_run'),
     
 ]
 
