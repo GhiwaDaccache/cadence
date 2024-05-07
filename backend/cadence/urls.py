@@ -44,7 +44,8 @@ urlpatterns = [
     path('api/recorded_run/', RecordedRunViews.as_view(), name='recorded_run'),
 
     # Segment
-    path('api/segment/', SegmentViews.as_view(), name='recorded_run'),
+    path('api/segment/', SegmentViews.as_view(), name='segment'),
+    path('api/segment/<int:pk>', SegmentViews.as_view(), name='segment_id'),
     
 ]
 

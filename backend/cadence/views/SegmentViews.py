@@ -28,3 +28,14 @@ class SegmentViews(APIView):
             return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     
+   
+    def delete(self, request, pk):
+        try:
+            segment = Segment.objects.get(pk=pk)
+            segment.delete()
+            return Response({'message': 'Segment successfully deleted.'}, status=status.HTTP_204_NO_CONTENT)
+        
+        except Segment.DoesNotExist:
+            return Response({'message': 'Segment not found.'}, status=status.HTTP_404_NOT_FOUND)
+        
+        
