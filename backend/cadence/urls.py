@@ -32,10 +32,10 @@ urlpatterns = [
     # Favorite playlist
     path('api/favorite_playlist/', FavoritePlaylistViews.as_view(), name='favorite_playlist'),
     
+    # Playlist
+    path('api/playlist/', PlaylistViews.as_view(), name='playlist'),
+    path('api/playlist/<int:pk>/', PlaylistViews.as_view(), name='playlist_id'),
 
-    path('', PlaylistViews.as_view()),
-
-    path('api/playlist/', PlaylistViews.as_view(), name='add_playlist'),
     # path('api/playlist/get_all_playlists/', PlaylistViews.get_all_playlists, name='get_all_playlists'),
     # path('api/playlist/delete_playlist/<int:id>', PlaylistViews.delete_playlist, name='delete_playlist'),
     # path('api/playlist/get_playlist_by_id/<int:id>', PlaylistViews.get_playlist_by_id, name='get_playlist_by_id'),
