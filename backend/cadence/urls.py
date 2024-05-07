@@ -16,7 +16,7 @@ urlpatterns = [
     path('api/user/register/', RegistrationViews.as_view(), name='register'),
     path('api/user/', UserViews.as_view()),
     path('api/plan/', PlanViews.as_view()),
-    path('api/plan/<int:pk>/', PlanViews.as_view(), name='get_plan_by_id'),
+    path('api/plan/<int:pk>/', PlanViews.as_view()),
 
     path('', PlaylistViews.as_view()),
     path('api/playlist/', PlaylistViews.as_view(), name='add_playlist'),

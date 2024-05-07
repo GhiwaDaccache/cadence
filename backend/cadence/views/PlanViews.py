@@ -45,13 +45,16 @@ class PlanViews(APIView):
             return Response({'message': 'Failed to get plan.', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
 
-    def delete(self, request, id):
+    def delete(self, request, pk):
         try:
-            plan = Plan.objects.get(pk=id)
+            plan = Plan.objects.get(pk=pk)
+            plan.delete()
+            return Response({'message': 'Plan successfully deleted.'}, status=status.HTTP_204_NO_CONTENT)
+        
         except Plan.DoesNotExist:
             return Response({'message': 'Plan not found.'}, status=status.HTTP_404_NOT_FOUND)
-        plan.delete()
-        return Response({'message': 'Plan successfully deleted.'}, status=status.HTTP_204_NO_CONTENT)
+        
+        
     
 
     
