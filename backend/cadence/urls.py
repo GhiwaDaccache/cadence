@@ -20,9 +20,9 @@ urlpatterns = [
 
     path('', PlaylistViews.as_view()),
     path('api/playlist/', PlaylistViews.as_view(), name='add_playlist'),
-    path('api/playlist/get_all_playlists/', PlaylistViews.get_all_playlists, name='get_all_playlists'),
-    path('api/playlist/delete_playlist/<int:id>', PlaylistViews.delete_playlist, name='delete_playlist'),
-    path('api/playlist/get_playlist_by_id/<int:id>', PlaylistViews.get_playlist_by_id, name='get_playlist_by_id'),
+    # path('api/playlist/get_all_playlists/', PlaylistViews.get_all_playlists, name='get_all_playlists'),
+    # path('api/playlist/delete_playlist/<int:id>', PlaylistViews.delete_playlist, name='delete_playlist'),
+    # path('api/playlist/get_playlist_by_id/<int:id>', PlaylistViews.get_playlist_by_id, name='get_playlist_by_id'),
     path('api/badge/', BadgeViews.as_view()),
     path('api/earned_badge/', EarnedBadgeViews.as_view(), name='earned_badge'),
     path('api/run/', RunViews.as_view()),
