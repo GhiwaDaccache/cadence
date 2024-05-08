@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { router } from "expo-router";
+import { Alert } from "react-native";
 
 export const useAuthenticationLogic = () => {
   const [isLogin, setIsLogin] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [info, setInfo] = useState({ email: "", username: "", password: "" });
 
@@ -28,7 +30,10 @@ const handleLogin = () =>{
 };
 
 const handleSignUp = () =>{
-  console.log("signed up")
+  if(!info.email || !info.username || !info.password){
+    Alert.alert("Error", "All fields are required")
+  }
+  setIsSubmitting(true)
   router.push("/registration")
 };
 
