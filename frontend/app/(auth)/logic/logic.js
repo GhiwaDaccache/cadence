@@ -12,7 +12,7 @@ export const useAuthenticationLogic = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  const [info, setInfo] = useState({ email: "", username: "", password: "" });
+  const [info, setInfo] = useState({username: "", password: "", first_name: "", last_name: "", email: ""});
 
   const [error, setError] = useState("");
 
@@ -43,11 +43,14 @@ const handleSignUp = async () =>{
     Alert.alert("Error", "All fields are required")
     return
   }
+  console.log("signed in 2")
   setIsSubmitting(true)
+  console.log(info)
   try{
     const response = await sendRequest(requestMehods.POST, "cadence/api/user/register/", {
       ...info,
     });
+    console.log(response.data.status)
     if (response.data.status === "success") {
       // localStorage.setItem("token", response.data.authorisation.token);
       router.push("/registration")
