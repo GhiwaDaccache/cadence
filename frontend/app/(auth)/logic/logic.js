@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { router } from "expo-router";
 import { Alert } from "react-native";
 
+
 export const useAuthenticationLogic = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,15 +30,20 @@ const handleLogin = () =>{
 
 };
 
-const handleSignUp = () =>{
+const handleSignUp = async () =>{
   if(!info.email || !info.username || !info.password){
     Alert.alert("Error", "All fields are required")
     return
   }
   setIsSubmitting(true)
   try{
-    router.push("/registration")
-    console.log("signup")
+    const response = await sendRequest(requestMehods.POST, "http://localhost:8000/cadence/api/user/register/", {
+      ...info,
+    });
+    if (response.data.status === "success") {
+      localStorage.setItem("token", response.data.authorisation.token);
+      router.push("/registration")
+    }
   } catch (error){
     console.log(error)
   } finally {
