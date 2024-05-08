@@ -22,9 +22,13 @@ const Settings = () => {
         <Image source={images.profile} className='h-full w-full'  />
       </View>
 
-      <View className='pt-14 pb-24'>
+      <View className='pt-14 pb-5'>
         <GreyInputBox 
-          title={'Full Name'}   
+          title={'First Name'}   
+        />
+
+        <GreyInputBox 
+          title={'Last Name'}   
         />
 
         <GreyInputBox 
