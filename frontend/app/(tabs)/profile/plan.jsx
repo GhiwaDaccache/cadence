@@ -9,7 +9,11 @@ import PlanTracker from '../../../components/PlanTracker';
 const Plan = () => {
   return (
     <View className='h-full bg-white flex items-center pt-5'>
-      <PlanTracker />
+      <PlanTracker 
+        planName={"plan name"}
+        distance={15.32}
+        weeks={3}
+      />
       <NextRun 
         distance={'2.9'}
         scheduleDate={'20-04-2024'}

@@ -5,15 +5,15 @@ import { View, Text, Image } from 'react-native'
 // Assets
 import icons from '../assets/icons/icons';
 
-const PlanTracker = () => {
+const PlanTracker = ({ planName, weeks, distance }) => {
   return (
     <View className='flex py-2 px-6 mx-7 bg-grey rounded-md'>
-        <Text className='font-urbanistBold text-base'>Plan name</Text>
+        <Text className='font-urbanistBold text-base'>{planName}</Text>
         <View className='flex flex-row justify-between pt-2'>
           <View>
             <Text className='font-urbanist text-base'>Total weeks</Text>
             <View className='flex flex-row'>
-              <Text className='font-urbanist text-base'>5</Text>
+              <Text className='font-urbanist text-base'>{weeks}</Text>
               <Image 
                 source={icons.schedule} 
                 className='w-6 h-6'  
@@ -24,7 +24,7 @@ const PlanTracker = () => {
           <View>
             <Text className='font-urbanist text-base'>Total distance</Text>
             <View className='flex flex-row items-center'>
-              <Text className='font-urbanist text-base pr-2'>15.32 km</Text>
+              <Text className='font-urbanist text-base pr-2'>{`${distance} km`}</Text>
               <Image 
                 source={icons.road} 
                 className='w-4 h-4' 
@@ -35,11 +35,11 @@ const PlanTracker = () => {
         <View className='py-2 px-3 mt-2 bg-white rounded-md'>
           <View className='flex flex-row justify-between'>
             <Text className='font-urbanistsemibold text-base'>Week:</Text>
-            <Text className='font-urbanist text-base pr-10'>2</Text>
+            <Text className='font-urbanist text-base pr-9'>2</Text>
           </View>
           <View className='flex flex-row justify-between'>
             <Text className='font-urbanistsemibold text-base'>Total runs:</Text>
-            <Text className='font-urbanist text-base pr-10'>3</Text>
+            <Text className='font-urbanist text-base pr-9'>3</Text>
           </View>
           
           <View className='flex flex-row py-1'>
