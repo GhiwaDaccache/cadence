@@ -1,5 +1,6 @@
 # Dependencies
-import requests; 
+import requests;
+import json; 
 from urllib.parse import urlencode;
 from django.http import JsonResponse;
 from rest_framework import status;
@@ -36,12 +37,11 @@ class SpotifyViews(APIView):
             return JsonResponse({"error": str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
      
 
-
-    def generate_playlist(request, token):
+    def generate_playlist(request):
         try:
-            token_response = SpotifyViews.create_spotify_token(request)
-            print(token_response)
-            token = token_response.json()['access_token']
+            token_response = SpotifyViews.create_spotify_token(request).content
+            response_data = token_response.decode('utf-8') 
+            token = json.loads(response_data)["access_token"]
             print("token", token)
             url = 'https://api.spotify.com/v1/recommendations'
             headers = {
@@ -61,10 +61,8 @@ class SpotifyViews(APIView):
             if response.status_code == 200:
                 return JsonResponse(response.json())
             else:
-                return JsonResponse({"error": "Failed to get recommendations"}, status=response.status_code)
-        
-        except Exception as e:
-            return JsonResponse({"error": str(token_response)}, status=500)
+                return JsonResponse({"error": "Failed to fetch playlists"}, status=response.status_code)
             
-
+        except Exception as e:
+            return JsonResponse({"error": e}, status=500)
 

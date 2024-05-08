@@ -36,27 +36,27 @@ const handleLogin = () =>{
 
 };
 
-const handleSignUp = () =>{
+const handleSignUp = async () =>{
   console.log("signed in")
   router.push("/login")
-  // if(!info.email || !info.username || !info.password){
-  //   Alert.alert("Error", "All fields are required")
-  //   return
-  // }
-  // setIsSubmitting(true)
-  // try{
-  //   const response = await sendRequest(requestMehods.POST, "cadence/api/user/register/", {
-  //     ...info,
-  //   });
-  //   if (response.data.status === "success") {
-  //     // localStorage.setItem("token", response.data.authorisation.token);
-  //     router.push("/registration")
-  //   }
-  // } catch (error){
-  //   console.log(error)
-  // } finally {
-  //   setIsSubmitting(false)
-  // }
+  if(!info.email || !info.username || !info.password){
+    Alert.alert("Error", "All fields are required")
+    return
+  }
+  setIsSubmitting(true)
+  try{
+    const response = await sendRequest(requestMehods.POST, "cadence/api/user/register/", {
+      ...info,
+    });
+    if (response.data.status === "success") {
+      // localStorage.setItem("token", response.data.authorisation.token);
+      router.push("/registration")
+    }
+  } catch (error){
+    console.log(error)
+  } finally {
+    setIsSubmitting(false)
+  }
 };
 
 
