@@ -17,6 +17,35 @@ import { router } from 'expo-router';
 // }
 
 const Profile = () => {
+  const profileCardsData = [
+    {
+      source: 'previous',
+      title: 'Previous',
+      icon: icons.history,
+    },
+    {
+      source: 'plan/',
+      title: 'My plan',
+      icon: icons.calendar,
+    },
+    {
+      source: 'badges',
+      title: 'Badges',
+      icon: icons.medal,
+    },
+  ];
+
+  const renderProfileCards = () => {
+    return profileCardsData.map((card, index) => (
+      <ProfileCard
+        key={index}
+        source={card.source}
+        title={card.title}
+        icon={card.icon}
+      />
+    ));
+  };
+
   return (
     <SafeAreaView className='bg-white h-full flex items-center'>
       <StatusBar backgroundColor='white'/>
@@ -30,27 +59,9 @@ const Profile = () => {
 
       <Text className='font-usemibold text-lg'>John Doe</Text>
       <View className='flex flex-row w-full pt-10 px-7 justify-between'>
-
-        <ProfileCard
-          // handleNavigation={handlePrev}
-          source={'previous'}
-          title={'Previous'}
-          icon={icons.history} 
-        />
-
-        <ProfileCard
-          source={'plan/'}
-          title={'My plan'}
-          icon={icons.calendar} 
-        />
-
-        <ProfileCard
-          source={'badges'}
-          title={'Badges'}
-          icon={icons.medal} 
-        />
-      
+        {renderProfileCards()}
       </View>
+
       <Text className='font-urbanistBold text-base self-start pl-7 pt-8'>Saved playlists</Text>
       <View className='w-full pl-7 content-evenly'>
         <PlaylistCard 
@@ -59,7 +70,6 @@ const Profile = () => {
           level={'Intermediate'}
           title={'Monday runs'}
         />
-
       </View>
       
     </SafeAreaView>
