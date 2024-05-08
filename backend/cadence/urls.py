@@ -52,6 +52,6 @@ urlpatterns = [
     
     # Spotify
     path('api/spotify/create_spotify_token', SpotifyViews.create_spotify_token, name='spotify_token'),
-    # path('api/spotify/generate_playlist', SpotifyViews.generate_playlist, name='generate_playlist'),
+    path('api/spotify/generate_playlist', SpotifyViews.generate_playlist, name='generate_playlist'),
 ]
 
