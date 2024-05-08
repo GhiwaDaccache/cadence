@@ -1,29 +1,51 @@
 // Dependencies
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
  
 // Components
 import Run from '../../../components/Run';
 
 const previous = () => {
+  const previousRuns = [
+    {
+        "id": 1,
+        "recorded_on": "2024-05-02",
+        "start_time": "12:02:35",
+        "end_time": "12:07:35",
+        "real_pace": 5.0,
+        "real_distance": 5.0,
+        "real_duration": "25:21",
+        "user": 17,
+        "run": null
+    },
+    {
+        "id": 3,
+        "recorded_on": "2024-05-02",
+        "start_time": "12:02:35",
+        "end_time": "12:07:35",
+        "real_pace": 7.0,
+        "real_distance": 5.2,
+        "real_duration": "30:01",
+        "user": 17,
+        "run": null
+    }
+]
+
   return (
     <View className='h-full bg-white flex items-center pt-3'>
-      <Run 
-        title={'Monday run'}
-        date={'02-04-2024'}
-        distance={'7.54'}
-        pace={'8:15'}
-        time={'58:21'}
+      <FlatList 
+        data = {previousRuns}
+        keyExtractor={(item) => item.id}
+        renderItem={({item})=> (
+          <Run
+          title={'Monday run'}
+          date={item.recorded_on}
+          distance={item.real_distance}
+          pace={item.real_pace}
+          time={item.real_duration}
+          />
+        )}
       />
-
-      <Run 
-        title={'Warm up'}
-        date={'07-04-2024'}
-        distance={'3.21'}
-        pace={'6:21'}
-        time={'23:18'}
-      />
-
     </View>
   )
 }

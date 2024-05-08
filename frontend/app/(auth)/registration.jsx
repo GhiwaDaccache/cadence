@@ -44,7 +44,7 @@ const Registration = () => {
           title='Finish'           
           width='w-[170]'
           handlePress={() => {
-              router.push('/profile')
+              router.push('/login')
           }}
         />
         </View>
