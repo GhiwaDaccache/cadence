@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 
-const Badge = ({ icon, title, data, distance, timing}) => {
+const Badge = ({ icon, title, data}) => {
   return (
     <View className='bg-grey flex flex-row w-[303] px-9 py-2 rounded-md my-2'>
         <Image 

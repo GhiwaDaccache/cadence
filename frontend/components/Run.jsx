@@ -12,7 +12,7 @@ const Run = ({ title, time, distance, pace, date }) => {
         />
 
       <View className='pl-5'>
-        <Text className='text-base font-urbanistLight pb-1'>{title}</Text>
+        <Text className='text-base font-urbanistMedium pb-1'>{date}</Text>
         <View className='flex flex-row items-center'> 
           <Text className='text-base font-urbanistLight'>{time}  </Text>
           <Image source={icons.dot}/>
@@ -20,7 +20,6 @@ const Run = ({ title, time, distance, pace, date }) => {
           <Image source={icons.dot}/>
           <Text className='text-base font-urbanistLight'> {pace} min/km</Text>
         </View>
-        <Text className='text-base font-urbanistLight pt-1'>{date}</Text>
       </View>
     </View>
   )

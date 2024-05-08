@@ -38,7 +38,6 @@ const previous = () => {
         keyExtractor={(item) => item.id}
         renderItem={({item})=> (
           <Run
-          title={'Monday run'}
           date={item.recorded_on}
           distance={item.real_distance}
           pace={item.real_pace}
@@ -50,4 +49,4 @@ const previous = () => {
   )
 }
 
-export default previous
+export default previous;
