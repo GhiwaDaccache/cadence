@@ -8,12 +8,12 @@ export const sendRequest = async (method, endpoint, body) => {
         url: endpoint,
         data: body,
         headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            // Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
     });
 
     if (response.status === 401) {
-        localStorage.removeItem("token");
+        // localStorage.removeItem("token");
     }
 
     return response;

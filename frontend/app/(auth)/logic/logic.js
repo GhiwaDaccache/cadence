@@ -1,7 +1,12 @@
-import { useEffect, useState } from "react";
+// Dependencies
 import { router } from "expo-router";
 import { Alert } from "react-native";
-import { requestMehods } from "../../../tools/requestMethods"
+import { useEffect, useState } from "react";
+
+// Tools
+import { sendRequest } from "../../../tools/sendRequest";
+import { requestMehods } from "../../../tools/requestMethods";
+
 
 export const useAuthenticationLogic = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -37,7 +42,7 @@ const handleSignUp = async () =>{
   }
   setIsSubmitting(true)
   try{
-    const response = await sendRequest(requestMehods.POST, "http://localhost:8000/cadence/api/user/register/", {
+    const response = await sendRequest(requestMehods.POST, "cadence/api/user/register/", {
       ...info,
     });
     if (response.data.status === "success") {
