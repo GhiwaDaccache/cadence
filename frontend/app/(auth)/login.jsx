@@ -23,13 +23,12 @@ const Login = () => {
       <Text className='font-urbanistLight text-lg ml-7 mb-[73]'>Let's get back on track in no time</Text>
 
       <InputBox 
-        title="Email"
-        value={credentials.email}
+        title="Username"
+        value={credentials.username}
         handleChange={(e) => {
-          setCredentials({ ...credentials, email: e});
+          setCredentials({ ...info, username: e});
         }}
-        keyboardType="email-address"
-        titleWidth=" w-[18%]"
+        titleWidth=" w-[28%]"
       />
 
       <InputBox 

@@ -34,7 +34,7 @@ const SignUp = () => {
 
       <InputBox 
         title="Username"
-        value={info.usename}
+        value={info.username}
         handleChange={(e) => {
           setInfo({ ...info, username: e});
         }}
