@@ -33,6 +33,7 @@ class UserViews(APIView):
         except Exception as error:
             return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
+        
     @api_view(['POST'])
     def upload_image(request):
         try:
@@ -40,7 +41,9 @@ class UserViews(APIView):
             image_file = request.data.get('image')
 
             if image_file:
-                image_name = image_file.name
+                timestamp = str(int(time.time()))
+                image_name = f"{timestamp}{image_file.name}"
+
                 with open('cadence/media/profile_images/' + image_name, 'wb+') as destination:
                     for chunk in image_file.chunks():
                         destination.write(chunk)
@@ -54,6 +57,8 @@ class UserViews(APIView):
             
         except Exception as error:
             return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR) 
+
+
 
     # def put(self, request):
     #     user_profile = request.user.userprofile
