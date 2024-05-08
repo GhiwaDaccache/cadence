@@ -32,9 +32,17 @@ const handleLogin = () =>{
 const handleSignUp = () =>{
   if(!info.email || !info.username || !info.password){
     Alert.alert("Error", "All fields are required")
+    return
   }
   setIsSubmitting(true)
-  router.push("/registration")
+  try{
+    router.push("/registration")
+    console.log("signup")
+  } catch (error){
+    console.log(error)
+  } finally {
+    setIsSubmitting(false)
+  }
 };
 
 

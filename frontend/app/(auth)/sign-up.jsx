@@ -49,7 +49,6 @@ const SignUp = () => {
         }}
         titleWidth=" w-[28%]"
       />
-
       
       <View className='self-center pt-[30] flex items-center'>
         <PrimaryButton 
