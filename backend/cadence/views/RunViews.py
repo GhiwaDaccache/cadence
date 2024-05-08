@@ -37,4 +37,22 @@ class RunViews(APIView):
         except Run.DoesNotExist:
             return Response({'message': 'Run not found.'}, status=status.HTTP_404_NOT_FOUND)
         
-   
+    def get(self, request, pk=None):  
+        try:
+            if pk is not None:
+                run = Run.objects.get(pk=pk)
+                serializer = RunSerializer(run)
+                return Response({'message': 'Success.', 'data': serializer.data}, status=status.HTTP_200_OK)
+            
+            else:
+                runs = Run.objects.all()
+                serializer = RunSerializer(runs, many=True)
+                return Response({'message': 'success.', 'data': serializer.data}, status=status.HTTP_200_OK)
+            
+        except Run.DoesNotExist:
+            return Response({'message': 'Run not found.'}, status=status.HTTP_404_NOT_FOUND)
+        
+        except Exception as error:
+            return Response({'message': 'Failed to get run.', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+
