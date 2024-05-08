@@ -18,9 +18,7 @@ urlpatterns = [
     # User
     path('api/user/register/', RegistrationViews.as_view(), name='register'),
     path('api/user/', UserViews.as_view(), name='user'),
-    # path('api/user/upload_image/', UserViews.as_view({'post': 'upload_image'}), name='upload_image'),
     path('api/user/upload_image/', UserViews.upload_image, name='upload_image'),
-    # path('api/user/upload_image/', upload_image, name='upload_image'),
     
     # Plan
     path('api/plan/', PlanViews.as_view(), name='plans'),
