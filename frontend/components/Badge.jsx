@@ -1,8 +1,8 @@
 // Dependencies
-import React from 'react'
-import { View, Text, Image } from 'react-native'
+import React from 'react';
+import { View, Text, Image } from 'react-native';
 
-const Badge = ({ icon, title, date, distance, timing}) => {
+const Badge = ({ icon, title, data, distance, timing}) => {
   return (
     <View className='bg-grey flex flex-row w-[303] px-9 py-2 rounded-md my-2'>
         <Image 
@@ -13,12 +13,14 @@ const Badge = ({ icon, title, date, distance, timing}) => {
 
       <View className='pl-8'>
         <Text className='text-base font-urbanistBold pb-1'>{title}</Text>
-        <Text className='text-base font-urbanistLight'>{date}</Text>
-        <Text className='text-base font-urbanistLight'>{distance} km</Text>
-        <Text className='text-base font-urbanistLight'>{timing}</Text>
+        {data.map((item, index) => (
+          <Text key={index} className='text-base font-urbanistLight'>
+            {item}
+          </Text>
+        ))}
       </View>
     </View>
   )
 }
 
-export default Badge
+export default Badge;
