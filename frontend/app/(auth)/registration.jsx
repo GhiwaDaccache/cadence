@@ -41,13 +41,13 @@ const Registration = () => {
 
       <View className='self-center mt-[90]'>
         <PrimaryButton
-          title='Next'           
+          title='Finish'           
           width='w-[170]'
           handlePress={() => {
-            router.push('/second-registration')
+              router.push('/profile')
           }}
         />
-      </View>
+        </View>
       
     </SafeAreaView>
   )
