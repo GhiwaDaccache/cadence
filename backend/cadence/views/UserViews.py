@@ -39,6 +39,7 @@ class UserViews(APIView):
         try:
             user_profile = request.user.userprofile
             image_file = request.data.get('image')
+            image_type = request.data.get('image_type')
 
             if image_file:
                 timestamp = str(int(time.time()))
@@ -48,9 +49,12 @@ class UserViews(APIView):
                     for chunk in image_file.chunks():
                         destination.write(chunk)
                 
-                user_profile.profile_photo_name = image_name
-                user_profile.save()
+                if image_type == 'profile_photo':
+                    user_profile.profile_photo_name = image_name
+                elif image_type == 'cover_photo':
+                    user_profile.cover_photo_name = image_name
                 
+                user_profile.save()
                 return Response({'message': 'Image uploaded successfully'}, status=status.HTTP_200_OK)
             else:
                 return Response({'error': 'No image found'}, status=status.HTTP_400_BAD_REQUEST)
