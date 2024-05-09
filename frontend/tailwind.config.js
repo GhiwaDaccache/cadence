@@ -6,7 +6,8 @@ module.exports = {
       colors: {
         primary: '#A00119',
         grey: '#F5F5F5',
-        placeholderGrey: '#ACACAC'
+        placeholderGrey: '#ACACAC',
+        darkGrey: '#E0E0E0'
       },
       fontFamily: {
         urbanistLight: ["Urbanist-light", "sans-serif"],
