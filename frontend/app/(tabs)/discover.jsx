@@ -3,10 +3,13 @@ import { View, Text, SafeAreaView, FlatList, TouchableOpacity } from 'react-nati
 import React, {useState} from 'react';
 
 // Components
+import PlanCard from '../../components/PlanCard';
 import GenreCard from '../../components/GenreCard';
 import PrimaryButton from '../../components/PrimaryButton';
 import IntervalInput from '../../components/IntervalInput';
 
+// Assets
+import images from '../../assets/images/images';
 
 const Discover = () => {
   // Genres api:
@@ -74,9 +77,17 @@ const Discover = () => {
             />
           </View>
       </View>
+
       <View className='w-full flex items-start px-5'>
         <Text className='font-urbanistBold text-base pt-4'>Plans</Text>
+        <PlanCard 
+          image={images.plan}
+          distance={13.2}
+          duration={5}
+          level={'Intermediate'}
+          title={'Road to 10k'}
         
+        />
       </View>
     </SafeAreaView>
   )
