@@ -1,12 +1,9 @@
 # Dependencies
-import requests; 
 from rest_framework import status;
 from rest_framework.views import APIView;
 from rest_framework.response import Response;
 from rest_framework.permissions import IsAuthenticated;
 from rest_framework_simplejwt.authentication import JWTAuthentication;
-from django.http import JsonResponse
-from urllib.parse import urlencode
 
 # Models
 from ..models.PlaylistModel import Playlist;
@@ -59,6 +56,5 @@ class PlaylistViews(APIView):
             return Response({'message': 'Playlist not found.'}, status=status.HTTP_404_NOT_FOUND)
         
     
-            
         
         

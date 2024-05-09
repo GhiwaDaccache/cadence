@@ -10,8 +10,9 @@ from .views.SpotifyViews import *
 from .views.PlanRunViews import *
 from .views.SegmentViews import *
 from .views.PlaylistViews import *
-from .views.EarnedBadgeViews import *
 from .views.RecordedRunViews import *
+from .views.EarnedBadgeViews import *
+from .views.PlaylistInfoViews import *
 from .views.FavoritePlaylistViews import *
 
 urlpatterns = [
@@ -38,6 +39,7 @@ urlpatterns = [
     # Playlist
     path('api/playlist/', PlaylistViews.as_view(), name='playlist'),
     path('api/playlist/<int:pk>/', PlaylistViews.as_view(), name='playlist_id'),
+    path('api/playlist/info/<int:pk>/', PlaylistInfo.as_view(), name='playlist_info'),
 
     # Run
     path('api/run/', RunViews.as_view(), name="run"),

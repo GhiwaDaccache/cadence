@@ -41,7 +41,12 @@ const Discover = () => {
             showsVerticalScrollIndicator={false}
             dropdownStyle={styles.dropdownMenuStyle}
           />
+
+          <Text className='font-urbanist text-base pt-2'>Intervals</Text>
+
       </View>
+
+
     </SafeAreaView>
   )
 }
