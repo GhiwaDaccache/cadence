@@ -1,6 +1,6 @@
 // Dependencies
 import React from 'react';
-import { SafeAreaView, Text, Image, View, StatusBar } from 'react-native';
+import { SafeAreaView, Text, Image, View, StatusBar, FlatList, ScrollView } from 'react-native';
 
 // Components
 import ProfileCard from '../../../components/ProfileCard';
@@ -46,6 +46,50 @@ const Profile = () => {
     ));
   };
 
+  const playlists = {
+    "message": "Success",
+    "data": [
+        {
+            "playlist": {
+                "id": 1,
+                "name": "Playlist 1",
+                "level": "Beginner"
+            },
+            "songs": []
+        },
+        {
+            "playlist": {
+                "id": 4,
+                "name": "Playlist 3",
+                "level": "Intermediate"
+            },
+            "songs": []
+        },
+        {
+          "playlist": {
+              "id": 2,
+              "name": "Playlist 5",
+              "level": "Intermediate"
+          },
+          "songs": []
+      }
+    ]}
+
+    const renderPlaylists = () => (
+      <FlatList
+        data={playlists.data}
+        renderItem={({ item }) => (
+          <PlaylistCard
+            image={images.playlist}
+            time={'20:12'}
+            level={item.playlist.level}
+            title={item.playlist.name}
+          />
+        )}
+        keyExtractor={(item) => item.playlist.id.toString()}
+      />
+    );
+
   return (
     <SafeAreaView className='bg-white h-full flex items-center'>
       <StatusBar backgroundColor='white'/>
@@ -63,14 +107,9 @@ const Profile = () => {
       </View>
 
       <Text className='font-urbanistBold text-base self-start pl-7 pt-8'>Saved playlists</Text>
-      <View className='w-full pl-7 content-evenly'>
-        <PlaylistCard 
-          image={images.playlist}
-          time={'20:12'}
-          level={'Intermediate'}
-          title={'Monday runs'}
-        />
-      </View>
+      <ScrollView className='w-full pl-7 content-evenly'>
+        {renderPlaylists()}
+      </ScrollView>
       
     </SafeAreaView>
   )

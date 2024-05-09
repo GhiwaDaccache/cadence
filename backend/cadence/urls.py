@@ -12,7 +12,6 @@ from .views.SegmentViews import *
 from .views.PlaylistViews import *
 from .views.RecordedRunViews import *
 from .views.EarnedBadgeViews import *
-from .views.PlaylistInfoViews import *
 from .views.FavoritePlaylistViews import *
 
 urlpatterns = [
