@@ -7,12 +7,13 @@ from rest_framework_simplejwt.authentication import JWTAuthentication;
 
 # Models
 from ..models.PlaylistModel import Playlist;
+from ..models.SpotifySongModel import SpotifySong;
 from ..models.FavoritePlaylistModel import FavoritePlaylist;
 
 # Serializers
 from ..serializers.PlaylistSerializer import PlaylistSerializer;
+from ..serializers.SpotifySongSerializer import SpotifySongSerializer;
 from ..serializers.FavoritePlaylistSerializer import FavoritePlaylistSerializer;
-
 
 
 class FavoritePlaylistViews(APIView):
@@ -45,12 +46,23 @@ class FavoritePlaylistViews(APIView):
             favorite_playlists = FavoritePlaylist.objects.filter(user_id=user_id)
             playlist_ids = favorite_playlists.values_list('playlist_id', flat=True)
             playlists = Playlist.objects.filter(id__in=playlist_ids)
-            serializer = PlaylistSerializer(playlists, many=True)
+            playlist_data = []
+            
+            for playlist in playlists:
+                songs = SpotifySong.objects.filter(playlist=playlist)
+                playlist_serializer = PlaylistSerializer(playlist)
+                songs_serializer = SpotifySongSerializer(songs, many=True)
 
-            if len(serializer.data) >= 1:
-                return Response({'message':'Success', 'data': serializer.data}, status=status.HTTP_200_OK)
+                playlist_info = {
+                    'playlist': playlist_serializer.data,
+                    'songs': songs_serializer.data
+                }
+                playlist_data.append(playlist_info)
+
+            if len(playlist_data) >= 1:
+                return Response({'message':'Success', 'data': playlist_data}, status=status.HTTP_200_OK)
             else:
-                return Response({'message':'No data', 'data': serializer.data}, status=status.HTTP_200_OK)
+                return Response({'message':'No data', 'data': playlist_data}, status=status.HTTP_200_OK)
             
         except Exception as error:
             return Response({'message': 'Failed to get playlists', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
