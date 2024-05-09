@@ -1,3 +1,4 @@
+import plan from '../images/plan.png';
 import cover from '../images/cover.jpg';
 import playlist from '../images/playlist.png';
 import profile from '../images/profilePic.png';
@@ -7,6 +8,7 @@ export default{
     landingBg,
     cover,
     profile,
-    playlist
+    playlist,
+    plan
 }
 
