@@ -16,7 +16,6 @@ const Plan = () => {
       />
       <NextRun 
         distance={'2.9'}
-        scheduleDate={'20-04-2024'}
       />
     </View>
   )

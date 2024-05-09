@@ -1,7 +1,7 @@
 // Dependencies
 import { router } from "expo-router";
 import { Alert } from "react-native";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // Tools
 import { sendRequest } from "../../../tools/sendRequest";
@@ -14,17 +14,6 @@ export const useAuthenticationLogic = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [info, setInfo] = useState({username: "", password: "", first_name: "", last_name: "", email: ""});
 
-  const [error, setError] = useState("");
-
-  // useEffect(() => {
-  //   if (!credentials.email.includes("@")) {
-  //     setError("Invalid email");
-  //   } else if (credentials.password.length < 6) {
-//       setError("Short password");
-//     } else {
-//       setError("");
-//     }
-//   }, [credentials]);
 
 //   const switcher = (value) => {
 //     setIsLogin(value);
@@ -73,6 +62,5 @@ const handleSignUp = async () =>{
     handleSignUp
     // switcher,
     // setIsLogin,
-    // setError,
   };
 };

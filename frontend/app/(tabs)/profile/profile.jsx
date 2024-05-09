@@ -10,7 +10,6 @@ import PlaylistCard from '../../../components/PlaylistCard';
 // Assets
 import icons from '../../../assets/icons/icons';
 import images from '../../../assets/images/images'; 
-import { router } from 'expo-router';
 
 // const handlePrev = () =>{
 //   router.push('/profile/previous')
