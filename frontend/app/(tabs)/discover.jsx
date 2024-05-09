@@ -12,17 +12,16 @@ const Discover = () => {
     <TouchableOpacity onPress={() => setSelectedGenre(item)}>
       <GenreCard
         genre={item}
-        isSelected={selectedGenre === item}
+        selectedGenre={selectedGenre}
       />
     </TouchableOpacity>
   )
 
   return (
     <SafeAreaView className='bg-white h-full pt-20 flex items-center'>
-      <View className='pt-3 bg-grey rounded mx-7 w-72 px-2'>
+      <View className='py-3 bg-grey rounded mx-7 w-80 pl-2'>
           <Text className='font-urbanistBold text-base self-center pb-1'>Generate your playlist now</Text>
-
-          <Text className='font-urbanist text-base pb-2'>Genre</Text>
+          <Text className='font-usemibold text-base pb-2'>Genre</Text>
           
           <FlatList
             data={genres.genres}
@@ -32,25 +31,28 @@ const Discover = () => {
             keyExtractor={(item, index) => index.toString()}
           />
 
-          <Text className='font-urbanist text-base pt-2'>Intervals</Text>
+          <Text className='font-usemibold text-base pt-4'>Intervals</Text>
           <View className='flex flex-row justify-between w-52'>
             <Text className='font-urbanist text-base'>Time (min)</Text>
             <Text className='font-urbanist text-base'>Pace (min/km)</Text>
           </View>
 
-          <View className='flex flex-row justify-between w-52'>
+          <View className='flex flex-row justify-between w-48 py-2'>
+           <IntervalInput />
            <IntervalInput />
           </View>
-
-          <View className='flex flex-row justify-between w-52'>
-            <Text className='font-urbanist text-base'>Time (min)</Text>
-            <Text className='font-urbanist text-base'>Pace (min/km)</Text>
+          
+          <View className='flex flex-row justify-between w-48'>
+            <IntervalInput />
+            <IntervalInput />
           </View>
 
-          <TextInput/>
+          <View className='flex flex-row justify-between w-48 py-2'>
+            <IntervalInput />
+            <IntervalInput />
+          </View>
+
       </View>
-
-
     </SafeAreaView>
   )
 }
