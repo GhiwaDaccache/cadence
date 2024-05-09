@@ -10,7 +10,6 @@ const PlanTracker = ({ planName, weeks, distance }) => {
     <View className='flex py-2 px-6 mx-7 bg-grey rounded-md  w-80 '>
         <Text className='font-urbanistBold text-base'>{planName}</Text>
         <View className='flex flex-row justify-between pt-2'>
-          <View>
             <Text className='font-urbanist text-base'>Total weeks</Text>
             <View className='flex flex-row'>
               <Text className='font-urbanist text-base'>{weeks}</Text>
@@ -19,10 +18,9 @@ const PlanTracker = ({ planName, weeks, distance }) => {
                 className='w-6 h-6'  
               />
             </View>
-          </View>
-
-          <View>
-            <Text className='font-urbanist text-base'>Total distance</Text>
+        </View>
+        <View className='flex flex-row justify-between pt-2'>
+          <Text className='font-urbanist text-base'>Total distance</Text>
             <View className='flex flex-row items-center'>
               <Text className='font-urbanist text-base pr-2'>{`${distance} km`}</Text>
               <Image 
@@ -30,15 +28,15 @@ const PlanTracker = ({ planName, weeks, distance }) => {
                 className='w-4 h-4' 
               />
             </View>
-          </View>
         </View>
+
         <View className='py-2 px-3 mt-2 bg-white rounded-md'>
           <View className='flex flex-row justify-between'>
-            <Text className='font-urbanistsemibold text-base'>Week:</Text>
+            <Text className='font-usemibold text-base'>Week</Text>
             <Text className='font-urbanist text-base pr-9'>2</Text>
           </View>
           <View className='flex flex-row justify-between'>
-            <Text className='font-urbanistsemibold text-base'>Total runs:</Text>
+            <Text className='font-usemibold text-base'>Total runs</Text>
             <Text className='font-urbanist text-base pr-9'>3</Text>
           </View>
           
