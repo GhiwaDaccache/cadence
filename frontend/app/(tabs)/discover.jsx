@@ -1,8 +1,11 @@
-import { View, Text, Image, SafeAreaView, FlatList, TouchableOpacity, TextInput } from 'react-native';
+// Dependencies
+import { View, Text, SafeAreaView, FlatList, TouchableOpacity } from 'react-native';
 import React, {useState} from 'react';
+
+// Components
 import GenreCard from '../../components/GenreCard';
+import PrimaryButton from '../../components/PrimaryButton';
 import IntervalInput from '../../components/IntervalInput';
-import PrimaryButton from '../../components/PrimaryButton'
 
 
 const Discover = () => {
@@ -73,6 +76,7 @@ const Discover = () => {
       </View>
       <View className='w-full flex items-start px-5'>
         <Text className='font-urbanistBold text-base pt-4'>Plans</Text>
+        
       </View>
     </SafeAreaView>
   )
