@@ -7,7 +7,7 @@ import icons from '../assets/icons/icons';
 
 const PlanTracker = ({ planName, weeks, distance }) => {
   return (
-    <View className='flex py-2 px-6 mx-7 bg-grey rounded-md  w-80 '>
+    <View className='flex py-3 px-6 mx-7 bg-grey rounded-md w-80 '>
         <Text className='font-urbanistBold text-base'>{planName}</Text>
         <View className='flex flex-row justify-between pt-2'>
             <Text className='font-urbanist text-base'>Total weeks</Text>

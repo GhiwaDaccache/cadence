@@ -9,9 +9,9 @@ import images from '../assets/images/images';
 // Components
 import PlaylistCard from '../components/PlaylistCard';
 
-const NextRun = ({ distance, scheduleDate }) => {
+const NextRun = ({ distance }) => {
   return (
-    <View className='flex py-2 px-6 mx-7 mt-5 bg-grey rounded-md'>
+    <View className='flex py-2 px-6 mx-7 mt-5 bg-grey rounded-md w-80'>
       <Text className='font-urbanistBold text-base'>Next run</Text>
 
       <View className='flex flex-row justify-between'>
@@ -26,9 +26,7 @@ const NextRun = ({ distance, scheduleDate }) => {
       </View>
 
       <View className='py-2 px-3 mt-2 bg-white rounded-md'>
-        <Text className='font-urbanist text-base'>{scheduleDate}</Text>
-        <Text className='font-urbanist text-base pt-1'>Intervals</Text>
-        <View className='w-full bg-black rounded h-4 mt-2'></View>
+        <Text className='font-usemibold text-base pt-1'>Playlist</Text>
         <PlaylistCard 
           image={images.playlist}
           level={'Intermediate'}
