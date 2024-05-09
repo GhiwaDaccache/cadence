@@ -2,6 +2,8 @@ import { View, Text, Image, SafeAreaView, FlatList, TouchableOpacity, TextInput 
 import React, {useState} from 'react';
 import GenreCard from '../../components/GenreCard';
 import IntervalInput from '../../components/IntervalInput';
+import PrimaryButton from '../../components/PrimaryButton'
+
 
 const Discover = () => {
   // Genres api:
@@ -32,26 +34,45 @@ const Discover = () => {
           />
 
           <Text className='font-usemibold text-base pt-4'>Intervals</Text>
-          <View className='flex flex-row justify-between w-52'>
+          <View className='flex flex-row justify-between w-60'>
             <Text className='font-urbanist text-base'>Time (min)</Text>
-            <Text className='font-urbanist text-base'>Pace (min/km)</Text>
+            <Text className='font-urbanist text-base mr-2'>Pace (min/km)</Text>
           </View>
 
-          <View className='flex flex-row justify-between w-48 py-2'>
-           <IntervalInput />
-           <IntervalInput />
+          <View className='flex flex-row justify-between py-2 mr-2 w-52'>
+           <IntervalInput 
+              placeholder={"12"}
+           />
+           <IntervalInput 
+            placeholder={"6"}
+           />
           </View>
-          
-          <View className='flex flex-row justify-between w-48'>
-            <IntervalInput />
-            <IntervalInput />
+          <View className='flex flex-row justify-between py-2 mr-2 w-52'>
+           <IntervalInput 
+            placeholder={"12"}
+           />
+           <IntervalInput 
+            placeholder={"6"}
+           />
+          </View>
+          <View className='flex flex-row justify-between py-2 mr-2 w-52'>
+           <IntervalInput 
+            placeholder={"12"}
+           />
+           <IntervalInput 
+            placeholder={"6"}
+           />
           </View>
 
-          <View className='flex flex-row justify-between w-48 py-2'>
-            <IntervalInput />
-            <IntervalInput />
+          <View className='self-center pt-2'>
+            <PrimaryButton 
+            title={'Generate'}
+            width={'w-32'}
+            />
           </View>
-
+      </View>
+      <View className='w-full flex items-start px-5'>
+        <Text className='font-urbanistBold text-base pt-4'>Plans</Text>
       </View>
     </SafeAreaView>
   )

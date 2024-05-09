@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
 
-const IntervalInput = ({ value, handleChange }) => {
+const IntervalInput = ({ value, handleChange, placeholder }) => {
 
     return (
         <View>
@@ -10,6 +10,7 @@ const IntervalInput = ({ value, handleChange }) => {
                 keyboardType="numeric"
                 value={value}
                 onChangeText={handleChange}
+                placeholder={placeholder}
                 className='font-urbanist text-base h-7 w-20 bg-darkGrey rounded-md flex justify-center px-2'
             />
         </View>
