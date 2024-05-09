@@ -10,9 +10,9 @@ const PlanCard = ({ image, title, level, distance, duration }) => {
         />
         <View className='flex justify-center pl-4'>
           <Text className='font-urbanistBold text-base'>{title}</Text>
-          <Text className=' pt-3 font-urbanist'>{level}</Text>
-          <Text>{distance}</Text>
-          <Text>{duration}</Text>
+          <Text className='pt-3 font-urbanist'>{level}</Text>
+          <Text className='pt-1 font-urbanist'>{distance} km</Text>
+          <Text className='pt-1 font-urbanist'>{duration} weeks</Text>
         </View>
       </View>
   )
