@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text, Image} from 'react-native';
 
-const PlanCard = ({ image }) => {
+const PlanCard = ({ image, title, level, distance, duration }) => {
   return (
     <View className='flex flex-row pt-6'>
         <Image 
