@@ -18,4 +18,4 @@ const PlanCard = ({ image, title, level, distance, duration }) => {
   )
 }
 
-export default PlanCard
+export default PlanCard;

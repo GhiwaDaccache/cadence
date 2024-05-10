@@ -1,6 +1,6 @@
 // Dependencies
 import React from 'react';
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image } from 'react-native';
 
 // Assets
 import icons from '../assets/icons/icons';
@@ -67,4 +67,4 @@ const PlanTracker = ({ planName, weeks, distance }) => {
   )
 }
 
-export default PlanTracker
+export default PlanTracker;
