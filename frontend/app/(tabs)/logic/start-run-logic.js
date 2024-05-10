@@ -1,15 +1,16 @@
 import { useState } from "react";
 
 export const useStartRunLogic = () => {
-    const [buttonText, setButtonText] = useState('Start');
+    const [isRunning, setIsRunning] = useState(false);
 
-    const handleButtonPress = () => {
-        setButtonText(prevText => (prevText === 'Start' ? 'Stop' : 'Start'));
-      };
+    const handleStartStop = () => {
+        setIsRunning(!isRunning);
+    };
     
 
-  return {
-    buttonText,
-    handleButtonPress
-  };
+    return {
+        isRunning,
+        setIsRunning,
+        handleStartStop
+    };
 };
