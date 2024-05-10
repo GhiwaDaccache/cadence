@@ -10,7 +10,12 @@ import GreyInputBox from '../../components/GreyInputBox';
 import PrimaryButton from '../../components/PrimaryButton';
 import OutlineButton from '../../components/OutlineButton';
 
+// Custom hooks
+import { useRegistrationLogic } from '../(auth)/logic/registration-logic';
+
 const Settings = () => {
+  const { record, setRecord } = useRegistrationLogic();
+
   return (
     <SafeAreaView className='bg-white h-full'>
       <StatusBar backgroundColor='white'/>
@@ -22,17 +27,23 @@ const Settings = () => {
         <Image source={images.profile} className='h-full w-full'  />
       </View>
 
-      <View className='pt-14 pb-5'>
+      <View className='pt-14 pb-14'>
         <GreyInputBox 
           title={'First Name'}   
+          placeholder={'John'}
+          handleChange={(e)=>{
+            setRecord({ ...record, firstName: e});
+          }}
+          value={record.firstName}
         />
 
         <GreyInputBox 
           title={'Last Name'}   
-        />
-
-        <GreyInputBox 
-          title={'Email'}   
+          placeholder={'Doe'}
+          handleChange={(e)=>{
+          setRecord({ ...record, lastName: e});
+        }}
+        value={record.lastName}
         />
       </View>
 

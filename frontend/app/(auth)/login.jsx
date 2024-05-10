@@ -6,7 +6,7 @@ import { View, Text, SafeAreaView } from 'react-native';
 // Components
 import AppName from '../../components/AppName';
 import InputBox from '../../components/InputBox';
-import PrimaryButton from '../../components/PrimaryButton'
+import PrimaryButton from '../../components/PrimaryButton';
 
 // Custom Hooks
 import { useAuthenticationLogic } from './logic/logic';
