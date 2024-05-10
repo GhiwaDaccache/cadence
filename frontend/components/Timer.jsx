@@ -2,19 +2,22 @@
 import { View, Text } from 'react-native';
 import React, { useState, useEffect } from 'react';
 
-const Timer = () => {
+const Timer = ({ isRunning }) => {
     const [currentTime, setCurrentTime] = useState(new Date().setHours(0, 0, 0, 0)); 
 
     useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentTime(prevTime => {
-                const newTime = new Date(prevTime || 0);
-                newTime.setSeconds(newTime.getSeconds() + 1);
-                return newTime.getTime();
-            });
-        }, 1000);
+        let timer;
+        if(isRunning){
+            timer = setInterval(() => {
+                setCurrentTime(prevTime => {
+                    const newTime = new Date(prevTime || 0);
+                    newTime.setSeconds(newTime.getSeconds() + 1);
+                    return newTime.getTime();
+                });
+            }, 1000);
+        }
         return () => clearInterval(timer);
-    }, []);
+    }, [isRunning]);
 
     const formattedTime = () => {
         const date = new Date(currentTime);
