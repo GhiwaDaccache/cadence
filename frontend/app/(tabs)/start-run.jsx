@@ -11,7 +11,7 @@ import PrimaryButton from '../../components/PrimaryButton';
 import { useStartRunLogic } from './logic/start-run-logic';
 
 const StartRun = () => {
-  const { handleStartStop, isRunning, setIsRunning} = useStartRunLogic();
+  const { handleStartStop, isRunning } = useStartRunLogic();
 
   return (
     <SafeAreaView className='bg-white h-full pt-20 px-7 flex items-center'>

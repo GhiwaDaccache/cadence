@@ -10,7 +10,6 @@ export const useStartRunLogic = () => {
 
     return {
         isRunning,
-        setIsRunning,
         handleStartStop
     };
 };
