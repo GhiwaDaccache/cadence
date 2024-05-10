@@ -1,8 +1,11 @@
-import { View, Text, Image } from 'react-native'
-import React from 'react'
-import icons from '../assets/icons/icons'
+// Dependencies
+import React from 'react';
+import { View, Text, Image } from 'react-native';
 
-const Run = ({ title, time, distance, pace, date }) => {
+// Assets
+import icons from '../assets/icons/icons';
+
+const Run = ({ time, distance, pace, date }) => {
   return (
     <View className='bg-grey flex flex-row w-[303] justify-center py-2 rounded-md my-2'>
         <Image 
@@ -25,4 +28,4 @@ const Run = ({ title, time, distance, pace, date }) => {
   )
 }
 
-export default Run
+export default Run;
