@@ -4,8 +4,11 @@ import { View, Text, FlatList } from 'react-native';
  
 // Components
 import Run from '../../../components/Run';
+import { usePrviousLogic } from './logic/previous-logic';
 
 const previous = () => {
+  //when api is implemented
+  // const { previousRuns, setPreviousRuns } = usePrviousLogic
   const previousRuns = [
     {
         "id": 1,

@@ -4,7 +4,7 @@ export const usePrviousLogic = () => {
     const [previousRuns, setPreviousRuns] = useState([])
 
     useEffect(() => {   
-        setPreviousRuns = [
+        setPreviousRuns([
             {
                 "id": 1,
                 "recorded_on": "2024-05-02",
@@ -27,11 +27,31 @@ export const usePrviousLogic = () => {
                 "user": 17,
                 "run": null
             }
-        ]
-        }, []);
+        ]);
+    }, []);
 
-return {
-    previousRuns,
-    setPreviousRuns
+    return {
+        previousRuns,
+        setPreviousRuns
+    }
 }
-}
+// When API implemented
+
+// export const usePrviousLogic = () => {
+//     const [previousRuns, setPreviousRuns] = useState([]);
+  
+//     useEffect(() => {
+//       const fetchData = async () => {
+//         const response = await fetch('https://your-api.com/previous-runs'); // Replace with your API endpoint
+//         const data = await response.json();
+//         setPreviousRuns(data);
+//       };
+  
+//       fetchData();
+//     }, []);
+  
+//     return {
+//       previousRuns,
+//       setPreviousRuns,
+//     };
+//   };
