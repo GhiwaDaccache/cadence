@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Text, SafeAreaView } from 'react-native';
 
 // Components
+import Timer from '../../components/Timer';
 import LogoSmall from '../../assets/images/LogoSmall';
 import PrimaryButton from '../../components/PrimaryButton';
 
@@ -11,7 +12,7 @@ const StartRun = () => {
   return (
     <SafeAreaView className='bg-white h-full pt-20 px-7 flex items-center'>
       <LogoSmall/>
-      <Text className='font-urbanistBold text-2xl pt-4'>00:00:00</Text>
+      <Timer />
 
       <View className='flex flex-row justify-between w-full pt-10'>
 
