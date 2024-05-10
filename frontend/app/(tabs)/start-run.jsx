@@ -12,7 +12,7 @@ const StartRun = () => {
   return (
     <SafeAreaView className='bg-white h-full pt-20 px-7 flex items-center'>
       <LogoSmall/>
-      <Timer />
+      {/* <Timer /> */}
 
       <View className='flex flex-row justify-between w-full pt-10'>
 
