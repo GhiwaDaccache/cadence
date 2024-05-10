@@ -76,6 +76,8 @@ const Profile = () => {
 
     const renderPlaylists = () => (
       <FlatList
+        className='self-start pl-7'
+        showsVerticalScrollIndicator={false}
         data={playlists.data}
         renderItem={({ item }) => (
           <PlaylistCard
@@ -106,10 +108,7 @@ const Profile = () => {
       </View>
 
       <Text className='font-urbanistBold text-base self-start pl-7 pt-8'>Saved playlists</Text>
-      <ScrollView className='w-full pl-7 content-evenly'>
         {renderPlaylists()}
-      </ScrollView>
-      
     </SafeAreaView>
   )
 }

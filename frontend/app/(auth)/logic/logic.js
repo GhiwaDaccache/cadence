@@ -21,7 +21,7 @@ export const useAuthenticationLogic = () => {
 
 const handleLogin = () =>{
   console.log("logged in")
-  router.push("/profile")
+  router.replace("/profile")
 
 };
 
