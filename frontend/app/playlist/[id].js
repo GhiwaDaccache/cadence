@@ -1,10 +1,23 @@
-import { View, Text,  } from "react-native";
+import { View } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import PlaylistCard from "../../components/PlaylistCard";
+import PrimaryButton from "../../components/PrimaryButton";
 import images from '../../assets/images/images'; 
+import { useState } from "react";
+
 
 
 export default function playlistDetails() {
+    const [currentTrack, setCurrentTrack] = useState(null)
+    const [playlistTracks, setPlaylistTracks] = useState([])
+
+    // const getPlaylistTracks = async () =>{
+    //     const accesToken = await 
+    // }
+
+    // const playSpotify = async () =>{
+    //     console.log('music playing')
+    // }
 
     const playlists = {
         "message": "Success",
@@ -50,6 +63,12 @@ export default function playlistDetails() {
                     time={'20:18'}
                 />
             </View>
+
+            <PrimaryButton
+            handlePress={playSpotify}
+            title={'Start'}
+            width={'w-[170]'}
+            />
         </View>
 
     )
