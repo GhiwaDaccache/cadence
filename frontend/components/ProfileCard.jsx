@@ -8,9 +8,7 @@ const ProfileCard = ({ title, icon, source }) => {
     <TouchableOpacity className='w-20 h-20 bg-grey rounded-md flex items-center pt-2'
         onPress={()=> {
             router.push(`/profile/${source}`)
-        }}
-        // onPress={handleNavigation}
-    >
+        }}>
     <Image 
       source={icon} 
       resizeMode="contain" 
