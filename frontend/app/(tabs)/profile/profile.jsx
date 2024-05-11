@@ -23,6 +23,9 @@ const Profile = () => {
         setErrorMessage('Permission to access location was denied')
         return
       }
+
+      let location = await Location.getCurrentPositionAsync({})
+      setLocation(location)
     })()
   }, [])
 
