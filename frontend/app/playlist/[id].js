@@ -39,9 +39,11 @@ export default function playlistDetails() {
     const selectedPlaylist = playlists.data.find((item) => { return item.playlist.id == id})
 
     return (
-        <View className='h-full bg-white'>
-            <View className='self-center'>
+        <View className='h-full bg-white px-7'>
+            <View>
                 <PlaylistCard
+                    imageSize={'w-32 h-32'}
+                    titleSize={'text-xl'}
                     title={selectedPlaylist.playlist.name}
                     image={images.playlist}
                     level={selectedPlaylist.playlist.level}
