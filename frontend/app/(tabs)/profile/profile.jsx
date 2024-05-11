@@ -29,6 +29,16 @@ const Profile = () => {
     })()
   }, [])
 
+  let text = 'Waiting..';
+  if (errorMessage) {
+    text = errorMessage;
+    console.log(text)
+  } else if (location) {
+    text = JSON.stringify(location);
+    console.log(text)
+  }
+
+
 
   const profileCardsData = [
     {
