@@ -14,7 +14,18 @@ export const useProfileLogic = () => {
           setErrorMessage('Permission to access location was denied')
           return
         }
-       
+        foregroundSubscription?.remove()
+        foregroundSubscription = await Location.watchPositionAsync(
+          {
+            accuracy: Location.Accuracy.BestForNavigation,
+          },
+          async (location) => {
+            setLocation({
+                latitude: location.coords.latitude,
+                longitude: location.coords.longitude
+            })
+            setSpeed(location.coords.speed)
+            console.log(speed)
           }
         )
       })()}, [])
