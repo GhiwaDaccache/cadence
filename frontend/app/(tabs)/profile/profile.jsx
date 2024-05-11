@@ -1,7 +1,6 @@
 // Dependencies
 import { router } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import * as Location from 'expo-location';
 import { SafeAreaView, Text, Image, View, StatusBar, FlatList } from 'react-native';
 
 // Components
@@ -13,33 +12,6 @@ import icons from '../../../assets/icons/icons';
 import images from '../../../assets/images/images'; 
 
 const Profile = () => {
-  const [location, setLocation] = useState(null);
-  const [errorMessage, setErrorMessage] = useState(null);
-
-  useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync()
-      if (status !== 'granted') {
-        setErrorMessage('Permission to access location was denied')
-        return
-      }
-
-      let location = await Location.getCurrentPositionAsync({})
-      setLocation(location)
-    })()
-  }, [])
-
-  let text = 'Waiting..';
-  if (errorMessage) {
-    text = errorMessage;
-    console.log(text)
-  } else if (location) {
-    text = JSON.stringify(location);
-    console.log(text)
-  }
-
-
-
   const profileCardsData = [
     {
       source: 'previous',
@@ -111,7 +83,7 @@ const Profile = () => {
             title={item.playlist.name}
             handlePress={()=>{ 
               router.push(`/playlist/${item.playlist.id}`)
-                    }}
+                }}
           />
         )}
         keyExtractor={(item) => item.playlist.id}
