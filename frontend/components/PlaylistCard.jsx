@@ -1,10 +1,10 @@
 // Dependencies
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 
-const PlaylistCard = ({ image, title, time, level }) => {
+const PlaylistCard = ({ image, title, time, level, handlePress }) => {
   return (
-    <View className='flex flex-row pt-6'>
+    <TouchableOpacity className='flex flex-row pt-6' onPress={handlePress}>
         <Image 
           source={image}
         />
@@ -13,7 +13,7 @@ const PlaylistCard = ({ image, title, time, level }) => {
           <Text className=' pt-3 font-urbanist'>{level}</Text>
           <Text>{time}</Text>
         </View>
-      </View>
+      </ TouchableOpacity >
   )
 }
 

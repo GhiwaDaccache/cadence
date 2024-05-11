@@ -1,6 +1,7 @@
 // Dependencies
 import React from 'react';
-import { SafeAreaView, Text, Image, View, StatusBar, FlatList, ScrollView } from 'react-native';
+import { router } from 'expo-router';
+import { SafeAreaView, Text, Image, View, StatusBar, FlatList } from 'react-native';
 
 // Components
 import ProfileCard from '../../../components/ProfileCard';
@@ -10,10 +11,6 @@ import PlaylistCard from '../../../components/PlaylistCard';
 // Assets
 import icons from '../../../assets/icons/icons';
 import images from '../../../assets/images/images'; 
-
-// const handlePrev = () =>{
-//   router.push('/profile/previous')
-// }
 
 const Profile = () => {
   const profileCardsData = [
@@ -74,22 +71,25 @@ const Profile = () => {
       }
     ]}
     
-    // const renderPlaylists = () => (
-    //   <FlatList
-    //     className='self-start pl-7'
-    //     showsVerticalScrollIndicator={false}
-    //     data={playlists.data}
-    //     renderItem={({ item }) => (
-    //       <PlaylistCard
-    //         image={images.playlist}
-    //         time={'20:12'}
-    //         level={item.playlist.level}
-    //         title={item.playlist.name}
-    //       />
-    //     )}
-    //     keyExtractor={(item) => item.playlist.id.toString()}
-    //   />
-    // );
+    const renderPlaylists = () => (
+      <FlatList
+        className='self-start pl-7'
+        showsVerticalScrollIndicator={false}
+        data={playlists.data}
+        renderItem={({ item }) => (
+          <PlaylistCard
+            image={images.playlist}
+            time={'20:12'}
+            level={item.playlist.level}
+            title={item.playlist.name}
+            handlePress={()=>{ 
+              router.push(`/playlist/${item.playlist.id}`)
+                    }}
+          />
+        )}
+        keyExtractor={(item) => item.playlist.id}
+      />
+    );
 
   return (
     <SafeAreaView className='bg-white h-full flex items-center'>
@@ -108,20 +108,7 @@ const Profile = () => {
       </View>
 
       <Text className='font-urbanistBold text-base self-start pl-7 pt-8'>Saved playlists</Text>
-
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View >{playlists.data.map(item=>(<PlaylistCard 
-         image={images.playlist}
-                 time={'20:12'}
-                 level={item.playlist.level}
-                 title={item.playlist.name}
-        
-        
-        onPress={()=>{ router.push(`/playlist/${item.id}`)
-                }} key={item.id} playlist={(item)}/>))}</View>
-    </ScrollView>
-
-        {/* {renderPlaylists()} */}
+        {renderPlaylists()}
     </SafeAreaView>
   )
 }

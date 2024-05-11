@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
+import { View, Text,  } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
 
 
@@ -36,10 +36,12 @@ export default function playlistDetails() {
     const router = useRouter();
     const { id } = useLocalSearchParams();
 
-    console.log(id)
-    const selectedPlaylist = playlists.find((item) => { return item.id == id })
+    const selectedPlaylist = playlists.data.find((item) => { return item.playlist.id == id})
+
     return (
-        <View>{selectedPlaylist.name}</View>
+        <View>
+            <Text>{selectedPlaylist.name}</Text>
+        </View>
 
     )
 };
