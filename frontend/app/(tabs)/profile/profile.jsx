@@ -73,23 +73,23 @@ const Profile = () => {
           "songs": []
       }
     ]}
-
-    const renderPlaylists = () => (
-      <FlatList
-        className='self-start pl-7'
-        showsVerticalScrollIndicator={false}
-        data={playlists.data}
-        renderItem={({ item }) => (
-          <PlaylistCard
-            image={images.playlist}
-            time={'20:12'}
-            level={item.playlist.level}
-            title={item.playlist.name}
-          />
-        )}
-        keyExtractor={(item) => item.playlist.id.toString()}
-      />
-    );
+    
+    // const renderPlaylists = () => (
+    //   <FlatList
+    //     className='self-start pl-7'
+    //     showsVerticalScrollIndicator={false}
+    //     data={playlists.data}
+    //     renderItem={({ item }) => (
+    //       <PlaylistCard
+    //         image={images.playlist}
+    //         time={'20:12'}
+    //         level={item.playlist.level}
+    //         title={item.playlist.name}
+    //       />
+    //     )}
+    //     keyExtractor={(item) => item.playlist.id.toString()}
+    //   />
+    // );
 
   return (
     <SafeAreaView className='bg-white h-full flex items-center'>
@@ -108,7 +108,20 @@ const Profile = () => {
       </View>
 
       <Text className='font-urbanistBold text-base self-start pl-7 pt-8'>Saved playlists</Text>
-        {renderPlaylists()}
+
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View >{playlists.data.map(item=>(<PlaylistCard 
+         image={images.playlist}
+                 time={'20:12'}
+                 level={item.playlist.level}
+                 title={item.playlist.name}
+        
+        
+        onPress={()=>{ router.push(`/playlist/${item.id}`)
+                }} key={item.id} playlist={(item)}/>))}</View>
+    </ScrollView>
+
+        {/* {renderPlaylists()} */}
     </SafeAreaView>
   )
 }
