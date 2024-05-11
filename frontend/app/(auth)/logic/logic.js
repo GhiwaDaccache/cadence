@@ -25,29 +25,35 @@ const handleLogin = () =>{
 
 };
 
-const handleSignUp = async () =>{
-  console.log("signed in")
-  router.push("/login")
-  if(!info.email || !info.username || !info.password){
-    Alert.alert("Error", "All fields are required")
-    return
+const handleSignUp = async () => {
+  console.log("signed in");
+  router.push("/login");
+  if (!info.email || !info.username || !info.password) {
+      Alert.alert("Error", "All fields are required");
+      return;
   }
-  console.log("signed in 2")
-  setIsSubmitting(true)
-  console.log(info)
-  try{
-    const response = await sendRequest(requestMehods.POST, "cadence/api/user/register/", {
-      ...info,
-    });
-    console.log(response.data.status)
-    if (response.data.status === "success") {
-      // localStorage.setItem("token", response.data.authorisation.token);
-      router.push("/registration")
-    }
-  } catch (error){
-    console.log(error)
+  console.log("signed in 2");
+  setIsSubmitting(true);
+  console.log(info);
+  try {
+      const response = await fetch("http://192.168.232.108:8081/cadence/api/user/register/", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify(info),
+      });
+      const json = await response.json();
+      console.log(json);
+      if (json.status === "success") {
+          // localStorage.setItem("token", json.authorisation.token);
+          router.push("/registration");
+      }
+  } catch (error) {
+      console.log(error);
   } finally {
-    setIsSubmitting(false)
+      setIsSubmitting(false);
   }
 };
 

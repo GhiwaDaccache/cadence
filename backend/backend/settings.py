@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-qd=lz(%&(s421!_r@^c9hd$0%g63gg+r11(sde(!^c3m7i7^ze
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','10.0.2.2']
 
 
 # Application definition
@@ -53,7 +53,24 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = [
+    'http://192.168.232.108:8081',
+    # Add other domains as needed
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
