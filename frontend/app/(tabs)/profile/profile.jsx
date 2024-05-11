@@ -1,18 +1,32 @@
 // Dependencies
-import React from 'react';
 import { router } from 'expo-router';
+import React, { useEffect, useState } from 'react';
+import * as Location from 'expo-location';
 import { SafeAreaView, Text, Image, View, StatusBar, FlatList } from 'react-native';
 
 // Components
 import ProfileCard from '../../../components/ProfileCard';
 import PlaylistCard from '../../../components/PlaylistCard';
 
-
 // Assets
 import icons from '../../../assets/icons/icons';
 import images from '../../../assets/images/images'; 
 
 const Profile = () => {
+  const [location, setLocation] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync()
+      if (status !== 'granted') {
+        setErrorMessage('Permission to access location was denied')
+        return
+      }
+    })()
+  }, [])
+
+
   const profileCardsData = [
     {
       source: 'previous',
