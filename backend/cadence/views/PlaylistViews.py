@@ -9,7 +9,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication;
 from ..models.PlaylistModel import Playlist;
 
 # Serializers
-from ..serializers.PlaylistSerializer import PlaylistSerializer;
+from ..serializers.PlaylistSerializer import PlaylistSerializer, SpotifySongSerializer
 
 class PlaylistViews(APIView):
     authentication_classes = [JWTAuthentication]
