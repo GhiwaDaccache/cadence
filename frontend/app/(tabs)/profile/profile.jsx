@@ -11,7 +11,11 @@ import PlaylistCard from '../../../components/PlaylistCard';
 import icons from '../../../assets/icons/icons';
 import images from '../../../assets/images/images'; 
 
+// Custom hooks
+import { useLocationLogic } from './logic/profile';
+
 const Profile = () => {
+  useLocationLogic()
   const profileCardsData = [
     {
       source: 'previous',
