@@ -13,7 +13,7 @@ import PrimaryButton from '../../components/PrimaryButton';
 import {useRegistrationLogic} from './logic/registration-logic';
 
 const Registration = () => {
-  const { record, setRecord } = useRegistrationLogic();
+  const { record, setRecord, handleRecord } = useRegistrationLogic();
 
   return (
     <SafeAreaView className='bg-white h-full'>
@@ -43,9 +43,7 @@ const Registration = () => {
         <PrimaryButton
           title='Finish'           
           width='w-[170]'
-          handlePress={() => {
-              router.push('/login')
-          }}
+          handlePress={handleRecord}
         />
         </View>
       

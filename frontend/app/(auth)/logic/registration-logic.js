@@ -32,8 +32,7 @@ export const useRegistrationLogic = () => {
     }
 } catch (error) {
     console.log(error);
-} 
-};
+} };
 
 
   return {
