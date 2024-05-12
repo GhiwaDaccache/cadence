@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { save } from "../../../tools/secureStore";
 
 export const useMusicLogic = () => {
+    const [currentTrack, setCurrentTrack] = useState(null)
+    const [savedSongs, setSavedSongs] = useState([])
 
     const getSpotifyToken = async () =>{
         try{
@@ -16,10 +19,30 @@ export const useMusicLogic = () => {
         }
     }
 
+    const saveSong = async () =>{
+        const response = await fetch(
+            "https://api.spotify.com/v1/tracks/11dFghVXANMlKmJXsNCbNl",
+            {
+              headers: {
+                Authorization: `Bearer ${spotify-token}`,
+              }
+            }
+          );
+          if (!response.ok) {
+            throw new Error("failed to fetch the tracks");
+          }
+          const data = await response.json();
+          setSavedTracks(data.items);
+        }
+
+
     
+
+
     
     return {
 
     };
 };
+
 
