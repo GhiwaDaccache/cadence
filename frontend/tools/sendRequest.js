@@ -1,11 +1,8 @@
 import axios from "axios";
 
-// axios.defaults.baseURL = "http://185.76.176.19:8000/";
+axios.defaults.baseURL = "http://192.168.232.108:8000/";
 
-export const sendRequest = async (method, endpoint, body) => {
-    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-    console.log(endpoint)
-    
+export const sendRequest = async (method, endpoint, body) => { 
     const response = await axios.request({
         method: method,
         url: endpoint,

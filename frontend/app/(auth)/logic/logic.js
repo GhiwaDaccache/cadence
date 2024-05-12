@@ -36,7 +36,7 @@ const handleSignUp = async () => {
   setIsSubmitting(true);
   console.log(info);
   try {
-      const response = await fetch("http://192.168.232.108:8081/cadence/api/user/register/", {
+      const response = await fetch("http://192.168.232.108:8000/cadence/api/user/register/", {
           method: "POST",
           headers: {
               "Content-Type": "application/json",

@@ -1,6 +1,6 @@
 // Dependencies
+import React from 'react';
 import { router } from 'expo-router';
-import React, { useEffect, useState } from 'react';
 import { SafeAreaView, Text, Image, View, StatusBar, FlatList } from 'react-native';
 
 // Components
@@ -12,7 +12,7 @@ import icons from '../../../assets/icons/icons';
 import images from '../../../assets/images/images'; 
 
 // Custom hooks
-import { useLocationLogic } from './logic/profile';
+import { useLocationLogic } from './logic/location-logic';
 
 const Profile = () => {
   useLocationLogic()

@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+// Dependencies
 import * as Location from 'expo-location';
+import { useEffect, useState } from "react";
 
 export const useLocationLogic = () => {
-    const [location, setLocation] = useState(null);
-    const [speed, setSpeed] = useState(0)
+    const [location, setLocation] = useState({});
     const [errorMessage, setErrorMessage] = useState(null);
     let foregroundSubscription = null;
   
@@ -18,14 +18,17 @@ export const useLocationLogic = () => {
         foregroundSubscription = await Location.watchPositionAsync(
           {
             accuracy: Location.Accuracy.BestForNavigation,
+            timeInterval: 1500
           },
-          async (location) => {
-            setLocation({
-                latitude: location.coords.latitude,
-                longitude: location.coords.longitude
-            })
-            setSpeed(location.coords.speed)
-            console.log(speed)
+          async (locationa) => {
+            console.log("Received location update:", locationa); // Log location updates
+            setLocation(prevLocation => ({
+                ...prevLocation,
+                latitude: locationa.coords.latitude,
+                longitude: locationa.coords.longitude,
+            }));
+            console.log("LOCCCCCC:", location);
+            
           }
         )
       })()}, [])
