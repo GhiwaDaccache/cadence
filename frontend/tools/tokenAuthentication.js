@@ -1,17 +1,18 @@
 import * as Keychain from 'react-native-keychain';
 
-// Function to securely save a token
-const saveTokenToKeychain = async (token) => {
+
+export const saveTokenToKeychain = async (token) => { 
     try {
-      await Keychain.setGenericPassword('token', token);
-      console.log('Token saved successfully!');
-    } catch (error) {
-      console.error('Error saving token:', error);
-    }
-  };
+        await Keychain.setGenericPassword('token', token);
+        console.log('Token saved successfully!');
+      } catch (error) {
+        console.error('Error saving token:', error);
+      }
+
+    return;
+};
   
-  // Function to securely retrieve a token
-  const getTokenFromKeychain = async () => {
+  export const getTokenFromKeychain = async () => {
     try {
       const credentials = await Keychain.getGenericPassword();
       if (credentials) {
