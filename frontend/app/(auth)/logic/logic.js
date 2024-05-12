@@ -2,10 +2,10 @@
 import { router } from "expo-router";
 import { Alert } from "react-native";
 import { useState } from "react";
-import * as Keychain from 'react-native-keychain';
 
 // Tools
 import { sendRequest } from "../../../tools/sendRequest";
+import { save, getValueFor } from "../../../tools/secureStore";
 import { requestMehods } from "../../../tools/requestMethods";
 
 
@@ -38,6 +38,7 @@ export const useAuthenticationLogic = () => {
       const json = await response.json();
       if (json.access) {
         setIsLogin(true)
+        save('token', json.access);
         router.push("/profile");
       }
   } catch (error) {
