@@ -35,7 +35,12 @@ export const useMusicLogic = () => {
           setSavedTracks(data.items);
         }
 
-
+    const playTrack = async () =>{
+        if (savedTracks.length > 0) {
+            setCurrentTrack(savedTracks[0])
+        }
+        await play(savedTracks[0])
+    }
     
 
 
