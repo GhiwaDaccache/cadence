@@ -14,6 +14,9 @@ import images from '../../../assets/images/images';
 // Custom hooks
 import { useLocationLogic } from './logic/location-logic';
 
+// Tools
+import { getValueFor } from '../../../tools/secureStore';
+
 const Profile = () => {
   useLocationLogic()
   const profileCardsData = [
@@ -44,6 +47,21 @@ const Profile = () => {
       />
     ));
   };
+
+  const loadPlaylists = async () =>{
+    try {
+      const response = await fetch("http://192.168.232.108:8000/api/login/", {
+        method: "GET", 
+        headers:{
+          Authorization: `Bearer ${getValueFor}`,
+        }
+      })
+    const playlists = response.data
+    return playlists
+    }catch(error){
+      console.log(error)
+    }
+  }
 
   const playlists = {
     "message": "Success",
