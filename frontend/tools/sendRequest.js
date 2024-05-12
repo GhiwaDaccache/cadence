@@ -1,17 +1,12 @@
-import axios from "axios";
-
-axios.defaults.baseURL = "http://192.168.232.108:8000/";
-
 export const sendRequest = async (method, endpoint, body) => { 
-    const response = await axios.request({
+    const response = await fetch(`http://192.168.232.108:8000/${endpoint}`, {
         method: method,
-        url: endpoint,
-        data: body,
+        data: JSON.stringify(body),
         headers: {
             // Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
     });
-    console.log(response)
+    const data = await response.json();
 
     if (response.status === 401) {
         // localStorage.removeItem("token");
