@@ -28,7 +28,6 @@ export const useLocationLogic = () => {
                 longitude: locationa.coords.longitude,
             }));
             console.log("LOCCCCCC:", location);
-            
           }
         )
       })()}, [])
