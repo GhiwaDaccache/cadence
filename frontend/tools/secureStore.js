@@ -10,7 +10,7 @@ export const save = async (key, value) => {
     return;
 };
   
-  export const getValueFor = async (key) => {
+export const getValueFor = async (key) => {
     try {
       let result = await SecureStore.getItemAsync(key);
       if (result) {
@@ -22,4 +22,5 @@ export const save = async (key, value) => {
       console.error('Error retrieving token:', error);
       return null;
     }
-  };
+};
+
