@@ -2,6 +2,7 @@
 import { router } from "expo-router";
 import { Alert } from "react-native";
 import { useState } from "react";
+import * as Keychain from 'react-native-keychain';
 
 // Tools
 import { sendRequest } from "../../../tools/sendRequest";
@@ -11,7 +12,7 @@ import { requestMehods } from "../../../tools/requestMethods";
 export const useAuthenticationLogic = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [credentials, setCredentials] = useState({ username: "", password: "" });
   const [info, setInfo] = useState({username: "", password: "", first_name: "", last_name: "", email: ""});
 
 
@@ -20,8 +21,23 @@ export const useAuthenticationLogic = () => {
 //  };
 
 const handleLogin = () =>{
-  console.log("logged in")
-  router.replace("/profile")
+  if (!credentials.username || !credentials.password) {
+    Alert.alert("Error", "All fields are required");
+    return;
+}
+console.log("signed in 2");
+setIsSubmitting(true);
+console.log(info);
+const infoBody = {
+  "user":
+      {
+          "username": info.username,
+          "password": info.password,
+          "first_name": "",
+          "last_name": "",
+          "email":info.email
+      }
+};
 
 };
 

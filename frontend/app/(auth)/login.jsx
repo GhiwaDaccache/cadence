@@ -26,7 +26,7 @@ const Login = () => {
         title="Username"
         value={credentials.username}
         handleChange={(e) => {
-          setCredentials({ ...info, username: e});
+          setCredentials({ ...credentials, username: e});
         }}
         titleWidth=" w-[28%]"
       />
