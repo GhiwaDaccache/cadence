@@ -15,7 +15,7 @@ export const useAuthenticationLogic = () => {
   const [credentials, setCredentials] = useState({ username: "", password: "" });
   const [info, setInfo] = useState({username: "", password: "", first_name: "", last_name: "", email: ""});
 
-  
+
   const handleLogin = async () =>{
     if (!credentials.username || !credentials.password) {
       Alert.alert("Error", "All fields are required");
@@ -36,9 +36,9 @@ export const useAuthenticationLogic = () => {
           body: JSON.stringify(credentialsBody),
       });
       const json = await response.json();
-      if (json.status == 200) {
+      if (json.access) {
         setIsLogin(true)
-        router.push("/registration");
+        router.push("/profile");
       }
   } catch (error) {
       console.log(error);
