@@ -33,3 +33,15 @@ class UserProfileSerializer(serializers.ModelSerializer):
     #     instance.save()
     #     # user = get_object_or_404(User, id=validated_data.)
     #     return instance
+
+    def update(self, instance, validated_data):
+        
+        
+
+        instance.save()
+        user = get_object_or_404(User, id=validated_data.user_id)
+        user.first_name = validated_data.first_name
+        user.last_name = validated_data.last_name
+        user.save()
+
+        return instance
