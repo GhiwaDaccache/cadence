@@ -15,30 +15,36 @@ export const useAuthenticationLogic = () => {
   const [credentials, setCredentials] = useState({ username: "", password: "" });
   const [info, setInfo] = useState({username: "", password: "", first_name: "", last_name: "", email: ""});
 
-
-//   const switcher = (value) => {
-//     setIsLogin(value);
-//  };
-
-const handleLogin = () =>{
-  if (!credentials.username || !credentials.password) {
-    Alert.alert("Error", "All fields are required");
-    return;
-}
-console.log("signed in 2");
-setIsSubmitting(true);
-console.log(info);
-const infoBody = {
-  "user":
-      {
-          "username": info.username,
-          "password": info.password,
-          "first_name": "",
-          "last_name": "",
-          "email":info.email
+  
+  const handleLogin = async () =>{
+    if (!credentials.username || !credentials.password) {
+      Alert.alert("Error", "All fields are required");
+      return;
+    }
+    setIsSubmitting(true);
+    const credentialsBody = {
+        "username": credentials.username,
+        "password": credentials.password
+    };
+    try {
+      const response = await fetch("http://192.168.232.108:8000/api/login/", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify(credentialsBody),
+      });
+      const json = await response.json();
+      if (json.status == 200) {
+        setIsLogin(true)
+        router.push("/registration");
       }
-};
-
+  } catch (error) {
+      console.log(error);
+  } finally {
+      setIsSubmitting(false);
+  }
 };
 
 const handleSignUp = async () => {
