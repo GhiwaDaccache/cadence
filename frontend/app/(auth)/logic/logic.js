@@ -35,6 +35,16 @@ const handleSignUp = async () => {
   console.log("signed in 2");
   setIsSubmitting(true);
   console.log(info);
+  const infoBody = {
+    "user":
+        {
+            "username": info.username,
+            "password": info.password,
+            "first_name": "",
+            "last_name": "",
+            "email":info.email
+        }
+};
   try {
       const response = await fetch("http://192.168.232.108:8000/cadence/api/user/register/", {
           method: "POST",
@@ -42,7 +52,7 @@ const handleSignUp = async () => {
               "Content-Type": "application/json",
               "Access-Control-Allow-Origin": "*",
           },
-          body: JSON.stringify(info),
+          body: JSON.stringify(infoBody),
       });
       const json = await response.json();
       console.log(json);
