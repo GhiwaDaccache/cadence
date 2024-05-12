@@ -1,5 +1,5 @@
 // Dependencies
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { router } from 'expo-router';
 import { SafeAreaView, Text, Image, View, StatusBar, FlatList } from 'react-native';
 
@@ -18,6 +18,12 @@ import { useLocationLogic } from './logic/location-logic';
 import { getValueFor } from '../../../tools/secureStore';
 
 const Profile = () => {
+  const [playlists, setPlaylists] = useState([])
+
+  useEffect(() => {
+    loadPlaylists().then((data) => setPlaylists(data));
+    console.log(playlists)
+  }, []);
   useLocationLogic()
   const profileCardsData = [
     {
@@ -56,41 +62,44 @@ const Profile = () => {
           Authorization: `Bearer ${getValueFor}`,
         }
       })
-    const playlists = response.data
-    return playlists
+      if (!response.message == Success) {
+        throw new Error("Failed to load playlists")
+    }
+      const data = await response.json();
+      return data.data;
     }catch(error){
       console.log(error)
+      return []
     }
   }
-
-  const playlists = {
-    "message": "Success",
-    "data": [
-        {
-            "playlist": {
-                "id": 1,
-                "name": "Playlist 1",
-                "level": "Beginner"
-            },
-            "songs": []
-        },
-        {
-            "playlist": {
-                "id": 4,
-                "name": "Playlist 3",
-                "level": "Intermediate"
-            },
-            "songs": []
-        },
-        {
-          "playlist": {
-              "id": 2,
-              "name": "Playlist 5",
-              "level": "Intermediate"
-          },
-          "songs": []
-      }
-    ]}
+  // const playlists = {
+  //   "message": "Success",
+  //   "data": [
+  //       {
+  //           "playlist": {
+  //               "id": 1,
+  //               "name": "Playlist 1",
+  //               "level": "Beginner"
+  //           },
+  //           "songs": []
+  //       },
+  //       {
+  //           "playlist": {
+  //               "id": 4,
+  //               "name": "Playlist 3",
+  //               "level": "Intermediate"
+  //           },
+  //           "songs": []
+  //       },
+  //       {
+  //         "playlist": {
+  //             "id": 2,
+  //             "name": "Playlist 5",
+  //             "level": "Intermediate"
+  //         },
+  //         "songs": []
+  //     }
+  //   ]}
     
     const renderPlaylists = () => (
       <FlatList
