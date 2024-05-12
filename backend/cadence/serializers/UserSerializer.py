@@ -27,21 +27,13 @@ class UserProfileSerializer(serializers.ModelSerializer):
         user = User.objects.create(**user_data, password=hashed_password)
         profile = UserProfile.objects.create(user=user, **validated_data)
         return profile
-    
-    # def update(self, instance, validated_data):
-    #     instance.__dict__.update(validated_data)
-    #     instance.save()
-    #     # user = get_object_or_404(User, id=validated_data.)
-    #     return instance
 
     def update(self, instance, validated_data):
-        
-        
-
-        instance.save()
-        user = get_object_or_404(User, id=validated_data.user_id)
-        user.first_name = validated_data.first_name
-        user.last_name = validated_data.last_name
-        user.save()
-
-        return instance
+        user_data = validated_data.pop('user', None)
+        if user_data:
+            user = instance.user
+            user.first_name = user_data.get('first_name', user.first_name)
+            user.last_name = user_data.get('last_name', user.last_name)
+            user.email = user_data.get('email', user.email)
+            user.save()
+        return super().update(instance, validated_data)

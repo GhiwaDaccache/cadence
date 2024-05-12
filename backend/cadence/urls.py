@@ -17,7 +17,7 @@ from .views.FavoritePlaylistViews import *
 urlpatterns = [
     # User
     path('api/user/register/', RegistrationViews.as_view(), name='register'),
-    path('api/user/update/', RegistrationViews.as_view(), name='update'),
+    path('api/user/update/', UserUpdateAPIView.as_view(), name='user_update'),
     path('api/user/', UserViews.as_view(), name='user'),
     path('api/user/upload_image/', UserViews.upload_image, name='upload_image'),
     

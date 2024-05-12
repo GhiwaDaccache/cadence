@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from ..serializers.UserSerializer import UserProfileSerializer
 from ..models.Usermodel import UserProfile
 import time
+from django.shortcuts import get_object_or_404
     
 class RegistrationViews(APIView):
     permission_classes = [AllowAny]
@@ -63,15 +64,6 @@ class UserViews(APIView):
             return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR) 
 
 
-
-    # def put(self, request):
-    #     user_profile = request.user.userprofile
-    #     serializer = UserProfileSerializer(user_profile, data=request.data)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return Response(serializer.data)
-    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
     def put(self, request, *args, **kwargs):
         try:
             serializer = UserProfileSerializer(data=request.data)
@@ -81,5 +73,18 @@ class UserViews(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception as error:
             return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+class UserUpdateAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def put(self, request):
+        user = request.user
+        user_profile = UserProfile.objects.get(user=user)
+        serializer = UserProfileSerializer(user_profile, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=400)
        
         
