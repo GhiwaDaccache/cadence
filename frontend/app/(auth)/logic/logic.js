@@ -5,7 +5,6 @@ import { useState } from "react";
 
 // Tools
 import { save } from "../../../tools/secureStore";
-import { sendRequest } from "../../../tools/sendRequest";
 
 export const useAuthenticationLogic = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -25,7 +24,16 @@ export const useAuthenticationLogic = () => {
         "password": credentials.password
     };
     try {
-      const json = await sendRequest("POST", "api/login/", credentialsBody);
+      const response = await fetch("http://192.168.232.108:8000/api/login/", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify(credentialsBody),
+      });
+
+      const json = await response.json()
       if (json.access) {
         setIsLogin(true)
         save('token', json.access)
