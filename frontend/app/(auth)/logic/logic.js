@@ -27,7 +27,6 @@ const handleLogin = () =>{
 
 const handleSignUp = async () => {
   console.log("signed in");
-  router.push("/login");
   if (!info.email || !info.username || !info.password) {
       Alert.alert("Error", "All fields are required");
       return;
@@ -56,8 +55,7 @@ const handleSignUp = async () => {
       });
       const json = await response.json();
       console.log(json);
-      if (json.status === "success") {
-          // localStorage.setItem("token", json.authorisation.token);
+      if (json.message === "success") {
           router.push("/registration");
       }
   } catch (error) {
