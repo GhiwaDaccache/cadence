@@ -16,8 +16,6 @@ export const usePrviousLogic = () => {
         }
 
         getToken().then(token => {
-            console.log('token: ', token)
-            
             if (token) {
                 fetch("http://192.168.232.108:8000/cadence/api/recorded_run/", {
                     method: "GET", 
@@ -26,21 +24,15 @@ export const usePrviousLogic = () => {
                     }
                 })
                 .then(response => {
-                    console.log("success response: ", response)
-
                     if (response.message) {
                         throw new Error("Failed to load runs");
                     }
                     return response.json();
                 })
                 .then(data => {
-                    console.log('data: ', data)
-
                     setPreviousRuns(data)
                 })
                 .catch(error => {
-                    console.log(error);
-
                     setPreviousRuns([]);
                 })
             }

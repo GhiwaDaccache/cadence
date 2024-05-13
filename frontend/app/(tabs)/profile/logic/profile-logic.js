@@ -25,7 +25,6 @@ export const useProfileLogic = () => {
         }
 
         getToken().then(token => {
-            console.log('token: ', token)
             if (token) {
                 fetch("http://192.168.232.108:8000/cadence/api/favorite_playlist/", {
                     method: "GET", 
@@ -34,19 +33,15 @@ export const useProfileLogic = () => {
                     }
                 })
                 .then(response => {
-                    console.log("success response: ", response)
-
                     if (!response.message === 'Success') {
                         throw new Error("Failed to load playlists");
                     }
                     return response.json();
                 })
                 .then(data => {
-                    console.log('data: ', data)
                     setPlaylists(data.data)
                 })
                 .catch(error => {
-                    console.log(error);
                     setPlaylists([]);
                 })
             }
