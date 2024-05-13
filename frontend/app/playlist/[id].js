@@ -102,7 +102,7 @@ export default function playlistDetails() {
         } else {
           return (
             <FlatList
-              className='self-start pl-7'
+              className='self-start'
               showsVerticalScrollIndicator={false}
               data={playlistTracks}
               renderItem={({ item }) => (
