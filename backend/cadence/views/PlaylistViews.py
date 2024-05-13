@@ -48,14 +48,12 @@ class PlaylistViews(APIView):
                 songs = SpotifySong.objects.filter(playlist=playlist)
                 playlist_serializer = PlaylistSerializer(playlist)
                 songs_serializer = SpotifySongSerializer(songs, many=True)
-                playlist_data = []
 
                 playlist_info = {
                     'playlist': playlist_serializer.data,
                     'songs': songs_serializer.data
                 }
-                playlist_data.append(playlist_info)
-                return Response({'message': 'Success.', 'data': playlist_data}, status=status.HTTP_200_OK)
+                return Response({'message': 'Success.', 'data': playlist_info}, status=status.HTTP_200_OK)
             
             else:
                 playlists = Playlist.objects.all()

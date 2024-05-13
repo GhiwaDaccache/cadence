@@ -43,6 +43,10 @@ export default function playlistDetails() {
         })
     }, [])
 
+    useEffect(()=>{
+        console.log(playlist)
+    }, [playlist])
+
     const getPlaylistTracks = () =>{
         const spotifyIds = playlist.songs.map(song => song.spotify_id).join(',')
         return spotifyIds
@@ -89,4 +93,49 @@ export default function playlistDetails() {
         </View>
 
     )
-};
+}
+
+// {
+//     "message": "Success.",
+//     "data": [
+//         {
+//             "playlist": {
+//                 "id": 1,
+//                 "name": "Playlist 1",
+//                 "level": "beginner"
+//             },
+//             "songs": [
+//                 {
+//                     "id": 1,
+//                     "name": "Song",
+//                     "playlist": 1,
+//                     "spotify_id": "1JGWAEOOPv8LyKh92eVa39"
+//                 },
+//                 {
+//                     "id": 2,
+//                     "name": "Song 2",
+//                     "playlist": 1,
+//                     "spotify_id": "0OpcI3rARLsNWgVbPdwHD9"
+//                 },
+//                 {
+//                     "id": 4,
+//                     "name": "song 3",
+//                     "playlist": 1,
+//                     "spotify_id": "4gbVRS8gloEluzf0GzDOFc"
+//                 },
+//                 {
+//                     "id": 5,
+//                     "name": "song 4",
+//                     "playlist": 1,
+//                     "spotify_id": "2qpboKYzz14TeOY7HzQdaF"
+//                 },
+//                 {
+//                     "id": 6,
+//                     "name": "song 5",
+//                     "playlist": 1,
+//                     "spotify_id": "40FUdLENDY3sZmHEM25lpE"
+//                 }
+//             ]
+//         }
+//     ]
+// }
