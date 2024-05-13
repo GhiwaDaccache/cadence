@@ -1,24 +1,22 @@
 // Dependencies
 import React from 'react';
-import { router } from 'expo-router';
-import { SafeAreaView, Text, Image, View, StatusBar, FlatList } from 'react-native';
+import { SafeAreaView, Text, Image, View, StatusBar } from 'react-native';
 
 // Components
 import ProfileCard from '../../../components/ProfileCard';
-import PlaylistCard from '../../../components/PlaylistCard';
 
 // Assets
 import icons from '../../../assets/icons/icons';
-import images from '../../../assets/images/images'; 
+import images from '../../../assets/images/images';
 
 // Custom hooks
-import { useLocationLogic } from './logic/location-logic';
 import { useProfileLogic } from './logic/profile-logic';
+import { useLocationLogic } from './logic/location-logic';
 
 const Profile = () => {
-  const { playlists, isloading, setIsLoading } = useProfileLogic()
-
+  const { renderPlaylists } = useProfileLogic()
   //useLocationLogic()
+
   const profileCardsData = [
     {
       source: 'previous',
@@ -48,33 +46,6 @@ const Profile = () => {
     ));
   };
     
-  const renderPlaylists = () => {
-    if (isloading) {
-      return <Text>Loading playlists...</Text>;
-    } else if (playlists.length == 0) {
-      return <Text>No playlists available</Text>;
-    } else {
-      return (
-        <FlatList
-          className='self-start pl-7'
-          showsVerticalScrollIndicator={false}
-          data={playlists}
-          renderItem={({ item }) => (
-            <PlaylistCard
-              image={images.playlist}
-              time={'20:12'}
-              level={item.playlist.level}
-              title={item.playlist.name}
-              handlePress={()=>{ 
-                router.push(`/playlist/${item.playlist.id}`)
-              }}
-            />
-          )}
-          keyExtractor={(item) => item.playlist.id.toString()}
-        />
-      );
-    }
-  };
 
   return (
     <SafeAreaView className='bg-white h-full flex items-center'>

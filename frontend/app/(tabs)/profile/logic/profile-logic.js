@@ -1,14 +1,24 @@
 // Dependencies
+import { router } from 'expo-router';
 import { useEffect, useState } from "react";
+import { Text, FlatList } from "react-native";
+
+// Components
+import PlaylistCard from '../../../../components/PlaylistCard';
+
+// Assets
+import images from '../../../../assets/images/images'; 
 
 // Tools
 import { getValueFor } from '../../../../tools/secureStore';
+
 
 export const useProfileLogic = () => {
     const [playlists, setPlaylists] = useState([]);
     const [isloading, setIsLoading] = useState(true);
 
     useEffect(() => {
+
         const getToken = async () => {
             const token = await getValueFor('token')
             return token;
@@ -49,9 +59,36 @@ export const useProfileLogic = () => {
         }
     }, [playlists]);
 
+    const renderPlaylists = () => {
+        if (isloading) {
+          return <Text className='font-urbanist self-center text-base pt-12'>Loading playlists...</Text>;
+        } else if (playlists.length == 0) {
+          return <Text Text className='font-urbanist self-center text-base pt-12'>No playlists available</Text>;
+        } else {
+          return (
+            <FlatList
+              className='self-start pl-7'
+              showsVerticalScrollIndicator={false}
+              data={playlists}
+              renderItem={({ item }) => (
+                <PlaylistCard
+                  image={images.playlist}
+                  time={'20:12'}
+                  level={item.playlist.level}
+                  title={item.playlist.name}
+                  handlePress={()=>{ 
+                    router.push(`/playlist/${item.playlist.id}`)
+                  }}
+                />
+              )}
+              keyExtractor={(item) => item.playlist.id.toString()}
+            />
+          );
+        }
+      };
+    
+
     return {
-        playlists, 
-        isloading, 
-        setIsLoading
+        renderPlaylists
     }
 }
