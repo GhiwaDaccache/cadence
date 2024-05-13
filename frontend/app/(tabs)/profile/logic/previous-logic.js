@@ -47,7 +47,33 @@ export const usePrviousLogic = () => {
         })
     }, []);
 
-    
+    useEffect(() => {
+        if (previousRuns.length > 0) {
+            setIsLoading(false);
+        }
+    }, [previousRuns]);
+
+    const renderPreviousRuns = () =>{
+        if (isloading) {
+            return <Text className='font-urbanist self-center text-base pt-12'>Loading runs...</Text>;
+          } else if (previousRuns.length == 0) {
+            return <Text Text className='font-urbanist self-center text-base pt-12'>No runs yet</Text>;
+          } else {
+            return (
+                <FlatList 
+                    data = {previousRuns}
+                    keyExtractor={(item) => item.id}
+                    renderItem={({item})=> (
+                        <Run
+                            date={item.recorded_on}
+                            distance={item.real_distance}
+                            pace={item.real_pace}
+                            time={item.real_duration}
+                  />
+                )}
+              />
+            )
+          }
     }
 
     return {
