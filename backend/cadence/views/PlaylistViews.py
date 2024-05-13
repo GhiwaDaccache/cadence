@@ -9,7 +9,8 @@ from rest_framework_simplejwt.authentication import JWTAuthentication;
 from ..models.PlaylistModel import Playlist;
 
 # Serializers
-from ..serializers.PlaylistSerializer import PlaylistSerializer, SpotifySongSerializer
+from ..serializers.PlaylistSerializer import PlaylistSerializer;
+from ..serializers.SpotifySongSerializer import SpotifySongSerializer;
 
 class PlaylistViews(APIView):
     authentication_classes = [JWTAuthentication]
@@ -20,12 +21,24 @@ class PlaylistViews(APIView):
         try:
             serializer = PlaylistSerializer(data=request.data)
             if serializer.is_valid():
-                serializer.save()
+                playlist = serializer.save()
+
+                playlist_id = playlist.id
+                songs_data = request.data.get('songs', []) 
+                for song in songs_data:
+                    song['playlist'] = playlist_id  
+                    song_serializer = SpotifySongSerializer(data=song)
+                    if song_serializer.is_valid():
+                        song_serializer.save()
+                    else:
+                        return Response({'message': 'Failed to add songs.', 'error': song_serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+
                 return Response({'message': 'Playlist added successfully.', 'data': serializer.data}, status=status.HTTP_201_CREATED)
             return Response({'message': 'Failed to add playlist.', 'errors': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
         
         except Exception as error:
             return Response({'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 
     def get(self, request, pk=None):  
         try:
