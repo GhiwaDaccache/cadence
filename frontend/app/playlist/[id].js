@@ -39,6 +39,8 @@ export default function playlistDetails() {
                 .then(data => {
                     setSpotifyToken(token[1])
                     setPlaylist(data.data)
+                    setIsLoading(false)
+
                 })
                 .catch(error => {
                     setPlaylist([]);
@@ -49,11 +51,8 @@ export default function playlistDetails() {
 
     useEffect(() => {
         if (playlist) {
-            console.log('111111')
             setIsLoading(false)
             const spotifyIds = playlist.songs.map(song => song.spotify_id).join(',')
-            console.log(`https://api.spotify.com/v1/tracks/?ids=${spotifyIds}`)
-
             fetch(`https://api.spotify.com/v1/tracks/?ids=${spotifyIds}`, {
                 method: "GET", 
                 headers: {
@@ -62,19 +61,18 @@ export default function playlistDetails() {
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error("Failed to get songs");
+                    throw new Error("Failed to get songs")
                 }
-                return response.json(); 
+                return response.json()
             })
             .then(data => {
                 if (!data.tracks) {
-                    throw new Error("Invalid response format: missing 'tracks' property");
+                    throw new Error("Invalid response format: missing 'tracks' property")
                 }
-                setPlaylistTracks(data.tracks);
+                setPlaylistTracks(data.tracks)
             })
             .catch(error => {
-                console.error(error); 
-                setPlaylistTracks([]);
+                setPlaylistTracks([])
             })
         }
     }, [playlist]);
@@ -83,22 +81,24 @@ export default function playlistDetails() {
         if (isloading) {
           return <Text className='font-urbanist self-center text-base pt-12'>Loading playlist...</Text>;
         } else {
-          return (
-            <PlaylistCard
-                    imageSize={'w-32 h-32'}
-                    titleSize={'text-xl'}
-                    title={playlist.name}
-                    image={images.playlist}
-                    level={playlist.level}
-                    time={'20:18'}
-                />
-          )
+            if(playlist){
+                return (
+                    <PlaylistCard
+                            imageSize={'w-32 h-32'}
+                            titleSize={'text-xl'}
+                            title={playlist.playlist.name}
+                            image={images.playlist}
+                            level={playlist.playlist.level}
+                            time={'20:18'}
+                        />
+                )
+        }
         }
       }
 
       const renderSongs = () => {
         if (isloading) {
-          return <Text className='font-urbanist self-center text-base pt-12'>Loading songs...</Text>;
+          return <Text className='font-urbanist self-center text-base pt-24'>Loading songs...</Text>;
         } else {
           return (
             <FlatList
