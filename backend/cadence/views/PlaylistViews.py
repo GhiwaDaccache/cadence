@@ -7,6 +7,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication;
 
 # Models
 from ..models.PlaylistModel import Playlist;
+from ..models.SpotifySongModel import SpotifySong;
 
 # Serializers
 from ..serializers.PlaylistSerializer import PlaylistSerializer;
@@ -44,8 +45,17 @@ class PlaylistViews(APIView):
         try:
             if pk is not None:
                 playlist = Playlist.objects.get(pk=pk)
-                serializer = PlaylistSerializer(playlist)
-                return Response({'message': 'Success.', 'data': serializer.data}, status=status.HTTP_200_OK)
+                songs = SpotifySong.objects.filter(playlist=playlist)
+                playlist_serializer = PlaylistSerializer(playlist)
+                songs_serializer = SpotifySongSerializer(songs, many=True)
+                playlist_data = []
+
+                playlist_info = {
+                    'playlist': playlist_serializer.data,
+                    'songs': songs_serializer.data
+                }
+                playlist_data.append(playlist_info)
+                return Response({'message': 'Success.', 'data': playlist_data}, status=status.HTTP_200_OK)
             
             else:
                 playlists = Playlist.objects.all()
