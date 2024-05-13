@@ -1,57 +1,27 @@
+// Dependencies
 import { useEffect, useState } from "react";
+import Run from "../../../../components/Run";
+import { Text, FlatList } from "react-native";
+import { getValueFor } from '../../../../tools/secureStore';
 
 export const usePrviousLogic = () => {
-    const [previousRuns, setPreviousRuns] = useState([])
+    const [previousRuns, setPreviousRuns] = useState([]);
+
+    const [isloading, setIsLoading] = useState(true);
 
     useEffect(() => {   
-        setPreviousRuns([
-            {
-                "id": 1,
-                "recorded_on": "2024-05-02",
-                "start_time": "12:02:35",
-                "end_time": "12:07:35",
-                "real_pace": 5.0,
-                "real_distance": 5.0,
-                "real_duration": "25:21",
-                "user": 17,
-                "run": null
-            },
-            {
-                "id": 3,
-                "recorded_on": "2024-05-02",
-                "start_time": "12:02:35",
-                "end_time": "12:07:35",
-                "real_pace": 7.0,
-                "real_distance": 5.2,
-                "real_duration": "30:01",
-                "user": 17,
-                "run": null
-            }
-        ]);
-    }, []);
+        const getToken = async () => {
+            const token = await getValueFor('token')
+            return token;
+        }
+
+       
+    }
 
     return {
         previousRuns,
-        setPreviousRuns
+        setPreviousRuns,
+        renderPreviousRuns
     }
 }
-// When API implemented
-
-// export const usePrviousLogic = () => {
-//     const [previousRuns, setPreviousRuns] = useState([]);
   
-//     useEffect(() => {
-//       const fetchData = async () => {
-//         const response = await fetch('https://your-api.com/previous-runs'); // Replace with your API endpoint
-//         const data = await response.json();
-//         setPreviousRuns(data);
-//       };
-  
-//       fetchData();
-//     }, []);
-  
-//     return {
-//       previousRuns,
-//       setPreviousRuns,
-//     };
-//   };
