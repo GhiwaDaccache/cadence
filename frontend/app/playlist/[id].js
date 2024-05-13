@@ -49,24 +49,31 @@ export default function playlistDetails() {
 
     useEffect(() => {
         if (playlist) {
+            console.log('111111')
             setIsLoading(false)
             const spotifyIds = playlist.songs.map(song => song.spotify_id).join(',')
-            fetch(`https://api.spotify.com/v1/tracks/?ids${spotifyIds}`, {
+            console.log(`https://api.spotify.com/v1/tracks/?ids=${spotifyIds}`)
+
+            fetch(`https://api.spotify.com/v1/tracks/?ids=${spotifyIds}`, {
                 method: "GET", 
                 headers: {
                     Authorization: `Bearer ${spotifyToken}`,
                 }
             })
             .then(response => {
-                if (!tracks) {
+                if (!response.ok) {
                     throw new Error("Failed to get songs");
                 }
-                return response.json();
+                return response.json(); 
             })
             .then(data => {
-                setPlaylistTracks(data.tracks)
+                if (!data.tracks) {
+                    throw new Error("Invalid response format: missing 'tracks' property");
+                }
+                setPlaylistTracks(data.tracks);
             })
             .catch(error => {
+                console.error(error); 
                 setPlaylistTracks([]);
             })
         }
@@ -85,11 +92,10 @@ export default function playlistDetails() {
                     level={playlist.level}
                     time={'20:18'}
                 />
-          );
+          )
         }
-      };
+      }
 
-    
 
     return (
         <View className='h-full bg-white px-7'>
