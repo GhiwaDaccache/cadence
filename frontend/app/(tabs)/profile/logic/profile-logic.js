@@ -11,6 +11,7 @@ import images from '../../../../assets/images/images';
 
 // Tools
 import { getValueFor } from '../../../../tools/secureStore';
+import { sendRequest } from '../../../../tools/sendRequest';
 
 
 export const useProfileLogic = () => {
@@ -18,7 +19,24 @@ export const useProfileLogic = () => {
     const [isloading, setIsLoading] = useState(true);
 
     useEffect(() => {
+      // const fetchPlaylists = async () =>{
+      //   try{
+      //     const response = await sendRequest("GET", "cadence/api/favorite_playlist/")
+      //     console.log(response)
+      //     if (response.message == 'Success') {
+      //       console.log("If: ", response)
+      //       const data = await response.json()
+      //       setPlaylists(data.data)
+      //       setIsLoading(false)
 
+      //     } else {
+      //       throw new Error("Failed to load playlists")
+      //     }
+      //   } catch (error) {
+      //     setPlaylists([]);
+      //   }
+      // }
+      // fetchPlaylists();
         const getToken = async () => {
             const token = await getValueFor('token')
             return token;
@@ -46,7 +64,9 @@ export const useProfileLogic = () => {
                 })
             }
         })
+
     }, [])
+
 
     useEffect(() => {
         if (playlists.length > 0) {
@@ -87,3 +107,17 @@ export const useProfileLogic = () => {
         renderPlaylists
     }
 }
+
+
+// {
+//   "user": {
+//       "id": 17,
+//       "username": "ghiwa19",
+//       "first_name": "ghiwa edited",
+//       "last_name": "dac edited",
+//       "email": "ghiwa88q@mail.com"
+//   },
+//   "profile_photo": "/test",
+//   "cover_photo": null,
+//   "plan": null
+// }

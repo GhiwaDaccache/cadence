@@ -1,7 +1,11 @@
 // Dependencies
 import { useEffect, useState } from "react";
-import Run from "../../../../components/Run";
 import { Text, FlatList } from "react-native";
+
+// Components
+import Run from "../../../../components/Run";
+
+// Tools
 import { getValueFor } from '../../../../tools/secureStore';
 
 export const usePrviousLogic = () => {
