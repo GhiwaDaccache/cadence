@@ -7,7 +7,8 @@ const SongCard = ({ image, songName, artistName }) => {
   return (
     <View className='flex flex-row pt-6'>
         <Image 
-          source={image}
+          source={{uri: `${image}`}}
+          className='w-16 h-16 rounded'
         />
         <View className='flex justify-center pl-4'>
           <Text className='font-urbanistBold text-base'>{songName}</Text>
