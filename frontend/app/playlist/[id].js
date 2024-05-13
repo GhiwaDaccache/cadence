@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Text, View , FlatList, Image } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import PlaylistCard from "../../components/PlaylistCard";
 import PrimaryButton from "../../components/PrimaryButton";
@@ -81,7 +81,7 @@ export default function playlistDetails() {
 
     const renderPlaylist = () => {
         if (isloading) {
-          return <Text className='font-urbanist self-center text-base pt-12'>Loading playlists...</Text>;
+          return <Text className='font-urbanist self-center text-base pt-12'>Loading playlist...</Text>;
         } else {
           return (
             <PlaylistCard
@@ -96,6 +96,28 @@ export default function playlistDetails() {
         }
       }
 
+      const renderSongs = () => {
+        if (isloading) {
+          return <Text className='font-urbanist self-center text-base pt-12'>Loading songs...</Text>;
+        } else {
+          return (
+            <FlatList
+              className='self-start pl-7'
+              showsVerticalScrollIndicator={false}
+              data={playlistTracks}
+              renderItem={({ item }) => (
+                <SongCard
+                artistName={item.artists[0].name}
+                image={item.album.images[0].url}
+                songName={item.name}
+                />
+              )}
+              keyExtractor={(item) => item.id.toString()}
+            />
+          )
+        }
+      }
+
 
     return (
         <View className='h-full bg-white px-7'>
@@ -103,23 +125,7 @@ export default function playlistDetails() {
                 {renderPlaylist()}
             </View>
 
-            {/* <FlatList
-                className='self-start pl-7'
-                showsVerticalScrollIndicator={false}
-                data={songs}
-                renderItem={({ item }) => (
-                <SongCard
-                    image={images.playlist}
-                    time={'20:12'}
-                    level={item.playlist.level}
-                    title={item.playlist.name}
-                    handlePress={()=>{ 
-                    router.push(`/playlist/${item.playlist.id}`)
-                    }}
-                />
-                )}
-                keyExtractor={(item) => item.playlist.id.toString()}
-                /> */}
+            {renderSongs()}
 
             <View className='absolute self-center top-[540]'>
                 <PrimaryButton
