@@ -14,7 +14,7 @@ import { useProfileLogic } from './logic/profile-logic';
 import { useLocationLogic } from './logic/location-logic';
 
 const Profile = () => {
-  const { renderPlaylists } = useProfileLogic()
+  const { renderPlaylists, user } = useProfileLogic()
   //useLocationLogic()
 
   const profileCardsData = [
@@ -58,7 +58,7 @@ const Profile = () => {
         <Image source={images.profile}  className='h-full w-full'  />
       </View>
 
-      <Text className='font-usemibold text-lg'>John Doe</Text>
+      <Text className='font-usemibold text-lg pl-8'>{user['first-name']} {user['last-name']}</Text>
       <View className='flex flex-row w-full pt-10 px-7 justify-between'>
         {renderProfileCards()}
       </View>

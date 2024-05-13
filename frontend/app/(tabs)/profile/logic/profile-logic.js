@@ -16,27 +16,11 @@ import { sendRequest } from '../../../../tools/sendRequest';
 
 export const useProfileLogic = () => {
     const [playlists, setPlaylists] = useState([]);
+    const [user, setUser] = useState({'first-name': '', 'last-name': ''});
     const [isloading, setIsLoading] = useState(true);
 
     useEffect(() => {
-      // const fetchPlaylists = async () =>{
-      //   try{
-      //     const response = await sendRequest("GET", "cadence/api/favorite_playlist/")
-      //     console.log(response)
-      //     if (response.message == 'Success') {
-      //       console.log("If: ", response)
-      //       const data = await response.json()
-      //       setPlaylists(data.data)
-      //       setIsLoading(false)
-
-      //     } else {
-      //       throw new Error("Failed to load playlists")
-      //     }
-      //   } catch (error) {
-      //     setPlaylists([]);
-      //   }
-      // }
-      // fetchPlaylists();
+      
         const getToken = async () => {
             const token = await getValueFor('token')
             return token;
@@ -65,6 +49,32 @@ export const useProfileLogic = () => {
             }
         })
 
+        getToken().then(token => {
+          if (token) {
+            fetch("http://192.168.232.108:8000/cadence/api/user/", {
+                method: "GET", 
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            })
+            .then(response => {
+                if (response.message) {
+                    throw new Error("Failed to get user");
+                }
+                return response.json();
+            })
+            .then(data => {
+                setUser({
+                  'first-name': data.user.first_name,
+                  'last-name': data.user.last_name,
+                })
+            })
+            .catch(error => {
+                setUser({});
+            })
+        }
+
+        })
     }, [])
 
 
@@ -104,7 +114,8 @@ export const useProfileLogic = () => {
     
 
     return {
-        renderPlaylists
+        renderPlaylists,
+        user
     }
 }
 
@@ -121,3 +132,22 @@ export const useProfileLogic = () => {
 //   "cover_photo": null,
 //   "plan": null
 // }
+
+// const fetchPlaylists = async () =>{
+      //   try{
+      //     const response = await sendRequest("GET", "cadence/api/favorite_playlist/")
+      //     console.log(response)
+      //     if (response.message == 'Success') {
+      //       console.log("If: ", response)
+      //       const data = await response.json()
+      //       setPlaylists(data.data)
+      //       setIsLoading(false)
+
+      //     } else {
+      //       throw new Error("Failed to load playlists")
+      //     }
+      //   } catch (error) {
+      //     setPlaylists([]);
+      //   }
+      // }
+      // fetchPlaylists();
