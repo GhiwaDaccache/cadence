@@ -1,5 +1,6 @@
 import { getValueFor } from "./secureStore";
 
+
 export const sendRequest = async (method, endpoint, body) => { 
 
     const getToken = async () => {
@@ -14,17 +15,17 @@ export const sendRequest = async (method, endpoint, body) => {
             body: JSON.stringify(body),
             headers: {
                 Authorization: `Bearer ${token}`,
-
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
             }
         });
 
         const data = await response.json();
-
         if (response.status === 401) {
             // localStorage.removeItem("token");
         }
 
-        return response;
+        return data;
     }
 };
 

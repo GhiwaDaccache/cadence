@@ -11,14 +11,6 @@ export default function playlistDetails() {
     const [currentTrack, setCurrentTrack] = useState(null)
     const [playlistTracks, setPlaylistTracks] = useState([])
 
-    // const getPlaylistTracks = async () =>{
-    //     const accesToken = await 
-    // }
-
-    // const playSpotify = async () =>{
-    //     console.log('music playing')
-    // }
-
     const playlists = {
         "message": "Success",
         "data": [
@@ -63,12 +55,13 @@ export default function playlistDetails() {
                     time={'20:18'}
                 />
             </View>
-
-            <PrimaryButton
-            handlePress={playSpotify}
-            title={'Start'}
-            width={'w-[170]'}
-            />
+            <View className='absolute self-center top-[540]'>
+                <PrimaryButton
+                // handlePress={playSpotify}
+                title={'Start'}
+                width={'w-[170]'}
+                />
+            </View>
         </View>
 
     )

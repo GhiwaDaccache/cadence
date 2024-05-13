@@ -63,6 +63,7 @@ const handleSignUp = async () => {
         }
 };
   try {
+    
       const response = await fetch("http://192.168.232.108:8000/cadence/api/user/register/", {
           method: "POST",
           headers: {

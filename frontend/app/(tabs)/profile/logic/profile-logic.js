@@ -20,15 +20,16 @@ export const useProfileLogic = () => {
     const [isloading, setIsLoading] = useState(true);
 
     useEffect(() => {
-      
+
         const getToken = async () => {
             const token = await getValueFor('token')
             return token;
         }
+        
 
         getToken().then(token => {
             if (token) {
-                fetch("http://192.168.232.108:8000/cadence/api/favorite_playlist/", {
+                fetch("http://192.168.232.108:8000/cadence/api/favorite_playlist", {
                     method: "GET", 
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -120,22 +121,12 @@ export const useProfileLogic = () => {
 }
 
 
-// {
-//   "user": {
-//       "id": 17,
-//       "username": "ghiwa19",
-//       "first_name": "ghiwa edited",
-//       "last_name": "dac edited",
-//       "email": "ghiwa88q@mail.com"
-//   },
-//   "profile_photo": "/test",
-//   "cover_photo": null,
-//   "plan": null
-// }
 
-// const fetchPlaylists = async () =>{
+
+      // const fetchPlaylists = async () =>{
       //   try{
-      //     const response = await sendRequest("GET", "cadence/api/favorite_playlist/")
+      //     // const response = await sendRequest("GET", "cadence/api/favorite_playlist")
+
       //     console.log(response)
       //     if (response.message == 'Success') {
       //       console.log("If: ", response)
@@ -151,3 +142,4 @@ export const useProfileLogic = () => {
       //   }
       // }
       // fetchPlaylists();
+      
