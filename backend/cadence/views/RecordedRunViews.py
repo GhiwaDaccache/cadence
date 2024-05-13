@@ -31,7 +31,11 @@ class RecordedRunViews(APIView):
             return Response({'message': 'Failed to add run', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def get(self, request):
-        user = request.user
-        recorded_runs = RecordedRun.objects.filter(user=user)
-        serializer = RecordedRunSerializer(recorded_runs, many=True)
-        return Response(serializer.data)
+        try:
+            user = request.user
+            recorded_runs = RecordedRun.objects.filter(user=user)
+            serializer = RecordedRunSerializer(recorded_runs, many=True)
+            return Response(serializer.data)
+
+        except Exception as error:
+            return Response({'message': 'Failed to retrieve runs', 'error': str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
