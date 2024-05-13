@@ -4,7 +4,7 @@ import { Alert } from "react-native";
 import { useState } from "react";
 
 // Tools
-import { save } from "../../../tools/secureStore";
+import { getValueFor, save } from "../../../tools/secureStore";
 
 export const useAuthenticationLogic = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -31,12 +31,22 @@ export const useAuthenticationLogic = () => {
               "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify(credentialsBody),
-      });
+      })
+
+      const spotify_token = await fetch("http://192.168.232.108:8000/cadence/api/spotify/create_spotify_token", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+        },
+      })
 
       const json = await response.json()
+      const spotify_json = await spotify_token.json()
       if (json.access) {
         setIsLogin(true)
         save('token', json.access)
+        save('spotify-token', spotify_json.access_token)
         router.push("/profile")
       }
   } catch (error) {
@@ -44,7 +54,7 @@ export const useAuthenticationLogic = () => {
   } finally {
       setIsSubmitting(false)
   }
-};
+}
 
 const handleSignUp = async () => {
   if (!info.email || !info.username || !info.password) {

@@ -44,13 +44,14 @@ export default function playlistDetails() {
     }, [])
 
     useEffect(()=>{
-        console.log(playlist)
+        const getPlaylistTracks = () =>{
+            const spotifyIds = playlist.songs.map(song => song.spotify_id).join(',')
+            return spotifyIds
+        }
+        getPlaylistTracks()
     }, [playlist])
 
-    const getPlaylistTracks = () =>{
-        const spotifyIds = playlist.songs.map(song => song.spotify_id).join(',')
-        return spotifyIds
-    }
+    
 
     return (
         <View className='h-full bg-white px-7'>
