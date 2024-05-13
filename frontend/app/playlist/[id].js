@@ -49,13 +49,7 @@ export default function playlistDetails() {
 
     useEffect(() => {
         if (playlist) {
-            setIsLoading(false);
-        }
-    }, [playlist]);
-
-    useEffect(()=>{
-        if(playlist){
-            console.log(playlist)
+            setIsLoading(false)
             const spotifyIds = playlist.songs.map(song => song.spotify_id).join(',')
             fetch(`https://api.spotify.com/v1/tracks/?ids${spotifyIds}`, {
                 method: "GET", 
@@ -76,8 +70,7 @@ export default function playlistDetails() {
                 setPlaylistTracks([]);
             })
         }
-        
-    }, [playlist])
+    }, [playlist]);
 
     const renderPlaylist = () => {
         if (isloading) {
