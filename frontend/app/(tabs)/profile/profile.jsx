@@ -16,7 +16,7 @@ import { useLocationLogic } from './logic/location-logic';
 import { useProfileLogic } from './logic/profile-logic';
 
 const Profile = () => {
-  const { playlists } = useProfileLogic()
+  const { playlists, isloading, setIsLoading } = useProfileLogic()
 
   //useLocationLogic()
   const profileCardsData = [
@@ -48,25 +48,33 @@ const Profile = () => {
     ));
   };
     
-    const renderPlaylists = () => (
-      <FlatList
-        className='self-start pl-7'
-        showsVerticalScrollIndicator={false}
-        data={playlists.data}
-        renderItem={({ item }) => (
-          <PlaylistCard
-            image={images.playlist}
-            time={'20:12'}
-            level={item.playlist.level}
-            title={item.playlist.name}
-            handlePress={()=>{ 
-              router.push(`/playlist/${item.playlist.id}`)
-                }}
-          />
-        )}
-        keyExtractor={(item) => item.playlist.id}
-      />
-    );
+  const renderPlaylists = () => {
+    if (isloading) {
+      return <Text>Loading playlists...</Text>;
+    } else if (playlists.length == 0) {
+      return <Text>No playlists available</Text>;
+    } else {
+      return (
+        <FlatList
+          className='self-start pl-7'
+          showsVerticalScrollIndicator={false}
+          data={playlists}
+          renderItem={({ item }) => (
+            <PlaylistCard
+              image={images.playlist}
+              time={'20:12'}
+              level={item.playlist.level}
+              title={item.playlist.name}
+              handlePress={()=>{ 
+                router.push(`/playlist/${item.playlist.id}`)
+              }}
+            />
+          )}
+          keyExtractor={(item) => item.playlist.id.toString()}
+        />
+      );
+    }
+  };
 
   return (
     <SafeAreaView className='bg-white h-full flex items-center'>
