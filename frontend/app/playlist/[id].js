@@ -1,4 +1,4 @@
-import { FlatList, View } from "react-native";
+import { Text, View } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import PlaylistCard from "../../components/PlaylistCard";
 import PrimaryButton from "../../components/PrimaryButton";
@@ -10,21 +10,24 @@ import SongCard from '../../components/SongCard'
 export default function playlistDetails() {
     const [currentTrack, setCurrentTrack] = useState(null)
     const [playlistTracks, setPlaylistTracks] = useState([])
-    const [playlist, setPlaylist] = useState([])
-    const { id } = useLocalSearchParams();
+    const [isloading, setIsLoading] = useState(true)
+    const [playlist, setPlaylist] = useState(null)
+    const { id } = useLocalSearchParams()
+    const [spotifyToken, setSpotifyToken] = useState(null)
 
     useEffect(() => {
-        const getToken = async () => {
+        const getTokens = async () => {
             const token = await getValueFor('token')
-            return token;
+            const spotifyToken = await getValueFor('spotify-token')
+            return [token, spotifyToken]
         }
         
-        getToken().then(token => {
-            if (token) {
+        getTokens().then(token => {
+            if (token[0]) {
                 fetch(`http://192.168.232.108:8000/cadence/api/playlist/${id}/`, {
                     method: "GET", 
                     headers: {
-                        Authorization: `Bearer ${token}`,
+                        Authorization: `Bearer ${token[0]}`,
                     }
                 })
                 .then(response => {
@@ -34,6 +37,7 @@ export default function playlistDetails() {
                     return response.json();
                 })
                 .then(data => {
+                    setSpotifyToken(token[1])
                     setPlaylist(data.data)
                 })
                 .catch(error => {
@@ -43,20 +47,44 @@ export default function playlistDetails() {
         })
     }, [])
 
-    useEffect(()=>{
-        const getPlaylistTracks = () =>{
-            const spotifyIds = playlist.songs.map(song => song.spotify_id).join(',')
-            return spotifyIds
+    useEffect(() => {
+        if (playlist) {
+            setIsLoading(false);
         }
-        getPlaylistTracks()
+    }, [playlist]);
+
+    useEffect(()=>{
+        if(playlist){
+            console.log(playlist)
+            const spotifyIds = playlist.songs.map(song => song.spotify_id).join(',')
+            fetch(`https://api.spotify.com/v1/tracks/?ids${spotifyIds}`, {
+                method: "GET", 
+                headers: {
+                    Authorization: `Bearer ${spotifyToken}`,
+                }
+            })
+            .then(response => {
+                if (!tracks) {
+                    throw new Error("Failed to get songs");
+                }
+                return response.json();
+            })
+            .then(data => {
+                setPlaylistTracks(data.tracks)
+            })
+            .catch(error => {
+                setPlaylistTracks([]);
+            })
+        }
+        
     }, [playlist])
 
-    
-
-    return (
-        <View className='h-full bg-white px-7'>
-            <View>
-                <PlaylistCard
+    const renderPlaylist = () => {
+        if (isloading) {
+          return <Text className='font-urbanist self-center text-base pt-12'>Loading playlists...</Text>;
+        } else {
+          return (
+            <PlaylistCard
                     imageSize={'w-32 h-32'}
                     titleSize={'text-xl'}
                     title={playlist.name}
@@ -64,6 +92,16 @@ export default function playlistDetails() {
                     level={playlist.level}
                     time={'20:18'}
                 />
+          );
+        }
+      };
+
+    
+
+    return (
+        <View className='h-full bg-white px-7'>
+            <View>
+                {renderPlaylist()}
             </View>
 
             {/* <FlatList
@@ -96,47 +134,4 @@ export default function playlistDetails() {
     )
 }
 
-// {
-//     "message": "Success.",
-//     "data": [
-//         {
-//             "playlist": {
-//                 "id": 1,
-//                 "name": "Playlist 1",
-//                 "level": "beginner"
-//             },
-//             "songs": [
-//                 {
-//                     "id": 1,
-//                     "name": "Song",
-//                     "playlist": 1,
-//                     "spotify_id": "1JGWAEOOPv8LyKh92eVa39"
-//                 },
-//                 {
-//                     "id": 2,
-//                     "name": "Song 2",
-//                     "playlist": 1,
-//                     "spotify_id": "0OpcI3rARLsNWgVbPdwHD9"
-//                 },
-//                 {
-//                     "id": 4,
-//                     "name": "song 3",
-//                     "playlist": 1,
-//                     "spotify_id": "4gbVRS8gloEluzf0GzDOFc"
-//                 },
-//                 {
-//                     "id": 5,
-//                     "name": "song 4",
-//                     "playlist": 1,
-//                     "spotify_id": "2qpboKYzz14TeOY7HzQdaF"
-//                 },
-//                 {
-//                     "id": 6,
-//                     "name": "song 5",
-//                     "playlist": 1,
-//                     "spotify_id": "40FUdLENDY3sZmHEM25lpE"
-//                 }
-//             ]
-//         }
-//     ]
-// }
+
