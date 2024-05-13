@@ -6,12 +6,15 @@ import { View, Text, SafeAreaView } from 'react-native';
 import Timer from '../../components/Timer';
 import LogoSmall from '../../assets/images/LogoSmall';
 import PrimaryButton from '../../components/PrimaryButton';
+import OutlineButton from '../../components/OutlineButton'
 
 // Custom hooks 
 import { useStartRunLogic } from './logic/start-run-logic';
+import { useMusicLogic } from './profile/logic/music-player-logic';
 
 const StartRun = () => {
   const { handleStartStop, isRunning } = useStartRunLogic();
+  const { playSound } = useMusicLogic();
 
   return (
     <SafeAreaView className='bg-white h-full pt-20 px-7 flex items-center'>
@@ -35,6 +38,11 @@ const StartRun = () => {
       </View>
 
       <Text className='text-base font-urbanist self-start pt-6 pb-56'>Start run to play music according to your pace</Text>
+      <PrimaryButton 
+        handlePress={playSound}
+        title={'asdf'}
+        width={'w-[170]'}
+      />
       <PrimaryButton 
         title={isRunning ? 'Stop' : 'Start'}
         handlePress={handleStartStop}
