@@ -84,7 +84,8 @@ export const useProfileLogic = () => {
             setIsLoading(false);
         }
     }, [playlists]);
-
+    
+    
     const renderPlaylists = () => {
         if (isloading) {
           return <Text className='font-urbanist self-center text-base pt-12'>Loading playlists...</Text>;
