@@ -12,6 +12,7 @@ import PaceTracker from '../../components/PaceTracker';
 // Custom hooks 
 import { useStartRunLogic } from './logic/start-run-logic';
 import { useMusicLogic } from './profile/logic/music-player-logic';
+import Distance from '../../components/Distance';
 
 const StartRun = () => {
   const { handleStartStop, isRunning } = useStartRunLogic();
@@ -28,7 +29,7 @@ const StartRun = () => {
 
         <View>
           <Text className='text-base font-urbanist'>Distance (km)</Text>
-          <Text className='text-2xl font-urbanistBold'>00.00</Text>
+          <Distance />
         </View>
         
         <View>

@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 export const useStartRunLogic = () => {
     const [isRunning, setIsRunning] = useState(false);
    
