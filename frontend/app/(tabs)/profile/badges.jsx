@@ -14,41 +14,33 @@ const Badges = () => {
       <Badge
         title={'First run'}
         icon={icons.trophy}
-        data={[
-          "00-00-2000",
-          "00.00 km",
-          "00:00"
-        ]}
+        date={"00-00-2000"}
+        distance={"00.00"}
+        time={"00:00"}
       />
 
       <Badge
         title={'Early bird'}
         icon={icons.sunrise}
-        data={[
-          "00-00-2000",
-          "00.00 km",
-          "00:00"
-        ]}
+        date={"00-00-2000"}
+        distance={"00.00"}
+        time={"00:00"}
       />
 
       <Badge
         title={'Longest distance'}
         icon={icons.distance}
-        data={[
-          "00-00-2000",
-          "00.00 km",
-          "00:00"
-        ]}
+        date={"00-00-2000"}
+        distance={"00.00"}
+        time={"00:00"}
       />
 
       <Badge
         title={'Longest duration'}
         icon={icons.timer}
-        data={[
-          "00-00-2000",
-          "00.00 km",
-          "00:00"
-        ]}
+        date={"00-00-2000"}
+        distance={"00.00"}
+        time={"00:00"}
       />
 
     </View>

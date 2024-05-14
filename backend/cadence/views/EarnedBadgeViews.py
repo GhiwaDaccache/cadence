@@ -39,6 +39,8 @@ class EarnedBadgeViews(APIView):
                 earned_badge = EarnedBadgeSerializer(badge).data
                 recorded_run = RecordedRunSerializer(badge.recorded_run).data
                 earned_badge['recorded_run'] = recorded_run
+                badge_name = badge.badge.name
+                earned_badge['badge_name'] = badge_name
                 run_data.append(earned_badge)
 
             return Response({'message': 'Success', 'data': run_data}, status=status.HTTP_200_OK)
