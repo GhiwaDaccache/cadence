@@ -1,4 +1,5 @@
 # Dependencies
+from django.db.models import Max;
 from rest_framework import status;
 from rest_framework.views import APIView;
 from rest_framework.response import Response;
@@ -6,9 +7,10 @@ from rest_framework.permissions import IsAuthenticated;
 from rest_framework_simplejwt.authentication import JWTAuthentication;
 
 # Models
-from ..models.RecordedRunModel import RecordedRun;
 from ..models.BadgeModel import Badge;
+from ..models.RecordedRunModel import RecordedRun;
 from ..models.EarnedBadgeModel import EarnedBadge;
+
 # Serializers
 from ..serializers.RecordedRunSerializer import RecordedRunSerializer;
 
@@ -25,11 +27,17 @@ class RecordedRunViews(APIView):
             
             if serializer.is_valid():
                 recorded_run = serializer.save()
-                user_run_count = RecordedRun.objects.filter(user=user_id).count()
 
+                user_run_count = RecordedRun.objects.filter(user=user_id).count()
                 if user_run_count == 1:
                     first_badge = Badge.objects.get(name='First Run')
                     EarnedBadge.objects.create(badge=first_badge, recorded_run=recorded_run)
+
+                longest_distance = RecordedRun.objects.filter(user=user_id).aggregate(max_distance=Max('real_distance'))['max_distance']
+                if longest_distance == recorded_run.real_distance:
+                    longest_distance_badge = Badge.objects.get(name='Longest Distance')
+                    EarnedBadge.objects.filter(badge=longest_distance_badge, recorded_run__user=user_id).delete()
+                    EarnedBadge.objects.create(badge=longest_distance_badge, recorded_run=recorded_run)
 
 
                 return Response({'message': 'Run added successfully', 'data': serializer.data}, status=status.HTTP_201_CREATED)
