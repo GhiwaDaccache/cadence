@@ -12,9 +12,19 @@ from rest_framework.decorators import api_view, throttle_classes
 class SpotifyViews(APIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
-
+    
     def create_spotify_token(request):
         try:
+            url = 'https://accounts.spotify.com/authorize?response_type=code&client_id=220bc6fbfe2c4df28c4bad2b9095b391&scope=user-modify-playback-state&redirect_uri=cadence://profile&state=state'
+
+            headers = {
+                'Cookie': 'sp_landing=https%3A%2F%2Fopen.spotify.com%2Falbum%2F0tGPJ0bkWOUmH7MEOR77qc%3Fsp_cid%3D506d19abc0c59f1a316f6a2947031fe0%26device%3Ddesktop; sp_t=506d19abc0c59f1a316f6a2947031fe0; __Host-device_id=AQBzMMiya3K9hGyUeEdmTFizoqoYW6UDJ3R9K1dwsesnGRmo8idHMaoSa0X3Refutlqmf5JAhuRajMHlX3_PnyIYio-fRc4xNU4; __Host-sp_csrf_sid=ba8cdd35100ca9c2e34eeb43da4e15838f99e96f8221d3692af128ffd801624c; __Secure-TPASESSION=AQAcUEplrH6LS5A9xTwO5ybkWytQWHb1kOEbkWC14xfpec2oIK2nUxrkKC7UG/0sfWME8sMq6Ef/78AJqaA233tWqkwuw3KK7Kw=; inapptestgroup=; sp_sso_csrf_token=013acda7197df5ba047e69110b70d82a8e520e952f31373135363330363934353936; sp_tr=false'
+            }
+
+            response = requests.get(url, headers=headers)
+
+            print(response.text)
+
             url = 'https://accounts.spotify.com/api/token'
             headers = {
                 "content-type": "application/x-www-form-urlencoded"

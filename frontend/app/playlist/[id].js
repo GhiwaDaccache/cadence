@@ -1,11 +1,18 @@
-import { Text, View , FlatList, Image } from "react-native";
+// Dependencies
+import { useState, useEffect } from "react";
 import { useLocalSearchParams } from "expo-router";
+import { Text, View , FlatList } from "react-native";
+
+// Components
+import SongCard from '../../components/SongCard';
 import PlaylistCard from "../../components/PlaylistCard";
 import PrimaryButton from "../../components/PrimaryButton";
+
+// Assets
 import images from '../../assets/images/images'; 
-import { useState, useEffect } from "react";
+
+// Tools
 import { getValueFor } from "../../tools/secureStore";
-import SongCard from '../../components/SongCard'
 
 export default function playlistDetails() {
     const [currentTrack, setCurrentTrack] = useState(null)
@@ -70,6 +77,7 @@ export default function playlistDetails() {
                     throw new Error("Invalid response format: missing 'tracks' property")
                 }
                 setPlaylistTracks(data.tracks)
+                console.log(spotifyToken)
             })
             .catch(error => {
                 setPlaylistTracks([])

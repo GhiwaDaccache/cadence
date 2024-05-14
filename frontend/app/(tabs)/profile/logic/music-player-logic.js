@@ -13,7 +13,7 @@ export const useMusicLogic = () => {
     try{ 
         console.log('Loading Sound');
         await Audio.setAudioModeAsync({ playsInSilentModeIOS: true });
-        const spotifyToken = await getValueFor('spotify-token')
+        const accessToken = await getValueFor('spotify-token')
         // const { sound } = await Audio.Sound.createAsync(
         //     { uri: 'https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3' },
         //     { shouldPlay: true },
@@ -21,21 +21,21 @@ export const useMusicLogic = () => {
         //   );
 
         const data = {
-            uris: ['spotify:track:4iV5W9uYEdYUVa79Axb7Rh', 'spotify:track:1301WleyT98MSxVHPZCA6M'],
-            position_ms: 0
+            context_uri:"spotify:album:5ht7ItJgpBH7W6vJ5BqpPr"
           };
 
           fetch("https://api.spotify.com/v1/me/player/play?device_id=425d882af17f4f94d09209e227264c899a7172dd", {
             method: 'PUT',
             headers: {
-              'Authorization': 'Bearer ' + accessToken,
+              'Authorization': `Bearer ${accessToken}`,
               'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
           })
           .then(response => {
             if (!response.ok) {
-              throw new Error('Network response was not ok. Status: ' + response.status);
+                console.log(accessToken)
+                throw new Error('Network response was not ok. Status: ' + response.status);
             }
             return response.json();
           })

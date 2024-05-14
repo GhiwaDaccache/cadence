@@ -1,12 +1,11 @@
 // Dependencies
-import React, {useState} from 'react';
+import React from 'react';
 import { View, Text, SafeAreaView } from 'react-native';
 
 // Components
 import Timer from '../../components/Timer';
 import LogoSmall from '../../assets/images/LogoSmall';
 import PrimaryButton from '../../components/PrimaryButton';
-import OutlineButton from '../../components/OutlineButton'
 
 // Custom hooks 
 import { useStartRunLogic } from './logic/start-run-logic';
