@@ -6,14 +6,15 @@ import { View, Text, SafeAreaView } from 'react-native';
 import Timer from '../../components/Timer';
 import LogoSmall from '../../assets/images/LogoSmall';
 import PrimaryButton from '../../components/PrimaryButton';
+import PaceTracker from '../../components/PaceTracker';
+
 
 // Custom hooks 
 import { useStartRunLogic } from './logic/start-run-logic';
 import { useMusicLogic } from './profile/logic/music-player-logic';
-import PaceTracker from '../../components/Pacetracker';
 
 const StartRun = () => {
-  const { handleStartStop, isRunning, pace } = useStartRunLogic();
+  const { handleStartStop, isRunning } = useStartRunLogic();
   const { playSound } = useMusicLogic();
 
   return (
@@ -32,7 +33,9 @@ const StartRun = () => {
         
         <View>
           <Text className='text-base font-urbanist'>Pace (min/km)</Text>
-          <PaceTracker/>
+          <PaceTracker
+            isRunning={isRunning}
+          />
         </View>
 
       </View>
