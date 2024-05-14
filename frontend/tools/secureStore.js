@@ -3,7 +3,6 @@ import * as SecureStore from 'expo-secure-store';
 export const save = async (key, value) => { 
     try {
         await SecureStore.setItemAsync(key, value);
-        console.log('Token saved successfully!');
       } catch (error) {
         console.error('Error saving token:', error);
       }
@@ -24,3 +23,10 @@ export const getValueFor = async (key) => {
     }
 };
 
+export const deleteToken = async (key) => {
+  try {
+    await SecureStore.deleteItemAsync(key);
+  } catch (error) {
+    console.error('Error deleting token:', error);
+  }
+};
