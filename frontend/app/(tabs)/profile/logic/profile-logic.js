@@ -11,12 +11,11 @@ import images from '../../../../assets/images/images';
 
 // Tools
 import { getValueFor } from '../../../../tools/secureStore';
-import { sendRequest } from '../../../../tools/sendRequest';
 
 
 export const useProfileLogic = () => {
     const [playlists, setPlaylists] = useState([]);
-    const [user, setUser] = useState({'first-name': '', 'last-name': ''});
+    const [user, setUser] = useState({'first-name': '', 'last-name': '', 'profile_photo': ''});
     const [isloading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -68,6 +67,7 @@ export const useProfileLogic = () => {
                 setUser({
                   'first-name': data.user.first_name,
                   'last-name': data.user.last_name,
+                  'profile_photo': data.profile_photo_name
                 })
             })
             .catch(error => {
