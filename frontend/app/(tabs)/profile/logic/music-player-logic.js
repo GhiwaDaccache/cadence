@@ -1,5 +1,8 @@
-import { useEffect, useState } from 'react';
+// Dependencies
 import { Audio } from 'expo-av';
+import { useEffect } from 'react';
+
+// Tools
 import { getValueFor } from '../../../../tools/secureStore';
 
 export const useMusicLogic = () => {
