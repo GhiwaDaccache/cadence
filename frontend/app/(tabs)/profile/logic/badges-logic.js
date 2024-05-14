@@ -6,7 +6,7 @@ import { Text, FlatList } from "react-native";
 import Badge from "../../../../components/Badge";
 
 // Assets
-import icons from '../../../assets/icons/icons';
+import icons from "../../../../assets/icons/icons";
 
 // Tools
 import { getValueFor } from '../../../../tools/secureStore';
@@ -70,6 +70,14 @@ export const useBadgeLogic = () => {
         }
     }
 
+    const converTime = (seconds) => {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const hoursString = hours < 10 ? `0${hours}` : `${hours}`;
+        const minutesString = minutes < 10 ? `0${minutes}` : `${minutes}`;
+        return `${hoursString}:${minutesString}`;
+    }
+
     const renderBadges = () =>{
         if (isloading) {
             return <Text className='font-urbanist self-center text-base pt-12'>Loading badges...</Text>;
@@ -85,7 +93,7 @@ export const useBadgeLogic = () => {
                         icon={getIconForBadge(item.badge_name)}
                         title={item.badge_name}
                         date={item.recorded_run.recorded_on}
-                        time={item.recorded_run.real_duration}
+                        time={converTime(item.recorded_run.real_duration)}
                         distance={item.recorded_run.real_distance}
                         />
                 )}
