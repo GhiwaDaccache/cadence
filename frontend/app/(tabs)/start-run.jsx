@@ -10,9 +10,10 @@ import PrimaryButton from '../../components/PrimaryButton';
 // Custom hooks 
 import { useStartRunLogic } from './logic/start-run-logic';
 import { useMusicLogic } from './profile/logic/music-player-logic';
+import PaceTracker from '../../components/Pacetracker';
 
 const StartRun = () => {
-  const { handleStartStop, isRunning } = useStartRunLogic();
+  const { handleStartStop, isRunning, pace } = useStartRunLogic();
   const { playSound } = useMusicLogic();
 
   return (
@@ -28,10 +29,10 @@ const StartRun = () => {
           <Text className='text-base font-urbanist'>Distance (km)</Text>
           <Text className='text-2xl font-urbanistBold'>00.00</Text>
         </View>
-
+        
         <View>
           <Text className='text-base font-urbanist'>Pace (min/km)</Text>
-          <Text className='text-2xl font-urbanistBold'>00:00</Text>
+          <PaceTracker/>
         </View>
 
       </View>
