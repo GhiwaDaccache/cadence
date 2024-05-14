@@ -49,7 +49,22 @@ export const useBadgeLogic = () => {
     }, [badges]);
 
     const renderBadges = () =>{
-       
+        if (isloading) {
+            return <Text className='font-urbanist self-center text-base pt-12'>Loading badges...</Text>;
+        } else if (badges.length == 0) {
+            return <Text Text className='font-urbanist self-center text-base pt-12'>No badges yet</Text>;
+          } else {
+            return (
+                <FlatList 
+                    data = {badges}
+                    keyExtractor={(item) => item.id}
+                    renderItem={({item})=> (
+                        <Badge
+
+                        />
+                )}
+              />)
+        }
     }
 
     return {
