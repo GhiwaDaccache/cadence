@@ -1,9 +1,9 @@
 // Dependencies
 import { useState } from "react";
+import { router } from "expo-router";
 
 // Tools
 import { deleteToken } from "../../../tools/secureStore";
-import { router } from "expo-router";
 
 export const useSettingsLogic = () => {
    

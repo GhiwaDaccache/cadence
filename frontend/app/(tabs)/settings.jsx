@@ -1,6 +1,6 @@
 // Dependencies
 import React from 'react';
-import { SafeAreaView, Image, View, StatusBar } from 'react-native';
+import { SafeAreaView, Image, View, StatusBar, Text } from 'react-native';
 
 // Assets
 import images from '../../assets/images/images'; 
@@ -13,11 +13,11 @@ import OutlineButton from '../../components/OutlineButton';
 // Custom hooks
 import { useSettingsLogic } from './logic/settings-logic';
 import { useRegistrationLogic } from '../(auth)/logic/registration-logic';
-
+import { useProfileLogic } from './profile/logic/profile-logic';
 const Settings = () => {
   const { handleLogout } = useSettingsLogic();
-  const { record, setRecord } = useRegistrationLogic();
-
+  const { record, setRecord, handleRecord } = useRegistrationLogic();
+  const { user } = useProfileLogic()
   return (
     <SafeAreaView className='bg-white h-full'>
       <StatusBar backgroundColor='white'/>
@@ -28,6 +28,7 @@ const Settings = () => {
       <View className='absolute z-10 top-48 left-7 w-24 h-24'>
         <Image source={images.profile} className='h-full w-full'  />
       </View>
+      <Text className='font-usemibold text-lg pl-32'>{user['first-name']} {user['last-name']}</Text>
 
       <View className='pt-14 pb-14'>
         <GreyInputBox 
@@ -53,6 +54,7 @@ const Settings = () => {
         <PrimaryButton
           title={'Save'}
           width={'w-[120]'}
+          handlePress={handleRecord}
         />
 
         <OutlineButton
