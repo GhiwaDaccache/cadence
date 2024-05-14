@@ -51,7 +51,7 @@ export const useBadgeLogic = () => {
         }
     }, [badges])
 
-    const getIconForBadge = (title) => {
+    const getBadgeIcon = (title) => {
         switch (title) {
             case "Early Bird":
                 return icons.sunrise
@@ -64,11 +64,11 @@ export const useBadgeLogic = () => {
 
             case "Longest Distance":
                 return icons.distance
-                
+
             default:
                 return null
         }
-    };
+    }
 
     const renderBadges = () =>{
         if (isloading) {
@@ -79,10 +79,14 @@ export const useBadgeLogic = () => {
             return (
                 <FlatList 
                     data = {badges}
-                    keyExtractor={(item) => item.id}
+                    keyExtractor={(item) => item.id.toString()}
                     renderItem={({item})=> (
                         <Badge
-
+                        icon={getIconForBadge(item.badge_name)}
+                        title={item.badge_name}
+                        date={item.recorded_run.recorded_on}
+                        time={item.recorded_run.real_duration}
+                        distance={item.recorded_run.real_distance}
                         />
                 )}
               />)
