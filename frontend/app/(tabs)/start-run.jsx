@@ -29,7 +29,9 @@ const StartRun = () => {
 
         <View>
           <Text className='text-base font-urbanist'>Distance (km)</Text>
-          <Distance />
+          <Distance 
+            isRunning={isRunning}
+          />
         </View>
         
         <View>

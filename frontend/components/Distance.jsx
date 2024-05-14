@@ -1,8 +1,8 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLocationLogic } from '../app/(tabs)/profile/logic/location-logic';
 
-const Distance = () => {
+const Distance = ({ isRunning }) => {
     const { location } = useLocationLogic()
     const [speed, setSpeed] = useState(0)
     const [time, setTime] = useState(0)
@@ -11,10 +11,15 @@ const Distance = () => {
     useEffect(() => {
       const calculateDistance = () => {
         const ranDistance = speed * time
-        setDistance(ranDistance.toFixed(2))
+        setDistance((ranDistance / 1000).toFixed(2))
       }
-      calculateDistance()
-    }, [speed, time])
+
+      if (isRunning) {
+        calculateDistance()
+      } else {
+        setDistance('00.00')
+      }
+    }, [isRunning, speed, time])
   
     useEffect(() => {
       if (location.speed) {

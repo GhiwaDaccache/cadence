@@ -18,16 +18,15 @@ export const useLocationLogic = () => {
         foregroundSubscription = await Location.watchPositionAsync(
           {
             accuracy: Location.Accuracy.BestForNavigation,
-            timeInterval: 5000,
+            timeInterval: 3500,
             activityType: Location.ActivityType.Fitness
           },
           async (locationUpdate) => {
-            setLocation(prevLocation => ({
-                ...prevLocation,
+            setLocation({
                 latitude: locationUpdate.coords.latitude,
                 longitude: locationUpdate.coords.longitude,
                 speed: locationUpdate.coords.speed,
-            }));
+            });
           }
         )
       })()}, [])
