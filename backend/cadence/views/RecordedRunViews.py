@@ -39,6 +39,14 @@ class RecordedRunViews(APIView):
                     EarnedBadge.objects.filter(badge=longest_distance_badge, recorded_run__user=user_id).delete()
                     EarnedBadge.objects.create(badge=longest_distance_badge, recorded_run=recorded_run)
 
+                longest_duration = RecordedRun.objects.filter(user=user_id).aggregate(max_duration=Max('real_duration'))['max_duration']
+                if longest_duration == recorded_run.real_duration:
+                    longest_duration_badge = Badge.objects.get(name='Longest Duration')
+                    EarnedBadge.objects.filter(badge=longest_duration_badge, recorded_run__user=user_id).delete()
+                    EarnedBadge.objects.create(badge=longest_duration_badge, recorded_run=recorded_run)
+
+
+
 
                 return Response({'message': 'Run added successfully', 'data': serializer.data}, status=status.HTTP_201_CREATED)
             return Response({'message': 'Failed to add run', 'errors': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
