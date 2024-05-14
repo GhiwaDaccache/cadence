@@ -20,9 +20,9 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "cadence.android"
     },
     "web": {
       "favicon": "./assets/favicon.png"
