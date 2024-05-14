@@ -2,12 +2,6 @@
 import React from 'react';
 import { View } from 'react-native';
 
-// Components
-import Badge from '../../../components/Badge';
-
-// Assets
-import icons from '../../../assets/icons/icons';
-
 // Custom hooks
 import { useBadgeLogic } from './logic/badges-logic';
 

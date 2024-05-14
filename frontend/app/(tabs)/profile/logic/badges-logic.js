@@ -90,7 +90,7 @@ export const useBadgeLogic = () => {
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={({item})=> (
                         <Badge
-                        icon={getIconForBadge(item.badge_name)}
+                        icon={getBadgeIcon(item.badge_name)}
                         title={item.badge_name}
                         date={item.recorded_run.recorded_on}
                         time={converTime(item.recorded_run.real_duration)}
