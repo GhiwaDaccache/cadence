@@ -1,4 +1,5 @@
 # Dependencies
+from datetime import time;
 from django.db.models import Max;
 from rest_framework import status;
 from rest_framework.views import APIView;
@@ -45,7 +46,9 @@ class RecordedRunViews(APIView):
                     EarnedBadge.objects.filter(badge=longest_duration_badge, recorded_run__user=user_id).delete()
                     EarnedBadge.objects.create(badge=longest_duration_badge, recorded_run=recorded_run)
 
-
+                if recorded_run.start_time < time(7, 30):
+                    early_bird_badge = Badge.objects.get(name='Early Bird')
+                    EarnedBadge.objects.create(badge=early_bird_badge, recorded_run=recorded_run)
 
 
                 return Response({'message': 'Run added successfully', 'data': serializer.data}, status=status.HTTP_201_CREATED)
