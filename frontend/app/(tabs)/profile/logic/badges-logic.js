@@ -5,6 +5,9 @@ import { Text, FlatList } from "react-native";
 // Components
 import Badge from "../../../../components/Badge";
 
+// Assets
+import icons from '../../../assets/icons/icons';
+
 // Tools
 import { getValueFor } from '../../../../tools/secureStore';
 
@@ -46,7 +49,26 @@ export const useBadgeLogic = () => {
         if (badges.length > 0) {
             setIsLoading(false);
         }
-    }, [badges]);
+    }, [badges])
+
+    const getIconForBadge = (title) => {
+        switch (title) {
+            case "Early Bird":
+                return icons.sunrise
+
+            case "First Run":
+                return icons.trophy
+
+            case "Longest Duration":
+                return icons.timer
+
+            case "Longest Distance":
+                return icons.distance
+                
+            default:
+                return null
+        }
+    };
 
     const renderBadges = () =>{
         if (isloading) {
