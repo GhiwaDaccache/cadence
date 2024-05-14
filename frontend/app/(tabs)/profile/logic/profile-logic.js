@@ -12,10 +12,9 @@ import images from '../../../../assets/images/images';
 // Tools
 import { getValueFor } from '../../../../tools/secureStore';
 
-
 export const useProfileLogic = () => {
     const [playlists, setPlaylists] = useState([]);
-    const [user, setUser] = useState({'first-name': '', 'last-name': '', 'profile_photo': ''});
+    const [user, setUser] = useState({'first-name': '', 'last-name': '', 'profile_photo': 'images.profile'});
     const [isloading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -59,7 +58,7 @@ export const useProfileLogic = () => {
             })
             .then(response => {
                 if (response.message) {
-                    throw new Error("Failed to get user");
+                    throw new Error("Failed to get user")
                 }
                 return response.json();
             })
@@ -67,7 +66,7 @@ export const useProfileLogic = () => {
                 setUser({
                   'first-name': data.user.first_name,
                   'last-name': data.user.last_name,
-                  'profile_photo': data.profile_photo_name
+                  'profile_photo': `../../../../../backend/cadence/media/profile_images/${data.profile_photo_name}`
                 })
             })
             .catch(error => {
@@ -77,7 +76,6 @@ export const useProfileLogic = () => {
 
         })
     }, [])
-
 
     useEffect(() => {
         if (playlists.length > 0) {
@@ -122,25 +120,3 @@ export const useProfileLogic = () => {
 }
 
 
-
-
-      // const fetchPlaylists = async () =>{
-      //   try{
-      //     // const response = await sendRequest("GET", "cadence/api/favorite_playlist")
-
-      //     console.log(response)
-      //     if (response.message == 'Success') {
-      //       console.log("If: ", response)
-      //       const data = await response.json()
-      //       setPlaylists(data.data)
-      //       setIsLoading(false)
-
-      //     } else {
-      //       throw new Error("Failed to load playlists")
-      //     }
-      //   } catch (error) {
-      //     setPlaylists([]);
-      //   }
-      // }
-      // fetchPlaylists();
-      
