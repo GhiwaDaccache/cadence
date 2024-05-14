@@ -20,12 +20,12 @@ export const useLocationLogic = () => {
             accuracy: Location.Accuracy.BestForNavigation,
             timeInterval: 1500
           },
-          async (locationa) => {
-            console.log("Received location update:", locationa); // Log location updates
+          async (location_update) => {
+            console.log("Received location update:", location_update); 
             setLocation(prevLocation => ({
                 ...prevLocation,
-                latitude: locationa.coords.latitude,
-                longitude: locationa.coords.longitude,
+                latitude: location_update.coords.latitude,
+                longitude: location_update.coords.longitude,
             }));
             console.log("LOCCCCCC:", location);
           }

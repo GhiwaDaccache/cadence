@@ -6,8 +6,11 @@ import { View } from "react-native";
 import PrimaryButton from "../../components/PrimaryButton";
 
 // Custom hooks
- 
+ import { usePlaylistLogic } from "./playlist-logic";
+
 export default function playlistDetails() { 
+    const { renderPlaylist, renderSongs } = usePlaylistLogic();
+
     return (
         <View className='h-full bg-white px-7'>
             <View>
@@ -16,7 +19,7 @@ export default function playlistDetails() {
 
             {renderSongs()}
 
-            <View className='absolute self-center top-[560]'>
+            <View className='absolute self-center top-[580]'>
                 <PrimaryButton
                 // handlePress={playSpotify}
                 title={'Start'}

@@ -10,5 +10,5 @@ export const useStartRunLogic = () => {
     return {
         isRunning,
         handleStartStop,
-    };
-};
+    }
+}
