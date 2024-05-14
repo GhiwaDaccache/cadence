@@ -11,9 +11,11 @@ import PrimaryButton from '../../components/PrimaryButton';
 import OutlineButton from '../../components/OutlineButton';
 
 // Custom hooks
+import { useSettingsLogic } from './logic/settings-logic';
 import { useRegistrationLogic } from '../(auth)/logic/registration-logic';
 
 const Settings = () => {
+  const { handleLogout } = useSettingsLogic();
   const { record, setRecord } = useRegistrationLogic();
 
   return (
@@ -56,6 +58,7 @@ const Settings = () => {
         <OutlineButton
           title={'Log out'}
           width={'w-[120]'}
+          handlePress={handleLogout}
         />
       </View>
 
