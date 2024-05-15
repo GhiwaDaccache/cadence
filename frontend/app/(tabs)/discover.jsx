@@ -11,10 +11,13 @@ import IntervalInput from '../../components/IntervalInput';
 // Assets
 import images from '../../assets/images/images';
 
+// Custom hooks
+import { useGeneratePlaylistLogic } from './logic/generate-playlist-logic';
+
 const Discover = () => {
-  // Genres api:
-  const genres = {"genres": ["alternative", "samba", "classical", "french", "pop", "rock" ]}
+  const genres = {"genres": ["alternative", "samba", "acoustic", "french", "pop", "rock", "work-out", "hip-hop"]}
   const [selectedGenre, setSelectedGenre] = useState(null);
+  const { intervals, setIntervals } = useGeneratePlaylistLogic()
   
   const renderGenreCard = ({ item }) => (
     <TouchableOpacity onPress={() => setSelectedGenre(item)}>
@@ -48,25 +51,49 @@ const Discover = () => {
           <View className='flex flex-row justify-between py-2 mr-2 w-52'>
            <IntervalInput 
               placeholder={"12"}
+              value={intervals[0].time}
+              handleChange={(e) => {
+                setIntervals({ ...intervals, time: e});
+              }}
            />
            <IntervalInput 
             placeholder={"6"}
+            value={intervals[0].pace}
+              handleChange={(e) => {
+                setIntervals({ ...intervals, pace: e});
+              }}
            />
           </View>
           <View className='flex flex-row justify-between py-2 mr-2 w-52'>
            <IntervalInput 
             placeholder={"12"}
+            value={intervals[1].time}
+              handleChange={(e) => {
+                setIntervals({ ...intervals, time: e});
+              }}
            />
            <IntervalInput 
             placeholder={"6"}
+            value={intervals[0].pace}
+            handleChange={(e) => {
+              setIntervals({ ...intervals, pace: e});
+            }}
            />
           </View>
           <View className='flex flex-row justify-between py-2 mr-2 w-52'>
            <IntervalInput 
             placeholder={"12"}
+            value={intervals[2].time}
+            handleChange={(e) => {
+              setIntervals({ ...intervals, time: e});
+            }}
            />
            <IntervalInput 
             placeholder={"6"}
+            value={intervals[0].pace}
+            handleChange={(e) => {
+              setIntervals({ ...intervals, pace: e});
+            }}
            />
           </View>
 
