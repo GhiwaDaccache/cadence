@@ -15,7 +15,7 @@ import { useLocationLogic } from './logic/location-logic';
 
 const Profile = () => {
   const { renderPlaylists, user } = useProfileLogic()
-  useLocationLogic()
+ // useLocationLogic()
 
   const profileCardsData = [
     {

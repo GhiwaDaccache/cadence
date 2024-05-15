@@ -5,7 +5,7 @@ import { View, Text, Image } from 'react-native';
 // Assets
 import icons from '../assets/icons/icons';
 
-const PlanTracker = ({ planName, weeks, distance, currentWeek, weekRuns }) => {
+const PlanTracker = ({ planName, weeks, distance, currentWeek, weekRuns}) => {
   return (
     <View className='flex py-3 px-6 mx-7 bg-grey rounded-md w-80 '>
         <Text className='font-urbanistBold text-base'>{planName}</Text>
