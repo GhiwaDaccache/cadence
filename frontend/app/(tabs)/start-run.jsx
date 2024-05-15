@@ -13,11 +13,12 @@ import PaceTracker from '../../components/PaceTracker';
 import { useStartRunLogic } from './logic/start-run-logic';
 import { useMusicLogic } from './profile/logic/music-player-logic';
 import Distance from '../../components/Distance';
+import { useSpotifyMusicLogic } from './logic/spotify-music-logic';
 
 const StartRun = () => {
   const { handleStartStop, isRunning } = useStartRunLogic();
   const { playSound } = useMusicLogic();
-
+  const { checkUserPace } = useSpotifyMusicLogic()
   return (
     <SafeAreaView className='bg-white h-full pt-20 px-7 flex items-center'>
       <LogoSmall/>
@@ -44,14 +45,10 @@ const StartRun = () => {
       </View>
 
       <Text className='text-base font-urbanist self-start pt-6 pb-56'>Start run to play music according to your pace</Text>
-      <PrimaryButton 
-        handlePress={playSound}
-        title={'asdf'}
-        width={'w-[170]'}
-      />
+
       <PrimaryButton 
         title={isRunning ? 'Stop' : 'Start'}
-        handlePress={handleStartStop}
+        handlePress={() => {handleStartStop(); playSound(); checkUserPace();}}
         width='w-[170]'
       />
     </SafeAreaView>

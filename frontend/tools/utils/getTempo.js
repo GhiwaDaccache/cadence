@@ -23,6 +23,6 @@ export const getTempo = (pace) => {
         case pace >= 14 && pace <= 15:
             return [50, 70]
         default:
-            return null
+            return [120, 140]
     }
 }

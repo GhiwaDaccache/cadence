@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 // Assets
 import Logo from '../assets/images/Logo';
 import images from '../assets/images/images'; 
+import AppH from './(tabs)/profile/logic/test-logic';
 
 // Components
 import PrimaryButton from '../components/PrimaryButton';
@@ -27,6 +28,8 @@ const App = () => {
             rounded={false}
 
           />
+        <AppH />
+
           <View className='h-full w-px bg-white'></View>
 
           <PrimaryButton

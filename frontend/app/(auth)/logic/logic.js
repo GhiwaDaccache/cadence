@@ -5,8 +5,10 @@ import { Alert } from "react-native";
 
 // Tools
 import { save } from "../../../tools/secureStore";
+import AppH from "../../(tabs)/profile/logic/test-logic";
 
 export const useAuthenticationLogic = () => {
+  // const {authenticate } = useTestLogic()
   const [isLogin, setIsLogin] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [credentials, setCredentials] = useState({ username: "", password: "" });
@@ -33,6 +35,8 @@ export const useAuthenticationLogic = () => {
           },
           body: JSON.stringify(credentialsBody),
       })
+
+
 
       const spotify_token = await fetch("http://192.168.232.108:8000/cadence/api/spotify/create_spotify_token", {
         method: "POST",
