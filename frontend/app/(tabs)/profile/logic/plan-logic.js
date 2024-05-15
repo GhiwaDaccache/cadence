@@ -1,17 +1,14 @@
 // Dependencies
-import { router } from 'expo-router';
 import { useEffect, useState } from "react";
-import { Text, FlatList } from "react-native";
+import { Text } from "react-native";
 
 // Components
-import PlaylistCard from '../../../../components/PlaylistCard';
-
-// Assets
-import images from '../../../../assets/images/images'; 
+import PlanTracker from '../../../../components/PlanTracker';
 
 // Tools
 import { getValueFor } from '../../../../tools/secureStore';
-import PlanTracker from '../../../../components/PlanTracker';
+import { convertToMinutes } from '../../../../tools/utils/convertTime';
+
 
 export const usePlanLogic = () => {
     const [plan, setPlan] = useState(null);
@@ -109,14 +106,6 @@ export const usePlanLogic = () => {
                     return "Invalid"; 
                 }
 
-            }
-
-            const convertToMinutes = (seconds) => {
-                const minutes = Math.floor(seconds / 60)
-                const remainingSeconds = seconds % 60
-                const minutesString = minutes < 10 ? `0${minutes}` : `${minutes}`
-                const secondsString = remainingSeconds < 10 ? `0${remainingSeconds}` : `${remainingSeconds}`
-                return `${minutesString}:${secondsString}`
             }
 
            const runs = []
