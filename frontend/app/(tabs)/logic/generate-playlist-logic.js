@@ -1,5 +1,5 @@
 // Dependencies
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getValueFor } from "../../../tools/secureStore";
 import { TouchableOpacity } from "react-native";
 import GenreCard from "../../../components/GenreCard";
@@ -7,7 +7,9 @@ import GenreCard from "../../../components/GenreCard";
 export const useGeneratePlaylistLogic = () => {
     const [selectedGenre, setSelectedGenre] = useState(null);
     const genres = {"genres": ["alternative", "samba", "acoustic", "french", "pop", "rock", "work-out", "hip-hop"]}
-    const [intervals, setIntervals] = useState([{'time': 0, 'pace': 0}, {'time': 0, 'pace': 0}, {'time': 0, 'pace': 0}]);
+    const [firstInterval, setFirstInterval] = useState({'time': 0, 'pace': 0})
+    const [secondInterval, setSecondInterval] = useState({'time': 0, 'pace': 0})
+    const [thirdInterval, setThirdInterval] = useState({'time': 0, 'pace': 0})
 
     const renderGenreCard = ({ item }) => (
         <TouchableOpacity onPress={() => setSelectedGenre(item)}>
@@ -17,6 +19,12 @@ export const useGeneratePlaylistLogic = () => {
           />
         </TouchableOpacity>
       )
+
+    useEffect(()=>{
+        console.log("1 ", firstInterval)
+        console.log("2 ",secondInterval)
+        console.log("3 ",thirdInterval)
+    }, [firstInterval, secondInterval, thirdInterval])
 
    
     // useEffect(() => {
@@ -50,8 +58,12 @@ export const useGeneratePlaylistLogic = () => {
 
 
     return {
-        intervals,
-        setIntervals,
+        firstInterval,
+        setFirstInterval,
+        secondInterval,
+        setSecondInterval,
+        thirdInterval,
+        setThirdInterval,
         genres,
         renderGenreCard
     }

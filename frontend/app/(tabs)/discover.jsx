@@ -1,6 +1,6 @@
 // Dependencies
 import { View, Text, SafeAreaView, FlatList, TouchableOpacity } from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 
 // Components
 import PlanCard from '../../components/PlanCard';
@@ -15,8 +15,7 @@ import images from '../../assets/images/images';
 import { useGeneratePlaylistLogic } from './logic/generate-playlist-logic';
 
 const Discover = () => {
-
-  const { intervals, setIntervals, genres, renderGenreCard } = useGeneratePlaylistLogic()
+  const { firstInterval, setFirstInterval, secondInterval, setSecondInterval, thirdInterval, setThirdInterval, genres, renderGenreCard } = useGeneratePlaylistLogic()
 
   return (
     <SafeAreaView className='bg-white h-full pt-20 flex items-center'>
@@ -41,48 +40,48 @@ const Discover = () => {
           <View className='flex flex-row justify-between py-2 mr-2 w-52'>
            <IntervalInput 
               placeholder={"12"}
-              value={intervals[0].time}
+              value={firstInterval.time}
               handleChange={(e) => {
-                setIntervals({ ...intervals, time: e});
+                setFirstInterval({ ...firstInterval, time: e});
               }}
            />
            <IntervalInput 
             placeholder={"6"}
-            value={intervals[0].pace}
-              handleChange={(e) => {
-                setIntervals({ ...intervals, pace: e});
-              }}
-           />
-          </View>
-          <View className='flex flex-row justify-between py-2 mr-2 w-52'>
-           <IntervalInput 
-            placeholder={"12"}
-            value={intervals[1].time}
-              handleChange={(e) => {
-                setIntervals({ ...intervals, time: e});
-              }}
-           />
-           <IntervalInput 
-            placeholder={"6"}
-            value={intervals[0].pace}
+            value={firstInterval.pace}
             handleChange={(e) => {
-              setIntervals({ ...intervals, pace: e});
+              setFirstInterval({ ...firstInterval, pace: e});
             }}
            />
           </View>
           <View className='flex flex-row justify-between py-2 mr-2 w-52'>
            <IntervalInput 
             placeholder={"12"}
-            value={intervals[2].time}
+            value={secondInterval.time}
+              handleChange={(e) => {
+                setSecondInterval({ ...secondInterval, time: e});
+              }}
+           />
+           <IntervalInput 
+            placeholder={"6"}
+            value={secondInterval.pace}
+              handleChange={(e) => {
+                setSecondInterval({ ...secondInterval, pace: e});
+              }}
+           />
+          </View>
+          <View className='flex flex-row justify-between py-2 mr-2 w-52'>
+           <IntervalInput 
+            placeholder={"12"}
+            value={thirdInterval.time}
             handleChange={(e) => {
-              setIntervals({ ...intervals, time: e});
+              setThirdInterval({ ...thirdInterval, time: e});
             }}
            />
            <IntervalInput 
             placeholder={"6"}
-            value={intervals[0].pace}
+            value={thirdInterval.pace}
             handleChange={(e) => {
-              setIntervals({ ...intervals, pace: e});
+              setThirdInterval({ ...thirdInterval, pace: e});
             }}
            />
           </View>
