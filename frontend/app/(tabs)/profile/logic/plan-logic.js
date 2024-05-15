@@ -65,6 +65,8 @@ export const usePlanLogic = () => {
                 planName={plan.name}
                 distance={plan.distance}
                 weeks={plan.duration}
+                currentWeek={1}
+                weekRuns={3}
             />
           )
         }

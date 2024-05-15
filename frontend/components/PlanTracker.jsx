@@ -5,7 +5,7 @@ import { View, Text, Image } from 'react-native';
 // Assets
 import icons from '../assets/icons/icons';
 
-const PlanTracker = ({ planName, weeks, distance }) => {
+const PlanTracker = ({ planName, weeks, distance, currentWeek, weekRuns }) => {
   return (
     <View className='flex py-3 px-6 mx-7 bg-grey rounded-md w-80 '>
         <Text className='font-urbanistBold text-base'>{planName}</Text>
@@ -33,11 +33,11 @@ const PlanTracker = ({ planName, weeks, distance }) => {
         <View className='py-2 px-3 mt-2 bg-white rounded-md'>
           <View className='flex flex-row justify-between'>
             <Text className='font-usemibold text-base'>Week</Text>
-            <Text className='font-urbanist text-base pr-9'>2</Text>
+            <Text className='font-urbanist text-base pr-9'>{currentWeek}</Text>
           </View>
           <View className='flex flex-row justify-between'>
             <Text className='font-usemibold text-base'>Total runs</Text>
-            <Text className='font-urbanist text-base pr-9'>3</Text>
+            <Text className='font-urbanist text-base pr-9'>{weekRuns}</Text>
           </View>
           
           <View className='flex flex-row py-1'>

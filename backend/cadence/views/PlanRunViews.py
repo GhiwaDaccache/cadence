@@ -46,21 +46,23 @@ class PlanRunViews(APIView):
     def get(self, request):
         try:
             user = request.user
-            last_recorded_run = RecordedRun.objects.filter(user = user, run__isnull = False).latest('recorded_on')
-            run_id = last_recorded_run.run_id
+            recorded_runs = RecordedRun.objects.filter(user = user, run__isnull = False).order_by('-recorded_on')
+            run_ids = recorded_runs.values_list('run_id', flat=True)
+            last_recorded_run = recorded_runs.first()
 
-            plan_run = PlanRun.objects.get(run_id = run_id)
-            week = plan_run.week
-            plan_id = plan_run.plan_id
+            plan_runs = PlanRun.objects.get(run_id__in = run_ids)
+            current_plan_run = PlanRun.objects.get(run_id = last_recorded_run.run_id)
+            week = current_plan_run.week
+            plan_id = current_plan_run.plan_id
 
             runs = Run.objects.filter(planrun__plan_id = plan_id)
             run_serializer = RunSerializer(runs, many = True)
             plan_runs = PlanRun.objects.filter(plan_id = plan_id, week = week)
             plan_run_serializer = PlanRunSerializer(plan_runs, many = True)
-            recorded_run_serializer = RecordedRunSerializer(last_recorded_run)
+            recorded_runs_serializer = RecordedRunSerializer(recorded_runs, many = True)
 
             data = {
-                'last_recorded_run': recorded_run_serializer.data,
+                'recorded_runs': recorded_runs_serializer.data,
                 'runs': run_serializer.data,
                 'plan_runs': plan_run_serializer.data
             }

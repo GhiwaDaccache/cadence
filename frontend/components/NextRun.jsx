@@ -20,7 +20,7 @@ const NextRun = ({ distance }) => {
           <Text className='font-urbanist text-base pr-3'>{distance} km</Text>
           <Image 
             source={icons.road} 
-            className='w-5 h-5'  
+            className='w-4 h-4'  
           />
         </View>
       </View>
