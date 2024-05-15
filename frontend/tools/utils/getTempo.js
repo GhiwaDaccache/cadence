@@ -1,5 +1,5 @@
-export const getBpmRangeForPace = (pace) => {
-    switch (pace) {
+export const getTempo = (pace) => {
+    switch (true) {
         case pace >= 4 && pace < 5:
             return [150, 180]
         case pace >= 5 && pace < 6:

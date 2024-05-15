@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getValueFor } from "../../../tools/secureStore";
 import { TouchableOpacity } from "react-native";
 import GenreCard from "../../../components/GenreCard";
+import { getTempo } from "../../../tools/utils/getTempo"
 
 export const useGeneratePlaylistLogic = () => {
     const [selectedGenre, setSelectedGenre] = useState(null);
@@ -24,37 +25,58 @@ export const useGeneratePlaylistLogic = () => {
         console.log("1 ", firstInterval)
         console.log("2 ",secondInterval)
         console.log("3 ",thirdInterval)
-    }, [firstInterval, secondInterval, thirdInterval])
+        console.log(selectedGenre)
+    }, [firstInterval, secondInterval, thirdInterval, selectedGenre])
+
+    const handleGenerate = () =>{
+        getRecommendations(firstInterval.time, firstInterval.pace)
+        getRecommendations(secondInterval.time, secondInterval.pace)
+        getRecommendations(thirdInterval.time, thirdInterval.pace)
+    }
+
+    const getRecommendations = (time, pace) =>{
+        if (!selectedGenre) {
+            // Handle the case where selectedGenre is null
+            return;}
+        const getTokens = async () => {
+            const token = await getValueFor('token')
+            const spotifyToken = await getValueFor('spotify-token')
+            return [token, spotifyToken]
+        }
+        const duration = Math.floor(time * 60000 / 7)
+        const duration_range = [duration-30000 , duration+30000]
+        const tempo = getTempo(pace)
+        
+
+        const recommendations = `seed_genres=${selectedGenre}&min_duration_ms=${duration_range[0]}&max_duration_ms=${duration_range[1]}&min_tempo=${tempo[0]}&max_tempo=${tempo[1]}`
+        
+        getTokens().then(token => {
+            if (token[1]) {
+                fetch(`https://api.spotify.com/v1/recommendations?limit=7&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_tracks=0c6xIDDpzE81m2q797ordA&${recommendations}`, {
+                    method: "GET", 
+                    headers: {
+                        Authorization: `Bearer ${token[1]}`,
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to get songs")
+                    }
+                    return response.json(); // Return the promise here
+                })
+                .then(data => {
+                    console.log(data); // Log the parsed JSON data here
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+            }
+        });
+        
+    }
 
    
-    // useEffect(() => {
-    //     const getTokens = async () => {
-    //         const token = await getValueFor('token')
-    //         const spotifyToken = await getValueFor('spotify-token')
-    //         return [token, spotifyToken]
-    //     }
-        
-    //     getTokens().then(token => {
-    //         if (token[1]) {
-    //             fetch(`https://api.spotify.com/v1/recommendations?${recommendations}`, {
-    //                 method: "GET", 
-    //                 headers: {
-    //                     Authorization: `Bearer ${token[1]}`,
-    //                 }
-    //             })
-    //             .then(response => {
-    //                 if (!response.ok) {
-    //                     throw new Error("Failed to get songs")
-    //                 }
-    //                 console.log(response.json())
-    //                 return response.json()
-    //             })
-    //             .catch(error => {
-    //                 setPlaylistTracks([])
-    //             })
-    //         }
-    //     })
-    // }, [])
+
 
 
     return {
@@ -65,6 +87,7 @@ export const useGeneratePlaylistLogic = () => {
         thirdInterval,
         setThirdInterval,
         genres,
-        renderGenreCard
+        renderGenreCard,
+        handleGenerate
     }
 }
