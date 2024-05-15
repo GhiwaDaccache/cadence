@@ -97,10 +97,11 @@ export const useProfileLogic = () => {
               data={playlists}
               renderItem={({ item }) => (
                 <PlaylistCard
-                  image={images.playlist}
+                  image={images[item.playlist.image]}
                   time={'20:12'}
                   level={item.playlist.level}
                   title={item.playlist.name}
+                  imageSize={'w-24 h-24'}
                   handlePress={()=>{ 
                     router.push(`/playlist/${item.playlist.id}`)
                   }}
