@@ -41,9 +41,7 @@ export const usePlanLogic = () => {
                 .then(data => {
                     const plan_response = {'name': data.data.name, 'duration': data.data.duration, 'distance': data.data.distance}
                     setPlan(plan_response)
-                    console.log("00000000000000")
 
-                    console.log(plan_response)
                 })
                 .catch(error => {
                     setPlan([]);
@@ -68,8 +66,6 @@ export const usePlanLogic = () => {
                 .then(data => {
                     const plan_data_response = {'recorded_runs': data.data.recorded_runs, 'runs': data.data.runs, 'plan_runs': data.data.plan_runs}
                     setPlanData(plan_data_response)
-                    console.log("AAAAAAAAAAAAAAAAAAAAA")
-                    console.log(plan_data_response)
                 })
                 .catch(error => {
                     setPlanData([]);
@@ -82,11 +78,6 @@ export const usePlanLogic = () => {
     useEffect(() => {
         if (plan && planData) {
             setIsLoading(false);
-            console.log("1111111111111111111")
-            console.log(plan)
-            console.log("22222222222222222222")
-
-            console.log(planData)
         }
     }, [plan, planData]);
     
@@ -98,10 +89,6 @@ export const usePlanLogic = () => {
           return <Text Text className='font-urbanist self-center text-base pt-12'>You don't have any plans</Text>
         } else {
            const totalRuns = planData.plan_runs.length
-
-           console.log("NNNNNNN")
-           console.log(plan)
-           console.log(planData)
           return (
             <PlanTracker
                 planName={plan.name}
