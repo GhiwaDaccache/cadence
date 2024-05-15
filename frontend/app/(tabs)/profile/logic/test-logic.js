@@ -47,7 +47,7 @@ export default function AppH() {
             await save('authorization-code', response.params.code)
         }
         getAuthorization()
-        console.log(response)
+        console.log(response.params.code)
       const { code } = response.params;
     }
   }, [response]);

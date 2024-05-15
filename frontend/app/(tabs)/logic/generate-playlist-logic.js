@@ -4,6 +4,7 @@ import { getValueFor } from "../../../tools/secureStore";
 import { TouchableOpacity } from "react-native";
 import GenreCard from "../../../components/GenreCard";
 import { getTempo } from "../../../tools/utils/getTempo"
+import { Alert } from "react-native";
 
 export const useGeneratePlaylistLogic = () => {
     const [selectedGenre, setSelectedGenre] = useState(null);
@@ -55,6 +56,7 @@ export const useGeneratePlaylistLogic = () => {
                 })
                 .then(response => {
                     if (!response.ok) {
+                        console.log(response)
                         throw new Error("Failed to get songs")
                     }
                     return response.json(); 
@@ -63,7 +65,8 @@ export const useGeneratePlaylistLogic = () => {
                     
                       for (let i = 0; i < data.tracks.length; i++) {
                         playlist.songs.push({ 'name': data.tracks[i].name, 'spotify_id': data.tracks[i].id });
-                    }                    
+                    }  
+
                 })
                 .catch(error => {
                     console.log(error);
@@ -103,6 +106,9 @@ export const useGeneratePlaylistLogic = () => {
                             },
                             body: JSON.stringify({"playlist": playlist_id }),
                         })
+                        Alert.alert("Error", "Playlist added to favorites");
+
+
                     })
                 .catch(error => {
                     console.log(error);

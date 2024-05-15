@@ -13,12 +13,12 @@ import PaceTracker from '../../components/PaceTracker';
 import { useStartRunLogic } from './logic/start-run-logic';
 import { useMusicLogic } from './profile/logic/music-player-logic';
 import Distance from '../../components/Distance';
-import { useSpotifyMusicLogic } from './logic/spotify-music-logic';
+// import { useSpotifyMusicLogic } from './logic/spotify-music-logic';
 
 const StartRun = () => {
   const { handleStartStop, isRunning } = useStartRunLogic();
   const { playSound } = useMusicLogic();
-  const { checkUserPace } = useSpotifyMusicLogic()
+  // const { checkUserPace } = useSpotifyMusicLogic()
   return (
     <SafeAreaView className='bg-white h-full pt-20 px-7 flex items-center'>
       <LogoSmall/>
@@ -48,7 +48,7 @@ const StartRun = () => {
 
       <PrimaryButton 
         title={isRunning ? 'Stop' : 'Start'}
-        handlePress={() => {handleStartStop(); playSound(); checkUserPace();}}
+        handlePress={() => {handleStartStop(); playSound()}}
         width='w-[170]'
       />
     </SafeAreaView>
