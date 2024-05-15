@@ -1,4 +1,5 @@
 # Dependencies
+from django.db.models import Sum;
 from rest_framework import status;
 from rest_framework.views import APIView;
 from rest_framework.response import Response;
@@ -7,6 +8,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication;
 
 # Models
 from ..models.PlanModel import Plan;
+from ..models.PlanRunModel import PlanRun;
 
 # Serializers
 from ..serializers.PlanSerializer import PlanSerializer;
@@ -30,11 +32,16 @@ class PlanViews(APIView):
         try:
             if pk is not None:
                 plan = Plan.objects.get(pk=pk)
+                total_distance = PlanRun.objects.filter(plan=plan).aggregate(total_distance=Sum('run__distance')).get('total_distance') or 0
+                plan.distance = total_distance
                 serializer = PlanSerializer(plan)
                 return Response({'message': 'Success.', 'data': serializer.data}, status=status.HTTP_200_OK)
             
             else:
                 plans = Plan.objects.all()
+                for plan in plans:
+                    total_distance = PlanRun.objects.filter(plan=plan).aggregate(total_distance=Sum('run__distance')).get('total_distance') or 0
+                    plan.distance = total_distance
                 serializer = PlanSerializer(plans, many=True)
                 return Response({'message': 'success.', 'data': serializer.data}, status=status.HTTP_200_OK)
             
