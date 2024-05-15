@@ -15,7 +15,7 @@ import images from '../../assets/images/images';
 import { useGeneratePlaylistLogic } from './logic/generate-playlist-logic';
 
 const Discover = () => {
-  const { firstInterval, setFirstInterval, secondInterval, setSecondInterval, thirdInterval, setThirdInterval, genres, renderGenreCard } = useGeneratePlaylistLogic()
+  const { firstInterval, setFirstInterval, secondInterval, setSecondInterval, thirdInterval, setThirdInterval, genres, renderGenreCard, handleGenerate } = useGeneratePlaylistLogic()
 
   return (
     <SafeAreaView className='bg-white h-full pt-20 flex items-center'>
@@ -90,6 +90,7 @@ const Discover = () => {
             <PrimaryButton 
             title={'Generate'}
             width={'w-32'}
+            handlePress={handleGenerate}
             />
           </View>
       </View>
