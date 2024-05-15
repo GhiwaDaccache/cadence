@@ -1,5 +1,6 @@
 # Dpendencies
 import time;
+from django.db.models import Sum;
 from rest_framework import status;
 from rest_framework.views import APIView;
 from rest_framework.response import Response;
@@ -14,6 +15,7 @@ from ..serializers.UserSerializer import UserProfileSerializer;
 
 # Models
 from ..models.PlanModel import Plan;
+from ..models.PlanRunModel import PlanRun;
 from ..models.Usermodel import UserProfile;
 
     
@@ -88,7 +90,10 @@ class UserViews(APIView):
             user_profile = UserProfile.objects.get(user=user)
 
             if user_profile.plan:
-                serializer = PlanSerializer(user_profile.plan)
+                plan = user_profile.plan
+                total_distance = PlanRun.objects.filter(plan=plan).aggregate(total_distance=Sum('run__distance')).get('total_distance') or 0
+                plan.distance = total_distance
+                serializer = PlanSerializer(plan)
                 return Response({'message': 'Success', 'data': serializer.data}, status=status.HTTP_200_OK)
             else:
                 return Response({'message': 'User has no plan.'}, status=status.HTTP_404_NOT_FOUND)
