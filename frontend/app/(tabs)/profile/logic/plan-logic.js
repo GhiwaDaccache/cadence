@@ -1,14 +1,15 @@
 // Dependencies
 import { useEffect, useState } from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 
 // Components
 import PlanTracker from '../../../../components/PlanTracker';
+import NextRun from '../../../../components/NextRun';
 
 // Tools
 import { getValueFor } from '../../../../tools/secureStore';
+import { weekDay } from '../../../../tools/utils/getWeekDay'; 
 import { convertToMinutes } from '../../../../tools/utils/convertTime';
-
 
 export const usePlanLogic = () => {
     const [plan, setPlan] = useState(null);
@@ -86,58 +87,46 @@ export const usePlanLogic = () => {
           return <Text Text className='font-urbanist self-center text-base pt-12'>You don't have any plans</Text>
         } else {
            const totalRuns = planData.plan_runs.length
-           function weekDay(day) {
-            switch (day) {
-                case 1:
-                    return "Mon";
-                case 2:
-                    return "Tue";
-                case 3:
-                    return "Wed";
-                case 4:
-                    return "Thu";
-                case 5:
-                    return "Fri";
-                case 6:
-                    return "Sat";
-                case 7:
-                    return "Sun";
-                default:
-                    return "Invalid"; 
+           
+
+            const runs = []
+            const next_run = []
+
+            for (let i = 0; i < planData.runs.length; i++) {
+                const run = planData.runs[i]
+                const { distance } = run
+                const recordedRun = planData.recorded_runs.find(recorded => recorded.run === run.id)
+                const planRun = planData.plan_runs.find(plan => plan.run === run.id)
+
+                const { day } = planRun
+                const week_day = weekDay(day)
+
+                if (recordedRun) {
+                    const real_duration  = convertToMinutes(recordedRun.real_duration)
+                    runs.push({ distance, real_duration, week_day })
+                } else {
+                    next_run.push(distance)
+                    runs.push({ distance, week_day })
                 }
-
             }
+            return (
+                <View className='h-full bg-white flex items-center pt-5'>
+                    <PlanTracker
+                        planName={plan.name}
+                        distance={plan.distance}
+                        weeks={plan.duration}
+                        currentWeek={planData.plan_runs[0].week}
+                        weekRuns={totalRuns}
+                        runs={runs}
+                    />
+                    <NextRun 
+                        distance={next_run[0]}
+                    />
+                </View>
 
-           const runs = []
-
-           for (let i = 0; i < planData.runs.length; i++) {
-            const run = planData.runs[i]
-            const { distance } = run
-            const recordedRun = planData.recorded_runs.find(recorded => recorded.run === run.id)
-            const planRun = planData.plan_runs.find(plan => plan.run === run.id)
-
-            const { day } = planRun
-            const week_day = weekDay(day)
-
-            if (recordedRun) {
-                const real_duration  = convertToMinutes(recordedRun.real_duration)
-                runs.push({ distance, real_duration, week_day })
-            } else {
-                runs.push({ distance, week_day })
-            }
+            )
         }
-          return (
-            <PlanTracker
-                planName={plan.name}
-                distance={plan.distance}
-                weeks={plan.duration}
-                currentWeek={planData.plan_runs[0].week}
-                weekRuns={totalRuns}
-                runs={runs}
-            />
-          )
-        }
-      }
+    }
 
 
     return {

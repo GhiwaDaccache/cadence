@@ -11,11 +11,8 @@ import { usePlanLogic } from './logic/plan-logic';
 const Plan = () => {
   const { renderPlan } = usePlanLogic()
   return (
-    <View className='h-full bg-white flex items-center pt-5'>
+    <View>
       {renderPlan()}
-      <NextRun 
-        distance={'2.9'}
-      />
     </View>
   )
 }

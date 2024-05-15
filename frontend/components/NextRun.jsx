@@ -9,7 +9,7 @@ import images from '../assets/images/images';
 // Components
 import PlaylistCard from '../components/PlaylistCard';
 
-const NextRun = ({ distance }) => {
+const NextRun = ({ distance, week, day }) => {
   return (
     <View className='flex py-2 px-6 mx-7 mt-5 bg-grey rounded-md w-80'>
       <Text className='font-urbanistBold text-base'>Next run</Text>
@@ -26,6 +26,7 @@ const NextRun = ({ distance }) => {
       </View>
 
       <View className='py-2 px-3 mt-2 bg-white rounded-md'>
+        <Text>Week {week} Day {day} </Text>
         <Text className='font-usemibold text-base pt-1'>Playlist</Text>
         <PlaylistCard 
           image={images.playlist}
