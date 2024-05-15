@@ -105,7 +105,7 @@ export const usePlanLogic = () => {
                     const real_duration  = convertToMinutes(recordedRun.real_duration)
                     runs.push({ distance, real_duration, week_day })
                 } else {
-                    next_run.push(distance)
+                    next_run.push(distance, day)
                     runs.push({ distance, week_day })
                 }
             }
@@ -121,6 +121,8 @@ export const usePlanLogic = () => {
                     />
                     <NextRun 
                         distance={next_run[0]}
+                        week={planData.plan_runs[0].week}
+                        day={next_run[1]}
                     />
                 </View>
 
