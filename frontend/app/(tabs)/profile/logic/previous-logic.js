@@ -7,6 +7,7 @@ import Run from "../../../../components/Run";
 
 // Tools
 import { getValueFor } from '../../../../tools/secureStore';
+import { convertToMinutes } from "../../../../tools/utils/convertTime";
 
 export const usePrviousLogic = () => {
     const [previousRuns, setPreviousRuns] = useState([]);
@@ -64,7 +65,7 @@ export const usePrviousLogic = () => {
                             date={item.recorded_on}
                             distance={item.real_distance}
                             pace={item.real_pace}
-                            time={item.real_duration}
+                            time={convertToMinutes(item.real_duration)}
                   />
                 )}
               />
