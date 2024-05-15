@@ -5,7 +5,7 @@ import { View, Text, Image } from 'react-native';
 // Assets
 import icons from '../assets/icons/icons';
 
-const PlanTracker = ({ planName, weeks, distance, currentWeek, weekRuns}) => {
+const PlanTracker = ({ planName, weeks, distance, currentWeek, weekRuns, runs }) => {
   return (
     <View className='flex py-3 px-6 mx-7 bg-grey rounded-md w-80 '>
         <Text className='font-urbanistBold text-base'>{planName}</Text>
@@ -39,28 +39,17 @@ const PlanTracker = ({ planName, weeks, distance, currentWeek, weekRuns}) => {
             <Text className='font-usemibold text-base'>Total runs</Text>
             <Text className='font-urbanist text-base pr-9'>{weekRuns}</Text>
           </View>
-          
-          <View className='flex flex-row py-1'>
-            <View className='h-5 w-5 bg-primary rounded-md px-2'></View>
-            <Text className='font-urbanist text-base px-3'>Mon</Text>
-            <Text className='font-urbanist text-base px-3'>2.4 km</Text>
-            <Text className='font-urbanist text-base px-3'>15:32</Text>
-          </View>
 
-          <View className='flex flex-row py-1'>
-            <View className='h-5 w-5 bg-grey rounded-md'></View>
-            <Text className='font-urbanist text-base px-3'>Mon</Text>
-            <Text className='font-urbanist text-base px-3'>2.4 km</Text>
-            <Text className='font-urbanist text-base px-3'></Text>
+          {runsData.map((run, index) => (
+          <View key={index} className='flex flex-row py-1'>
+            <View >
+              <View className='h-5 w-5 bg-primary rounded-md px-2'></View>
+              <Text className='font-urbanist text-base px-3'>{runs[index].day}</Text>
+              <Text className='font-urbanist text-base px-3'>{runs[index].distance} km</Text>
+              <Text className='font-urbanist text-base px-3'>{runs[index].real_durantion}</Text>
+            </View>
           </View>
-
-          <View className='flex flex-row py-1'>
-            <View className='h-5 w-5 bg-grey rounded-md'></View>
-            <Text className='font-urbanist text-base px-3'>Mon</Text>
-            <Text className='font-urbanist text-base px-3'>2.4 km</Text>
-            <Text className='font-urbanist text-base px-3'></Text>
-          </View>
-
+        ))}
         </View>
 
       </View>

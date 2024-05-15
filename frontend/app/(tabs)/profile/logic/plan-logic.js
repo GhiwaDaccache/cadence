@@ -112,7 +112,7 @@ export const usePlanLogic = () => {
                 weeks={plan.duration}
                 currentWeek={planData.plan_runs[0].week}
                 weekRuns={totalRuns}
-                
+                runs={runs}
             />
           )
         }
