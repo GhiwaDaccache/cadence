@@ -13,10 +13,10 @@ import images from '../../assets/images/images';
 
 // Custom hooks
 import { useGeneratePlaylistLogic } from './logic/generate-playlist-logic';
-
+import { useDiscoverLogic } from './logic/discover-logic';
 const Discover = () => {
   const { firstInterval, setFirstInterval, secondInterval, setSecondInterval, thirdInterval, setThirdInterval, genres, renderGenreCard, handleGenerate } = useGeneratePlaylistLogic()
-
+  const{ renderPlans } = useDiscoverLogic();
   return (
     <SafeAreaView className='bg-white h-full pt-20 flex items-center'>
       <View className='py-3 bg-grey rounded mx-7 w-80 pl-2'>
@@ -97,14 +97,7 @@ const Discover = () => {
 
       <View className='w-full flex items-start px-5'>
         <Text className='font-urbanistBold text-base pt-4'>Plans</Text>
-        <PlanCard 
-          image={images.plan}
-          distance={13.2}
-          duration={5}
-          level={'Intermediate'}
-          title={'Road to 10k'}
-        
-        />
+        {renderPlans()}
       </View>
     </SafeAreaView>
   )
