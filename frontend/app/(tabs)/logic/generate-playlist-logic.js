@@ -11,6 +11,7 @@ export const useGeneratePlaylistLogic = () => {
     const [firstInterval, setFirstInterval] = useState({'time': 0, 'pace': 0})
     const [secondInterval, setSecondInterval] = useState({'time': 0, 'pace': 0})
     const [thirdInterval, setThirdInterval] = useState({'time': 0, 'pace': 0})
+    const playlist = {"name": "My Playlist", "level": "beginner", "image": "A", "songs": []}
 
     const renderGenreCard = ({ item }) => (
         <TouchableOpacity onPress={() => setSelectedGenre(item)}>
@@ -32,6 +33,7 @@ export const useGeneratePlaylistLogic = () => {
         getRecommendations(firstInterval.time, firstInterval.pace)
         getRecommendations(secondInterval.time, secondInterval.pace)
         getRecommendations(thirdInterval.time, thirdInterval.pace)
+        addPlaylist()
     }
 
     const getRecommendations = (time, pace) =>{
@@ -65,18 +67,29 @@ export const useGeneratePlaylistLogic = () => {
                     return response.json(); 
                 })
                 .then(data => {
-                    const playlist = {
-                        "name": "My Playlist",
-                        "level": "beginner",
-                        "songs": [
-                        ]
-                      }
+                    
                       for (let i = 0; i < data.tracks.length; i++) {
                         playlist.songs.push({ 'name': data.tracks[i].name, 'spotify_id': data.tracks[i].id });
-                    }
+                    }                    
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+            }
+        });
+        
+    }
 
-                    console.log(JSON.stringify(playlist))
-                    fetch("http://192.168.232.108:8000/cadence/api/playlist/", {
+    const addPlaylist = () =>{
+        const getTokens = async () => {
+            const token = await getValueFor('token')
+            const spotifyToken = await getValueFor('spotify-token')
+            return [token, spotifyToken]
+        }
+        
+        getTokens().then(token => {
+            if (token[0]) {
+                fetch("http://192.168.232.108:8000/cadence/api/playlist/", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -85,9 +98,19 @@ export const useGeneratePlaylistLogic = () => {
                         },
                         body: JSON.stringify(playlist),
                     }).then(resp => {
-                        console.log(resp)
+                        return resp.json()
+                    }).then(data => {
+                        const playlist_id = data.data.id
+                        fetch("http://192.168.232.108:8000/cadence/api/favorite_playlist/", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Access-Control-Allow-Origin": "*",
+                                Authorization: `Bearer ${token[0]}`
+                            },
+                            body: JSON.stringify({"playlist": playlist_id }),
+                        })
                     })
-                })
                 .catch(error => {
                     console.log(error);
                 })
