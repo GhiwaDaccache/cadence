@@ -7,6 +7,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from ..serializers.UserSerializer import UserProfileSerializer
 from ..models.Usermodel import UserProfile
+from ..models.PlanModel import Plan
 import time
 from django.shortcuts import get_object_or_404
     
@@ -86,5 +87,19 @@ class UserUpdateAPIView(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=400)
+    
+    def post(self, request):
+        user = request.user
+        user_profile = UserProfile.objects.get(user=user)
+        plan_id = request.data.get('plan_id')  
+        if not plan_id:
+            return Response({'error': 'Plan not found'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        plan = get_object_or_404(Plan, pk=plan_id)
+        user_profile.plan = plan
+        user_profile.save()  
+        serializer = UserProfileSerializer(user_profile)
+
+        return Response({'message': 'Plan added', 'data': serializer.data })
        
         
