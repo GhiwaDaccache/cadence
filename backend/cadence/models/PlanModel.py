@@ -6,7 +6,7 @@ class Plan(models.Model):
     duration = models.IntegerField(validators=[MinValueValidator(0)])
     distance = models.IntegerField(validators=[MinValueValidator(0)])
     level = models.CharField(max_length=100)
-    image = models.CharField(max_length=255)
+    image = models.CharField(max_length=255, null=True)
 
     class Meta:
         db_table = 'plans'

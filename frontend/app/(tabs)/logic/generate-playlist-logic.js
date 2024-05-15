@@ -36,8 +36,8 @@ export const useGeneratePlaylistLogic = () => {
 
     const getRecommendations = (time, pace) =>{
         if (!selectedGenre) {
-            // Handle the case where selectedGenre is null
-            return;}
+            return
+        }
         const getTokens = async () => {
             const token = await getValueFor('token')
             const spotifyToken = await getValueFor('spotify-token')
@@ -62,10 +62,31 @@ export const useGeneratePlaylistLogic = () => {
                     if (!response.ok) {
                         throw new Error("Failed to get songs")
                     }
-                    return response.json(); // Return the promise here
+                    return response.json(); 
                 })
                 .then(data => {
-                    console.log(data); // Log the parsed JSON data here
+                    const playlist = {
+                        "name": "My Playlist",
+                        "level": "beginner",
+                        "songs": [
+                        ]
+                      }
+                      for (let i = 0; i < data.tracks.length; i++) {
+                        playlist.songs.push({ 'name': data.tracks[i].name, 'spotify_id': data.tracks[i].id });
+                    }
+
+                    console.log(JSON.stringify(playlist))
+                    fetch("http://192.168.232.108:8000/cadence/api/playlist/", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Access-Control-Allow-Origin": "*",
+                            Authorization: `Bearer ${token[0]}`
+                        },
+                        body: JSON.stringify(playlist),
+                    }).then(resp => {
+                        console.log(resp)
+                    })
                 })
                 .catch(error => {
                     console.log(error);
