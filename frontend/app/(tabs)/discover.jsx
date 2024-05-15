@@ -15,18 +15,8 @@ import images from '../../assets/images/images';
 import { useGeneratePlaylistLogic } from './logic/generate-playlist-logic';
 
 const Discover = () => {
-  const genres = {"genres": ["alternative", "samba", "acoustic", "french", "pop", "rock", "work-out", "hip-hop"]}
-  const [selectedGenre, setSelectedGenre] = useState(null);
-  const { intervals, setIntervals } = useGeneratePlaylistLogic()
-  
-  const renderGenreCard = ({ item }) => (
-    <TouchableOpacity onPress={() => setSelectedGenre(item)}>
-      <GenreCard
-        genre={item}
-        selectedGenre={selectedGenre}
-      />
-    </TouchableOpacity>
-  )
+
+  const { intervals, setIntervals, genres, renderGenreCard } = useGeneratePlaylistLogic()
 
   return (
     <SafeAreaView className='bg-white h-full pt-20 flex items-center'>
