@@ -44,7 +44,7 @@ const PlanTracker = ({ planName, weeks, distance, currentWeek, weekRuns, runs })
           <View key={index} >
             <View className='flex flex-row py-1'>
               <View className='h-5 w-5 bg-primary rounded-md px-2'></View>
-              <Text className='font-urbanist text-base px-3'>{run.day}</Text>
+              <Text className='font-urbanist text-base px-3'>{run.week_day}</Text>
               <Text className='font-urbanist text-base px-3'>{run.distance} km</Text>
               <Text className='font-urbanist text-base px-3'>{run.real_duration}</Text>
             </View>

@@ -89,6 +89,36 @@ export const usePlanLogic = () => {
           return <Text Text className='font-urbanist self-center text-base pt-12'>You don't have any plans</Text>
         } else {
            const totalRuns = planData.plan_runs.length
+           function weekDay(day) {
+            switch (day) {
+                case 1:
+                    return "Mon";
+                case 2:
+                    return "Tue";
+                case 3:
+                    return "Wed";
+                case 4:
+                    return "Thu";
+                case 5:
+                    return "Fri";
+                case 6:
+                    return "Sat";
+                case 7:
+                    return "Sun";
+                default:
+                    return "Invalid"; 
+                }
+
+            }
+
+            const convertToMinutes = (seconds) => {
+                const minutes = Math.floor(seconds / 60)
+                const remainingSeconds = seconds % 60
+                const minutesString = minutes < 10 ? `0${minutes}` : `${minutes}`
+                const secondsString = remainingSeconds < 10 ? `0${remainingSeconds}` : `${remainingSeconds}`
+                return `${minutesString}:${secondsString}`
+            }
+
            const runs = []
 
            for (let i = 0; i < planData.runs.length; i++) {
@@ -97,12 +127,14 @@ export const usePlanLogic = () => {
             const recordedRun = planData.recorded_runs.find(recorded => recorded.run === run.id)
             const planRun = planData.plan_runs.find(plan => plan.run === run.id)
 
-            const { day } = planRun;
+            const { day } = planRun
+            const week_day = weekDay(day)
+
             if (recordedRun) {
-                const real_duration  = recordedRun.real_duration
-                runs.push({ distance, real_duration, day })
+                const real_duration  = convertToMinutes(recordedRun.real_duration)
+                runs.push({ distance, real_duration, week_day })
             } else {
-                runs.push({ distance, day })
+                runs.push({ distance, week_day })
             }
         }
           return (
