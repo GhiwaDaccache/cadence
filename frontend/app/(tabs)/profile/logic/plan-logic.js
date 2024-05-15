@@ -89,6 +89,22 @@ export const usePlanLogic = () => {
           return <Text Text className='font-urbanist self-center text-base pt-12'>You don't have any plans</Text>
         } else {
            const totalRuns = planData.plan_runs.length
+           const runs = []
+
+           for (let i = 0; i < data.runs.length; i++) {
+            const run = data.runs[i]
+            const { distance } = run
+            const recordedRun = data.recorded_runs.find(recorded => recorded.run === run.id)
+            const planRun = data.plan_runs.find(plan => plan.run === run.id)
+
+            const { day } = planRun;
+            if (recordedRun) {
+                const { real_duration } = recordedRun
+                runs.push({ distance, real_duration, day })
+            } else {
+                runs.push({ distance, day })
+            }
+        }
           return (
             <PlanTracker
                 planName={plan.name}
