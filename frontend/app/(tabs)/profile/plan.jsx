@@ -4,16 +4,15 @@ import { View } from 'react-native';
 
 // Components
 import NextRun from '../../../components/NextRun';
-import PlanTracker from '../../../components/PlanTracker';
+
+// Custom hooks
+import { usePlanLogic } from './logic/plan-logic';
 
 const Plan = () => {
+  const { renderPlan } = usePlanLogic();
   return (
     <View className='h-full bg-white flex items-center pt-5'>
-      <PlanTracker 
-        planName={"plan name"}
-        distance={15.32}
-        weeks={3}
-      />
+      {renderPlan()}
       <NextRun 
         distance={'2.9'}
       />
