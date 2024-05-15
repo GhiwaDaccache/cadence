@@ -22,13 +22,6 @@ export const useGeneratePlaylistLogic = () => {
         </TouchableOpacity>
       )
 
-    useEffect(()=>{
-        console.log("1 ", firstInterval)
-        console.log("2 ",secondInterval)
-        console.log("3 ",thirdInterval)
-        console.log(selectedGenre)
-    }, [firstInterval, secondInterval, thirdInterval, selectedGenre])
-
     const handleGenerate = () =>{
         getRecommendations(firstInterval.time, firstInterval.pace)
         getRecommendations(secondInterval.time, secondInterval.pace)
