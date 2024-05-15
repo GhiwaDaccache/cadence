@@ -20,7 +20,8 @@ urlpatterns = [
     path('api/user/update/', UserUpdateAPIView.as_view(), name='user_update'),
     path('api/user/', UserViews.as_view(), name='user'),
     path('api/user/upload_image/', UserViews.upload_image, name='upload_image'),
-    
+    path('api/user/get_user_plan/', UserViews.get_user_plan, name='get_user_plan'),
+
     # Plan
     path('api/plan/', PlanViews.as_view(), name='plans'),
     path('api/plan/<int:pk>/', PlanViews.as_view(), name='plan_id'),
