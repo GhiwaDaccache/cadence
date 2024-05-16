@@ -1,22 +1,18 @@
 import os
-import django
-
-# Set the DJANGO_SETTINGS_MODULE environment variable
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.settings")
-django.setup()
-
-# Now you can import settings safely
-from django.conf import settings
 from openai import OpenAI
+from dotenv import load_dotenv
+from django.conf import settings
+
+
 
 def main():
-    # Retrieve OpenAI API key from settings
-    api_key = settings.OPENAI_API_KEY
+    load_dotenv()
+    api_key = os.getenv("OPENAI_KEY", None)
 
     print(1)
     # Pass the API key to the OpenAI client constructor
     client = OpenAI(api_key=api_key)
-    print(2)
+    print(client)
 
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",

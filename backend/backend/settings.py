@@ -1,6 +1,5 @@
 from pathlib import Path
 from datetime import timedelta
-import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -15,7 +14,6 @@ SECRET_KEY = 'django-insecure-qd=lz(%&(s421!_r@^c9hd$0%g63gg+r11(sde(!^c3m7i7^ze
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost','10.0.2.2', '192.168.232.108', '192.168.0.106', '192.168.232.108']
-OPENAI_API_KEY = "cadence-api-key"
 
 # Application definition
 
