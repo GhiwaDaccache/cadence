@@ -14,14 +14,14 @@ export const useStartRunLogic = () => {
    
     const handleStartStop = () => {
         if (isRunning) {
-            const endTime = new Date().toISOString().slice(0, 10)
-            const totalTime = Date.now() - new Date(runData.start_time).getTime()
+            const endTime = new Date().toLocaleDateString()
+            const totalTime = endTime - runData.startTime
             const averagePace = calculateAveragePace(runData.distance, totalTime)
 
             setRunData({ ...runData, endTime, totalTime, averagePace })
             sendRun(runData)
           } else {
-            setRunData({ ...runData, start_time: new Date().toISOString().slice(0, 10), end_time: endTime, real_distance: 0, real_duration: 0, real_pace: 0, recorded_on: new Date().toISOString().slice(0, 10) })
+            setRunData({ ...runData, start_time: new Date().toLocaleDateString(), end_time: new Date().toLocaleDateString(), real_distance: 0, real_duration: 0, real_pace: 0, recorded_on: new Date().toLocaleDateString() })
           }
           setIsRunning(!isRunning)
     }
@@ -62,6 +62,3 @@ export const useStartRunLogic = () => {
         handleStartStop,
     }
 }
-
-
-
