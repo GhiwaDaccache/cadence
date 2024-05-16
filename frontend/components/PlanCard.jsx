@@ -9,6 +9,7 @@ const PlanCard = ({ image, title, level, distance, duration }) => {
   return (
     <View className='flex flex-row pt-6 items-center'>
         <Image 
+          className='w-24 h-24 rounded-md'
           source={image}
         />
         <View className='flex justify-center px-4'>
@@ -17,10 +18,10 @@ const PlanCard = ({ image, title, level, distance, duration }) => {
           <Text className='pt-1 font-urbanist'>{distance} km</Text>
           <Text className='pt-1 font-urbanist'>{duration} weeks</Text>
         </View>
-        <OutlineButton
+        {/* <OutlineButton
           title={'Set'}
           width={'w-16'}
-        />
+        /> */}
       </View>
   )
 }

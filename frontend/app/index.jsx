@@ -28,7 +28,7 @@ const App = () => {
             rounded={false}
 
           />
-        <AppH />
+        {/* <AppH /> */}
 
           <View className='h-full w-px bg-white'></View>
 

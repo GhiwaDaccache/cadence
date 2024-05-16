@@ -66,7 +66,7 @@ export const useDiscoverLogic = () => {
               data={plans}
               renderItem={({ item }) => (
                 <PlanCard 
-                    image={images.plan}
+                    image={images[item.image]}
                     distance={item.distance}
                     duration={item.duration}
                     level={item.level}
@@ -75,7 +75,7 @@ export const useDiscoverLogic = () => {
               )}
               keyExtractor={(item) => item.id.toString()}
             />
-          );
+          )
         }
       };
     

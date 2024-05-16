@@ -33,7 +33,7 @@ class SpotifyViews(APIView):
                 "Authorization": 'Basic ' + encoded_credentials
             }
             data = {
-                "code": "AQBwW-LGVgkAmrYs5CNTgyW8U4LBRortaYl-HdNV6Mo2kUD2RIDLkxHAd4_BSaTMS2qXYvTR0Wpn22yEQQLJqN3xYFnHa9PPym_sWuNYUJluuAjPDd2iFu964pAxCnBawf6uNZUOb_epsnrOh1HRNHtteOB0Arkb0wr7HfExYg8sx87BoieawnH1Fuz_IhTj0BaAzcwPmi14Eah7_myttPPy3YYLg0PvR6n5CWkbb16hHTqgabxcvxEhpoJgO-rEWmUyNH5HunHbFK2W8_yb9M5s6cj_78aEXPZbnW57CYJcDuBxtEdcYxob9DT4ldiYeLgRPdNhdmEpcvtZFDTdUfxAHGyeurOZBLh50M-jAbErAQIb6tExBxAbStoQobeolMhUS5ZWDnx1W5nwUFcaoGZD0rmuxKkvYpjLQX8BLP5AIyVwmvkwXqozWjG6VS50WO9Z47AAtcmtP2SF3_Oyna9vvWCtzyzC_ttv2t8E2ryjXblXiDKzSYilfk3ap3sXMG-JR8kdjROw9uisanyYnT0w4F2UpGjJAyk98rfhhzaGDMmcF377lv7-aTl1k9vYbM7GxqgMRnBz3o6FAxE",
+                "code": "AQDtDVW6RSLKO6-i_HZ2w1EK9Oy_FrCjjYeIfr9trLNy9mYjhRbZI873sTZZJZ4rNdKg5okjzyNgl_rz0-cOBHz4sS35pJx8G9Ktgucfdguuh4hleyWK2kmeHQaxr617pnHBRQL8mRtF3XBjkmbS3jV3n-_J2XVnE3idO264eh1CGxGw7P1BsxSyAm0SWQsBQPgbWibAs4x8zXIT0VRLMQfXoJ_EYx-eeVGtiq6_x-IorR7Lm3bQq9-yFHsD2JseiA8aNp1yCCuEdbizWtJZ1G6FMHv7DRzcELlJz3i5g1VosM7i7HqWFczqT30bCjyJZ5Ibr7Aj5bCVQ6rwtoLv73cnoYOs9yLTT8XNj6lt4QcIdbwB-XRK9_ZL42jiBZxCgwWV_ENQNih7aJUYY_eedZw-W8o2q15NMnpGRe_pvKjy2dfu7Vv995Mn8-q4nqAUmTUDn-uyseWih8qEo3UU7TVeZKfiUW83hzuLzZq6cKg5iNCf3-9ucLkoCQVauIqE78npuxHVqnCxPESsxIPU7YMJa56mi9JJASN3w94XDcca34JqHa9DZaw7a24Wxt_IB3BOSeIXoEvXb1vCDi4",
                 "grant_type": "authorization_code",
                 "redirect_uri": "exp://192.168.232.108:8081"
             }

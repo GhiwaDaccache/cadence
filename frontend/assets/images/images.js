@@ -3,9 +3,12 @@ import tree from '../images/tree.jpg';
 import blue from '../images/blue.png';
 import cover from '../images/cover.jpg';
 import yellow from '../images/yellow.png';
+import runner from '../images/runner.jpeg';
 import playlist from '../images/playlist.png';
+import trailRun from '../images/trailRun.jpg';
 import profile from '../images/profilePic.png';
 import landingBg from '../images/landingBg.jpg';
+
 
 export default{
     landingBg,
@@ -15,6 +18,8 @@ export default{
     plan,
     tree,
     yellow,
-    blue
+    blue,
+    runner,
+    trailRun
 }
 
