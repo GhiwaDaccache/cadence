@@ -98,7 +98,7 @@ export const useProfileLogic = () => {
               renderItem={({ item }) => (
                 <PlaylistCard
                   image={images[item.playlist.image]}
-                  time={'20:12'}
+                  time={item.playlist.time}
                   level={item.playlist.level}
                   title={item.playlist.name}
                   imageSize={'w-24 h-24'}

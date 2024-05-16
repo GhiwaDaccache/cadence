@@ -6,7 +6,7 @@ const PlaylistCard = ({ image, title, time, level, handlePress, imageSize, title
   return (
     <TouchableOpacity className='flex flex-row pt-6' onPress={handlePress}>
         <Image 
-          className={imageSize}
+          className={`${imageSize} rounded-md`}
           source={image}
         />
         <View className='flex justify-center pl-4'>

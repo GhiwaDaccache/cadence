@@ -30,9 +30,9 @@ const NextRun = ({ distance, week, day, level, title }) => {
         <Text className='font-usemibold text-base pt-1'>Playlist</Text>
         <PlaylistCard 
           image={images.playlist}
-          level={level}
+          level={"Beginner"}
           time={'20:41'}
-          title={title}
+          title={"Monday runs"}
         />
       </View>
       </View>

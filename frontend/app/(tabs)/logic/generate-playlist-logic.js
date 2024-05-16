@@ -106,7 +106,7 @@ export const useGeneratePlaylistLogic = () => {
                             },
                             body: JSON.stringify({"playlist": playlist_id }),
                         })
-                        Alert.alert("Error", "Playlist added to favorites");
+                        Alert.alert("Cadence", "Playlist added to favorites!");
 
 
                     })
