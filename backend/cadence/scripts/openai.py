@@ -29,7 +29,7 @@ class ChatCompletionView(APIView):
                 ]
             )
 
-            assistant_response = completion.choices[0].message["content"]
+            assistant_response = completion.choices[0].message
             return Response({"response": assistant_response}, status=status.HTTP_200_OK)
         
         except Exception as e:
