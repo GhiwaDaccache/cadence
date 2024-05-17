@@ -3,6 +3,7 @@ from django.urls import path
 
 # Views
 from .views.RunViews import *
+from .scripts.openai import *
 from .views.PlanViews import *
 from .views.UserViews import *
 from .views.BadgeViews import *
@@ -56,5 +57,8 @@ urlpatterns = [
     # Spotify
     path('api/spotify/create_spotify_token', SpotifyViews.create_spotify_token, name='spotify_token'),
     path('api/spotify/generate_playlist', SpotifyViews.generate_playlist, name='generate_playlist'),
+
+    # Openai
+    path('api/chat/', ChatCompletionView.as_view(), name='chat-completion'),
 ]
 

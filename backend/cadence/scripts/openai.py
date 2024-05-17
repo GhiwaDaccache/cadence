@@ -32,6 +32,8 @@ class ChatCompletionView(APIView):
             assistant_response = completion.choices[0].message["content"]
             return Response({"response": assistant_response}, status=status.HTTP_200_OK)
         
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 
