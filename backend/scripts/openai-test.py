@@ -1,26 +1,29 @@
 import os
 from openai import OpenAI
 from dotenv import load_dotenv
-from django.conf import settings
-
 
 
 def main():
+
     load_dotenv()
     api_key = os.getenv("OPENAI_KEY", None)
-
-    print(1)
-    # Pass the API key to the OpenAI client constructor
+    if not api_key:
+        raise ValueError("OpenAI API key not found.")
     client = OpenAI(api_key=api_key)
     print(client)
 
+    user_input = input("Please enter your message: ")
+
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": "count 1 to 10"}])
-    print(3)
+        messages=[
+            {"role": "system", "content": "You are a running coach with 10 years of experience. You help runners with their inquiries, especially concerning pace, cadence, stride, and how music, rhythm, and tempo can enhance their performance."},
+            {"role": "user", "content": user_input}
+        ]
+    )
 
-    print(completion)
-    print(completion.choices[0].message)
+    assistant_response = completion.choices[0].message
+    print("Assistant: ", assistant_response)
 
 if __name__ == "__main__":
     main()
