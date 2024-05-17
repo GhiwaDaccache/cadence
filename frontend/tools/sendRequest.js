@@ -10,7 +10,7 @@ export const sendRequest = async (method, endpoint, body) => {
 
     const token = await getToken();
     if (token) {
-        const response = await fetch(`http://192.168.232.108:8000/${endpoint}/`, {
+        const response = await fetch(`http://http://192.168.51.108:8000/${endpoint}/`, {
             method: method,
             body: JSON.stringify(body),
             headers: {

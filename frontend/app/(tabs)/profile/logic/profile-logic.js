@@ -27,7 +27,7 @@ export const useProfileLogic = () => {
 
         getToken().then(token => {
             if (token) {
-                fetch("http://192.168.232.108:8000/cadence/api/favorite_playlist", {
+                fetch("http://http://192.168.51.108:8000/cadence/api/favorite_playlist", {
                     method: "GET", 
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -50,7 +50,7 @@ export const useProfileLogic = () => {
 
         getToken().then(token => {
           if (token) {
-            fetch("http://192.168.232.108:8000/cadence/api/user/", {
+            fetch("http://http://192.168.51.108:8000/cadence/api/user/", {
                 method: "GET", 
                 headers: {
                     Authorization: `Bearer ${token}`,

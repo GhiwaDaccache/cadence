@@ -3,17 +3,14 @@ import { View, Text, SafeAreaView, FlatList, TouchableOpacity } from 'react-nati
 import React from 'react';
 
 // Components
-import PlanCard from '../../components/PlanCard';
-import GenreCard from '../../components/GenreCard';
 import PrimaryButton from '../../components/PrimaryButton';
 import IntervalInput from '../../components/IntervalInput';
-
-// Assets
-import images from '../../assets/images/images';
 
 // Custom hooks
 import { useGeneratePlaylistLogic } from './logic/generate-playlist-logic';
 import { useDiscoverLogic } from './logic/discover-logic';
+
+
 const Discover = () => {
   const { firstInterval, setFirstInterval, secondInterval, setSecondInterval, thirdInterval, setThirdInterval, genres, renderGenreCard, handleGenerate } = useGeneratePlaylistLogic()
   const{ renderPlans } = useDiscoverLogic();
@@ -98,6 +95,10 @@ const Discover = () => {
       <View className='w-full flex items-start px-5'>
         <Text className='font-urbanistBold text-base pt-4'>Plans</Text>
         {renderPlans()}
+      </View>
+
+      <View>
+        <Text>Test</Text>
       </View>
     </SafeAreaView>
   )
