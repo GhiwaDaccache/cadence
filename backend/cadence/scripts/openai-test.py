@@ -1,6 +1,10 @@
-import os
-from openai import OpenAI
-from dotenv import load_dotenv
+# Dependencies
+import os;
+from openai import OpenAI;
+from dotenv import load_dotenv;
+from rest_framework import status;
+from rest_framework.views import APIView;
+from rest_framework.response import Response;
 
 
 def main():
