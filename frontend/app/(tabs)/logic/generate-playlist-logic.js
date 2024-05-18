@@ -8,7 +8,7 @@ import { Alert } from "react-native";
 
 export const useGeneratePlaylistLogic = () => {
     const [selectedGenre, setSelectedGenre] = useState(null);
-    const genres = {"genres": ["alternative", "samba", "acoustic", "french", "pop", "rock", "work-out", "hip-hop"]}
+    const genres = {"genres": ["Alternative", "Samba", "Acoustic", "French", "Pop", "Rock", "Work-out", "Hip-hop"]}
     const [firstInterval, setFirstInterval] = useState({'time': 0, 'pace': 0})
     const [secondInterval, setSecondInterval] = useState({'time': 0, 'pace': 0})
     const [thirdInterval, setThirdInterval] = useState({'time': 0, 'pace': 0})
