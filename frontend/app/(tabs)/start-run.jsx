@@ -44,7 +44,7 @@ const StartRun = () => {
 
       </View>
 
-      <Text className='text-base font-urbanist self-start pt-6 pb-56'>Start run to play music according to your pace</Text>
+      <Text className='text-base font-urbanist self-start pt-6 pb-56'>Start run to play music according to your pace.</Text>
 
       <PrimaryButton 
         title={isRunning ? 'Stop' : 'Start'}
