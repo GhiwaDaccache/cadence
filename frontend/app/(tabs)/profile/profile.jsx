@@ -55,7 +55,7 @@ const Profile = () => {
       </View>
 
       <View className='absolute z-10 top-48 left-7 w-24 h-24'>
-        <Image source={images.profile}  className='h-full w-full'  />
+        <Image source={`../../../../backend/cadence/media/profile_images/${user['profile_photo']}`}  className='h-full w-full'  />
       </View>
 
       <Text className='font-usemibold text-lg pl-8'>{user['first-name']} {user['last-name']}</Text>
