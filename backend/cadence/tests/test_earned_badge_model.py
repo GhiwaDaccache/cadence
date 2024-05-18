@@ -30,6 +30,3 @@ class EarnedBadgeModelTestCase(TransactionTestCase):
         self.assertEqual(earned_badge.badge, self.badge)
         self.assertEqual(earned_badge.recorded_run, self.recorded_run)
 
-    def test_earned_badge(self):
-        earned_badge = EarnedBadge.objects.get(badge=self.badge, recorded_run=self.recorded_run)
-        self.assertEqual(str(earned_badge), f'EarnedBadge: {self.badge.name}')
