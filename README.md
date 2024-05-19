@@ -70,12 +70,12 @@
   <tr>
     <td align="center">
       
-https://github.com/GhiwaDaccache/cadence/blob/main/readme/media/pace.mp4
+<img src="./readme/media/pace.gif"/>
 
 </td>
     <td align="center">
       
-https://github.com/GhiwaDaccache/cadence/blob/main/readme/media/chat.mp4
+<img src="./readme/media/chat.gif"/>
 </td>
     
 </table>
