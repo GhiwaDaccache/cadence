@@ -5,14 +5,14 @@
 <!-- project philosophy -->
 <img src="./readme/title2.svg"/>
 
-> A mobile app that takes live data from a running tracker, then plays music with a BPM (Beats Per Minute) matching the runner's pace.
+> A mobile app that tracks the runner's pace, then matches it with the music's BPM (Beats Per Minute).
 >
-> Cadence revolutionizes your runs by integrating live data from your tracker with dynamic music playback. Our app ensures that every stride is perfectly synced with the rhythm, enhancing motivation and performancence. 
+> Cadence revolutionizes your runs by integrating live running data with dynamic music playback. Our app ensures that every step is perfectly synced with the rhythm, enhancing motivation and performance. 
 
 ### User Stories
 - As a user, I want to be able to listen to music according to my pace, so that the music matches my rhythm without having to take care of it manually.
 - As a user, I want to customize my music playlist based on my planned pace, so I can manage my energy and performance during different stages of my run.
-- As a user, I want to create multiple custom playlists, each tailored to different running scenarios, so I can follow my running plan through playlists. 
+- As a user, I want to follow my running plan, so I have multiple custom playlists, each tailored to a different running scenario. 
 
 <br><br>
 <!-- Tech stack -->
@@ -20,10 +20,11 @@
 
 ###  Cadence is built using the following technologies:
 
-- This project uses the [Flutter app development framework](https://flutter.dev/). Flutter is a cross-platform hybrid app development platform which allows us to use a single codebase for apps on mobile, desktop, and the web.
-- For persistent storage (database), the app uses the [Hive](https://hivedb.dev/) package which allows the app to create a custom storage schema and save it to a local database.
-- To send local push notifications, the app uses the [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications) package which supports Android, iOS, and macOS.
-- The app uses the font ["Urbanist"](https://fonts.google.com/specimen/Urbanist?stroke=Sans+Serif&subset=latin&noto.script=Latn) as its main font, and the design of the app adheres to the material design guidelines.
+- This project uses the [React Native development framework](https://reactnative.dev/). React Native lets you create truly native apps and doesn't compromise your users' experiences, and it brings the React programming paradigm to platforms like Android and iOS.
+- This project uses the [Django framework](https://www.djangoproject.com/) for backend development. Django is a powerful tool for Python web development, handling routing, database management, authentication, and API creation. It helps developers build sturdy and scalable server-side applications with ease.
+- For persistent storage, the app uses [Secure Store](https://docs.expo.dev/versions/latest/sdk/securestore/), allowing data to be stored locally on the device.
+- To track the runner's pace, the app uses the [Expo Location](https://docs.expo.dev/versions/latest/sdk/location/) library which supports both Android, and iOS.
+- To enhance user experience, the app uses an OpenAI endpoint, leveraging the capabilities of the gpt-3.5-turbo-instruct model. This AI-driven feature provides users with assistance on their runs, progress, and cadence.
 
 <br><br>
 <!-- UI UX -->
