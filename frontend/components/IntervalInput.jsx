@@ -11,6 +11,7 @@ const IntervalInput = ({ value, handleChange, placeholder }) => {
                 value={value}
                 onChangeText={handleChange}
                 placeholder={placeholder}
+                placeholderTextColor={"#ACACAC"}
                 className='font-urbanist text-base h-7 w-20 bg-darkGrey rounded-md flex justify-center px-2'
             />
         </View>
