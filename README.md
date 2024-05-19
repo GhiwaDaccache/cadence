@@ -6,8 +6,7 @@
 <img src="./readme/title2.svg"/>
 
 > A mobile app that tracks the runner's pace, then matches it with the music's BPM (Beats Per Minute).
->
-> Cadence revolutionizes your runs by integrating live running data with dynamic music playback. Our app ensures that every step is perfectly synced with the rhythm, enhancing motivation and performance. 
+> Cadence transforms your running experience by syncing your pace with the beats of your favorite music. With real-time tracking of your running data, the app ensures that every stride aligns with the rhythm, enhancing performance and adding a sense of enjoyment to your runs.
 
 ### User Stories
 - As a user, I want to be able to listen to music according to my pace, so that the music matches my rhythm without having to take care of it manually.
@@ -24,7 +23,8 @@
 - This project uses the [Django framework](https://www.djangoproject.com/) for backend development. Django is a powerful tool for Python web development, handling routing, database management, authentication, and API creation. It helps developers build sturdy and scalable server-side applications with ease.
 - For persistent storage, the app uses [Secure Store](https://docs.expo.dev/versions/latest/sdk/securestore/), allowing data to be stored locally on the device.
 - To track the runner's pace, the app uses the [Expo Location](https://docs.expo.dev/versions/latest/sdk/location/) library which supports both Android, and iOS.
-- To enhance user experience, the app uses an OpenAI endpoint, leveraging the capabilities of the gpt-3.5-turbo-instruct model. This AI-driven feature provides users with assistance on their runs, progress, and cadence.
+- To enhance user experience, the app uses an [OpenAI](https://openai.com/) endpoint, leveraging the capabilities of the gpt-3.5-turbo-instruct model. This AI-driven feature provides users with assistance on their runs, progress, and cadence.
+- To play music, Cadence uses [Spotify](https://developer.spotify.com/documentation/web-api) APIs to get music data, create playlists, get songs recommendations, and most importantly play music. 
 
 <br><br>
 <!-- UI UX -->
