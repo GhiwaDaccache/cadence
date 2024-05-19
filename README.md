@@ -59,8 +59,9 @@
 
 
 ### User Screens (Mobile)
-| Profile screen                         | Generate screen                | Badges screen                   |
-| ![Profile](./readme/media/profile.gif) | ![Generate](./readme/media/generate.gif) | ![Badges](./readme/media/stats.gif) |
+| Profile screen  | Generate Screen | Badges Screen |
+| ---| ---| ---|
+| <img src="./readme/media/profile.gif"/> | <img src="./readme/media/generate.gif"/> | <img src="./readme/media/stats.gif"/> |
 
 
 ### Videos
