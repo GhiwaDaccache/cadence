@@ -61,9 +61,16 @@
 ### User Screens (Mobile)
 | Profile screen | Generate screen | Badges screen |
 | ---| ---| ---|
-| <img src="./readme/media/login.jpg"/> |<img src="./readme/media/profile.gif"/> |<img src="./readme/media/generate.gif"/> | ![Badges]<img src="./readme/media/stats.gif"/> |
+|<img src="./readme/media/profile.gif"/> |<img src="./readme/media/generate.gif"/> |<img src="./readme/media/stats.gif"/> |
 | Logout screen  | Pace Screen | Chat Screen |
-|<img src="./readme/media/logout.gif"/> | <img src="./readme/media/pace.mp4"/> | <img src="./readme/media/chat.mp4"/>|
+|<img src="./readme/media/logout.gif"/> | https://github.com/GhiwaDaccache/cadence/assets/148565998/643408a1-8d8a-470e-a527-a87d78755f26 | https://github.com/GhiwaDaccache/cadence/assets/148565998/7acfb641-61a0-4759-8683-945405bcb273|
+
+
+
+
+
+
+
 
 
 
