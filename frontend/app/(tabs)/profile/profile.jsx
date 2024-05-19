@@ -58,11 +58,11 @@ const Profile = () => {
       </View>
 
       <Text className='font-usemibold text-lg pl-8'>{user['first-name']} {user['last-name']}</Text>
-      <View className='flex flex-row w-full pt-10 px-7 justify-between'>
+      <View className='flex flex-row w-full pt-12 px-7 justify-between'>
         {renderProfileCards()}
       </View>
 
-      <Text className='font-urbanistBold text-base self-start pl-7 pt-8'>Saved playlists</Text>
+      <Text className='font-urbanistBold text-base self-start pl-7 pt-6'>Saved playlists</Text>
         {renderPlaylists()}
     </SafeAreaView>
   )

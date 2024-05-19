@@ -25,8 +25,8 @@ const Settings = () => {
         <Image source={images.cover} className='h-full w-full'  />
       </View>
 
-      <View className='absolute z-10 top-48 left-7 w-24 h-24'>
-        <Image source={images.profile} className='h-full w-full'  />
+      <View className='absolute z-10 top-52 left-7 w-24 h-24'>
+        <Image source={images.athlete} className='h-full w-full rounded-full'  />
       </View>
       <Text className='font-usemibold text-lg pl-32'>{user['first-name']} {user['last-name']}</Text>
 

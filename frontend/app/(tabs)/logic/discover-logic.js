@@ -31,15 +31,15 @@ export const useDiscoverLogic = () => {
                 })
                 .then(response => {
                     if (!response.message === 'success.') {
-                        throw new Error("Failed to load plans");
+                        throw new Error("Failed to load plans")
                     }
-                    return response.json();
+                    return response.json()
                 })
                 .then(data => {
                     setPlans(data.data)
                 })
                 .catch(error => {
-                    setPlans([]);
+                    setPlans([])
                 })
             }
         })
@@ -48,16 +48,16 @@ export const useDiscoverLogic = () => {
 
     useEffect(() => {
         if (plans.length > 0) {
-            setIsLoading(false);
+            setIsLoading(false)
         }
     }, [plans]);
     
     
     const renderPlans = () => {
         if (isloading) {
-          return <Text className='font-urbanist self-center text-base pt-12'>Loading plans...</Text>;
+          return <Text className='font-urbanist self-center text-base pt-12'>Loading plans...</Text>
         } else if (plans.length == 0) {
-          return <Text Text className='font-urbanist self-center text-base pt-12'>No plans available</Text>;
+          return <Text Text className='font-urbanist self-center text-base pt-12'>No plans available</Text>
         } else {
           return (
             <FlatList
