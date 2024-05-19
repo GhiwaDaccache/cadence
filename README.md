@@ -130,16 +130,69 @@ This is an example of how to list things you need to use the software and how to
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [example](https://example.com)
-2. Clone the repo
-   git clone [github](https://github.com/GhiwaDaccache/cadence)
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+1. Install [Python](https://www.python.org/)
 
-Now, you should be able to run Cadence locally and explore its features.
+2. Install [Expo CLI](https://expo.dev/).
+
+3. Database server: Any Apache HTTP Server, MariaDB database server, recommended [XAMPP](https://www.apachefriends.org/download.html).
+
+### Installation
+
+### Frontend (React Native)
+
+```sh
+git clone https://github.com/GhiwaDaccache/cadence.git
+```
+
+1. Navigate to the frontend directory
+
+```sh
+cd frontend
+```
+
+2. Install NPM packages
+
+```sh
+ npm install npm@latest -g
+```
+
+3. Expo start
+
+```sh
+ expo start
+```
+
+### Backend (Python)
+
+1. Navigate to the backend directory
+
+```sh
+cd backend
+```
+
+2. Install pip dependencies
+
+```sh
+pip install -r requirements.txt
+```
+
+3. Install pip dependencies 
+
+```sh
+pip install -r requirements.txt
+```
+
+4. Set up any necessary configurations or keys
+
+```sh
+python manage.py configure
+```
+
+5. Apply migrations or set up the database
+
+```sh
+python manage.py migrate
+```
+
+
+Now, the frontend, and backend are set up. You can run them locally and explore their features.
