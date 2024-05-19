@@ -8,7 +8,7 @@ import playlist from '../images/playlist.png';
 import trailRun from '../images/trailRun.jpg';
 import profile from '../images/profilePic.png';
 import landingBg from '../images/landingBg.jpg';
-
+import athlete from '../images/1715702634athlete.jpg';
 
 export default{
     landingBg,
@@ -20,6 +20,7 @@ export default{
     yellow,
     blue,
     runner,
-    trailRun
+    trailRun,
+    athlete
 }
 

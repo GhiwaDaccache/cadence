@@ -39,7 +39,7 @@ export const useStartRunLogic = () => {
         getToken().then(token => {
             console.log(runData)
             if (token) {
-                fetch("http://http://192.168.1.6:8000/cadence/api/recorded_run/", {
+                fetch("http://192.168.51.108:8000/cadence/api/recorded_run/", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

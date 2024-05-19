@@ -19,6 +19,7 @@ export const useAuthenticationLogic = () => {
       Alert.alert("Error", "All fields are required")
       return
     }
+    console.log("1")
     setIsSubmitting(true)
     const credentialsBody = {
         "username": credentials.username,
@@ -26,7 +27,7 @@ export const useAuthenticationLogic = () => {
     }
 
     try {
-      const response = await fetch("http://http://192.168.1.6:8000/api/login/", {
+      const response = await fetch("http://192.168.51.108:8000/api/login/", {
           method: "POST",
           headers: {
               "Content-Type": "application/json",
@@ -37,7 +38,7 @@ export const useAuthenticationLogic = () => {
 
 
 
-      const spotify_token = await fetch("http://http://192.168.1.6:8000/cadence/api/spotify/create_spotify_token", {
+      const spotify_token = await fetch("http://192.168.51.108:8000/cadence/api/spotify/create_spotify_token", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -79,7 +80,7 @@ export const useAuthenticationLogic = () => {
           }
     }
     try {
-        const response = await fetch("http://http://192.168.1.6:8000/cadence/api/user/register/", {
+        const response = await fetch("http://192.168.51.108:8000/cadence/api/user/register/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

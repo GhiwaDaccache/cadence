@@ -27,7 +27,7 @@ export const useProfileLogic = () => {
 
         getToken().then(token => {
             if (token) {
-                fetch("http://http://192.168.1.6:8000/cadence/api/favorite_playlist", {
+                fetch("http://192.168.51.108:8000/cadence/api/favorite_playlist", {
                     method: "GET", 
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -50,7 +50,7 @@ export const useProfileLogic = () => {
 
         getToken().then(token => {
           if (token) {
-            fetch("http://http://192.168.1.6:8000/cadence/api/user/", {
+            fetch("http://192.168.51.108:8000/cadence/api/user/", {
                 method: "GET", 
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -66,7 +66,7 @@ export const useProfileLogic = () => {
                 setUser({
                   'first-name': data.user.first_name,
                   'last-name': data.user.last_name,
-                  'profile_photo': `../../../../../backend/cadence/media/profile_images/${data.profile_photo_name}`
+                  'profile_photo': data.profile_photo_name
                 })
             })
             .catch(error => {
