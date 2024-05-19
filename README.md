@@ -59,11 +59,30 @@
 
 
 ### User Screens (Mobile)
-| Login screen  | Profile screen | Generate screen | Badges screen |
-| ---| ---| ---| ---|
-| ![Login]<img src="./readme/media/login.jpg"/> | ![Profile]<img src="./readme/media/profile.gif"/> | ![Home]<img src="./readme/media/generate.gif"/> | ![Badges]<img src="./readme/media/stats.gif"/> |
-| Logout screen  | Pace Screen | Chat Screen | Checkout Screen |
-| ![Logout]<img src="./readme/media/logout.gif"/> | ![Pace](https://github.com/GhiwaDaccache/cadence/assets/148565998/2170c954-661b-4b80-b5c0-372f3f807e05) | ![Chat](https://github.com/GhiwaDaccache/cadence/assets/148565998/b090979a-7091-4e23-85c6-2a6cbad5b496) | ![fsdaf](https://placehold.co/900x1600) |
+| Profile screen  | Generate Screen | Badges Screen |
+| ---| ---| ---|
+| <img src="./readme/media/profile.gif"/> | <img src="./readme/media/generate.gif"/> | <img src="./readme/media/stats.gif"/> |
+
+
+### Videos
+
+<table>
+  <tr>
+    <td align="center">
+      
+https://github.com/GhiwaDaccache/cadence/blob/main/readme/media/pace.mp4
+
+</td>
+    <td align="center">
+      
+https://github.com/GhiwaDaccache/cadence/blob/main/readme/media/chat.mp4
+</td>
+    
+</table>
+
+
+
+
 
 
 
