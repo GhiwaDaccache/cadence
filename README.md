@@ -31,15 +31,15 @@
 <img src="./readme/title4.svg"/>
 
 
-> Cadence was designed through wireframing and mockup design, enhancing its layouts to ensure a better user experience.
+> Cadence was designed using wireframes and mockup design, enhancing its layouts to ensure a better user experience through seamless navigation throughout the app.
 
 - Project Figma design [figma](https://www.figma.com/file/T9MjW9gu1uMtYyuyOqIwVY/Cadence?type=design&node-id=0%3A1&mode=design&t=wST7djII7pj7t0rf-1)
 
 
 ### Mockups
-| Home screen  | Menu Screen | Order Screen |
+| Landing screen  | Run Screen | Profile Screen |
 | ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| ![Landing](./readme/media/landing.svg) | ![fsdaf](./readme/media/run.svg) | ![fsdaf](./readme/media/profile.svg) |
 
 <br><br>
 
