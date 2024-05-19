@@ -1,7 +1,7 @@
-import React, { useState, useCallback, useEffect } from 'react'
-import { GiftedChat, InputToolbar, Send, Bubble, Composer } from 'react-native-gifted-chat'
-import { Text } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
+// Dependencies
+import { GiftedChat, Bubble } from 'react-native-gifted-chat';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { useState, useCallback, useEffect } from 'react';
 
 const chat = () => {
   const [messages, setMessages] = useState([])
@@ -21,7 +21,29 @@ const chat = () => {
     ])
   }, [])
 
-  
+  const renderBubble = (props) => {
+    return (
+      <Bubble
+        {...props}
+        textStyle={{
+          left: {
+            color: 'black', 
+          },
+          right: {
+            color: 'white', 
+          },
+        }}
+        wrapperStyle={{
+          left: {
+            backgroundColor: '#F5F5F5',
+          },
+          right: {
+            backgroundColor: '#A00119',
+          },
+        }}
+      />
+    )
+  }
 
   const onSend = useCallback((messages = []) => {
     setMessages(previousMessages =>
@@ -43,4 +65,4 @@ const chat = () => {
   )
 }
 
-export default chat
+export default chat;
