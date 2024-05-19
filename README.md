@@ -48,7 +48,7 @@
 
 ###  Architecting Data Excellence: Innovative Database Design Strategies:
 
-- Insert ER Diagram here
+<img src="./readme/media/database.svg"/>
 
 
 <br><br>
@@ -59,18 +59,13 @@
 
 
 ### User Screens (Mobile)
-| Login screen  | Register screen | Landing screen | Loading screen |
+| Login screen  | Profile screen | Generate screen | Badges screen |
 | ---| ---| ---| ---|
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
-| Home screen  | Menu Screen | Order Screen | Checkout Screen |
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
+| ![Login]<img src="./readme/media/login.jpg"/> | ![Profile]<img src="./readme/media/profile.gif"/> | ![Home]<img src="./readme/media/generate.gif"/> | ![Badges]<img src="./readme/media/stats.gif"/> |
+| Logout screen  | Pace Screen | Chat Screen | Checkout Screen |
+| ![Logout]<img src="./readme/media/logout.gif"/> | ![Pace](https://github.com/GhiwaDaccache/cadence/assets/148565998/2170c954-661b-4b80-b5c0-372f3f807e05) | ![Chat](https://github.com/GhiwaDaccache/cadence/assets/148565998/b090979a-7091-4e23-85c6-2a6cbad5b496) | ![fsdaf](https://placehold.co/900x1600) |
 
-### Admin Screens (Web)
-| Login screen  | Register screen |  Landing screen |
-| ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
-| Home screen  | Menu Screen | Order Screen |
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+
 
 <br><br>
 
@@ -80,7 +75,7 @@
 
 ###  Mastering AI Interaction: Unveiling the Power of Prompt Engineering:
 
-- This project uses advanced prompt engineering techniques to optimize the interaction with natural language processing models. By skillfully crafting input instructions, we tailor the behavior of the models to achieve precise and efficient language understanding and generation for various tasks and preferences.
+- This project uses prompt engineering techniques to optimize the interaction with natural language processing models. By integratin the OpenAI chat model, and tailoring its behavior to achieve precise and efficient understanding and generation for various user inputs.
 
 <br><br>
 
@@ -99,7 +94,7 @@
 ###  Precision in Development: Harnessing the Power of Unit Testing:
 
 - This project employs rigorous unit testing methodologies to ensure the reliability and accuracy of code components. By systematically evaluating individual units of the software, we guarantee a robust foundation, identifying and addressing potential issues early in the development process.
-
+<img src="./readme/media/tests.png"/>
 <br><br>
 
 
