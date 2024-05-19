@@ -78,7 +78,7 @@ const Discover = () => {
       <TouchableOpacity       
       className='absolute left-[270] bottom-6 rounded-full h-16 w-16 bg-primary flex items-center justify-center'
       onPress={()=> {
-        router.push()
+        router.push('chat')
       }}>
         <Image source={icons.openai} className='w-12 h-12'/>
       </TouchableOpacity>
