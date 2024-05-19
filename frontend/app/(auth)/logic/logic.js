@@ -19,7 +19,6 @@ export const useAuthenticationLogic = () => {
       Alert.alert("Error", "All fields are required")
       return
     }
-    console.log("1")
     setIsSubmitting(true)
     const credentialsBody = {
         "username": credentials.username,
