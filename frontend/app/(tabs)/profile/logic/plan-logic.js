@@ -24,7 +24,7 @@ export const usePlanLogic = () => {
         
         getToken().then(token => {
             if (token) {
-                fetch("http://http://192.168.51.108:8000/cadence/api/user/get_user_plan/", {
+                fetch("http://http://192.168.1.6:8000/cadence/api/user/get_user_plan/", {
                     method: "GET", 
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -49,7 +49,7 @@ export const usePlanLogic = () => {
 
         getToken().then(token => {
             if (token) {
-                fetch("http://http://192.168.51.108:8000/cadence/api/plan_run/", {
+                fetch("http://http://192.168.1.6:8000/cadence/api/plan_run/", {
                     method: "GET", 
                     headers: {
                         Authorization: `Bearer ${token}`,

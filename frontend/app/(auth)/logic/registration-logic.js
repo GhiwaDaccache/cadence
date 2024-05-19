@@ -18,7 +18,7 @@ export const useRegistrationLogic = () => {
         }
   }
   try {
-    const response = await fetch("http://http://192.168.51.108:8000/cadence/api/user/update/", {
+    const response = await fetch("http://http://192.168.1.6:8000/cadence/api/user/update/", {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

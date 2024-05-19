@@ -23,7 +23,7 @@ export const useDiscoverLogic = () => {
 
         getToken().then(token => {
             if (token) {
-                fetch("http://http://192.168.51.108:8000/cadence/api/plan/", {
+                fetch("http://http://192.168.1.6:8000/cadence/api/plan/", {
                     method: "GET", 
                     headers: {
                         Authorization: `Bearer ${token}`,

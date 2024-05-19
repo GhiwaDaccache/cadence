@@ -22,7 +22,7 @@ export const usePrviousLogic = () => {
 
         getToken().then(token => {
             if (token) {
-                fetch("http://http://192.168.51.108:8000/cadence/api/recorded_run/", {
+                fetch("http://http://192.168.1.6:8000/cadence/api/recorded_run/", {
                     method: "GET", 
                     headers: {
                         Authorization: `Bearer ${token}`,

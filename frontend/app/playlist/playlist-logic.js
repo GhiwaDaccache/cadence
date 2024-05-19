@@ -29,7 +29,7 @@ export const usePlaylistLogic = () => {
         
         getTokens().then(token => {
             if (token[0]) {
-                fetch(`http://http://192.168.51.108:8000/cadence/api/playlist/${id}/`, {
+                fetch(`http://http://192.168.1.6:8000/cadence/api/playlist/${id}/`, {
                     method: "GET", 
                     headers: {
                         Authorization: `Bearer ${token[0]}`,

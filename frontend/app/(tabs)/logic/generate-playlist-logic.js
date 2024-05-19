@@ -85,7 +85,7 @@ export const useGeneratePlaylistLogic = () => {
         
         getTokens().then(token => {
             if (token[0]) {
-                fetch("http://http://192.168.51.108:8000/cadence/api/playlist/", {
+                fetch("http://http://192.168.1.6:8000/cadence/api/playlist/", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -97,7 +97,7 @@ export const useGeneratePlaylistLogic = () => {
                         return resp.json()
                     }).then(data => {
                         const playlist_id = data.data.id
-                        fetch("http://http://192.168.51.108:8000/cadence/api/favorite_playlist/", {
+                        fetch("http://http://192.168.1.6:8000/cadence/api/favorite_playlist/", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
