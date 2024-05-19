@@ -39,7 +39,7 @@
 ### Mockups
 | Landing screen  | Run Screen | Profile Screen |
 | ---| ---| ---|
-| ![Landing](./readme/media/landing.svg) | ![fsdaf](./readme/media/run.svg) | ![fsdaf](./readme/media/profile.svg) |
+| <img src="./readme/title5.svg"/> | ![fsdaf](./readme/media/run.svg) | ![fsdaf](./readme/media/profile.svg) |
 
 <br><br>
 
