@@ -12,7 +12,7 @@ import { useDiscoverLogic } from './logic/discover-logic';
 
 
 const Discover = () => {
-  const { intervals, setIntervalTime, setIntervalPace,addInterval, genres, renderGenreCard, handleGenerate } = useGeneratePlaylistLogic()
+  const { intervals, setIntervalTime, setIntervalPace, addInterval, genres, renderGenreCard, handleGenerate } = useGeneratePlaylistLogic()
   const{ renderPlans } = useDiscoverLogic();
   return (
     <SafeAreaView className='bg-white h-full pt-20 flex items-center'>
@@ -34,26 +34,28 @@ const Discover = () => {
             <Text className='font-urbanist text-base mr-2'>Pace (min/km)</Text>
           </View>
 
-          <View className='flex flex-row justify-between py-2 mr-2 w-52'>
+          <View>
           {intervals.map((interval, index) => (
-          <View key={index} className='flex flex-row justify-between py-2 mr-2 w-52'>
-            <IntervalInput
-              placeholder={"12"}
-              value={interval.time}
-              handleChange={(e) => setIntervalTime(index, e)}
-            />
-            <IntervalInput
-              placeholder={"6"}
-              value={interval.pace}
-              handleChange={(e) => setIntervalPace(index, e)}
-            />
-          </View>
-        ))}
+            <View key={index} className='flex flex-row justify-between py-2 mr-2 w-52'>
+              <IntervalInput
+                placeholder={"12"}
+                value={interval.time}
+                handleChange={(e) => setIntervalTime(index, e)}
+              />
+              <IntervalInput
+                placeholder={"6"}
+                value={interval.pace}
+                handleChange={(e) => setIntervalPace(index, e)}
+              />
+            </View>
+          ))}
+        </View>
+
 
         <TouchableOpacity onPress={addInterval}>
-          <Text className='font-urbanist text-base text-blue-500 pt-2'>Add Interval</Text>
+          <Text className='font-urbanist text-base text-primary pt-2'>Add Interval</Text>
         </TouchableOpacity>
-          </View>
+          
 
           <View className='self-center pt-2'>
             <PrimaryButton 
