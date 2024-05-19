@@ -60,14 +60,24 @@
 
 ### User Screens (Mobile)
 | Profile screen                         | Generate screen                | Badges screen                   |
-| -------------------------------------- | ------------------------------ | ------------------------------- |
 | ![Profile](./readme/media/profile.gif) | ![Generate](./readme/media/generate.gif) | ![Badges](./readme/media/stats.gif) |
-| Logout screen                          | Pace screen                    | Chat screen                     |
-| -------------------------------------- | ------------------------------ | ------------------------------- |
-| ![logout](./readme/media/logout.gif)   | https://github.com/GhiwaDaccache/cadence/blob/main/readme/media/pace.mp4 | https://github.com/GhiwaDaccache/cadence/blob/main/readme/media/chat.mp4|
 
 
+### Videos
 
+<table>
+  <tr>
+    <td align="center">
+      
+https://github.com/GhiwaDaccache/cadence/blob/main/readme/media/pace.mp4
+
+</td>
+    <td align="center">
+      
+https://github.com/GhiwaDaccache/cadence/blob/main/readme/media/chat.mp4
+</td>
+    
+</table>
 
 
 
