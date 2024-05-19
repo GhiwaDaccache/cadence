@@ -12,7 +12,7 @@ import { useDiscoverLogic } from './logic/discover-logic';
 
 
 const Discover = () => {
-  const { firstInterval, setFirstInterval, secondInterval, setSecondInterval, thirdInterval, setThirdInterval, genres, renderGenreCard, handleGenerate } = useGeneratePlaylistLogic()
+  const { intervals, setIntervalTime, setIntervalPace,addInterval, genres, renderGenreCard, handleGenerate } = useGeneratePlaylistLogic()
   const{ renderPlans } = useDiscoverLogic();
   return (
     <SafeAreaView className='bg-white h-full pt-20 flex items-center'>
@@ -35,52 +35,24 @@ const Discover = () => {
           </View>
 
           <View className='flex flex-row justify-between py-2 mr-2 w-52'>
-           <IntervalInput 
+          {intervals.map((interval, index) => (
+          <View key={index} className='flex flex-row justify-between py-2 mr-2 w-52'>
+            <IntervalInput
               placeholder={"12"}
-              value={firstInterval.time}
-              handleChange={(e) => {
-                setFirstInterval({ ...firstInterval, time: e});
-              }}
-           />
-           <IntervalInput 
-            placeholder={"6"}
-            value={firstInterval.pace}
-            handleChange={(e) => {
-              setFirstInterval({ ...firstInterval, pace: e});
-            }}
-           />
+              value={interval.time}
+              handleChange={(e) => setIntervalTime(index, e)}
+            />
+            <IntervalInput
+              placeholder={"6"}
+              value={interval.pace}
+              handleChange={(e) => setIntervalPace(index, e)}
+            />
           </View>
-          <View className='flex flex-row justify-between py-2 mr-2 w-52'>
-           <IntervalInput 
-            placeholder={"12"}
-            value={secondInterval.time}
-              handleChange={(e) => {
-                setSecondInterval({ ...secondInterval, time: e});
-              }}
-           />
-           <IntervalInput 
-            placeholder={"6"}
-            value={secondInterval.pace}
-              handleChange={(e) => {
-                setSecondInterval({ ...secondInterval, pace: e});
-              }}
-           />
-          </View>
-          <View className='flex flex-row justify-between py-2 mr-2 w-52'>
-           <IntervalInput 
-            placeholder={"12"}
-            value={thirdInterval.time}
-            handleChange={(e) => {
-              setThirdInterval({ ...thirdInterval, time: e});
-            }}
-           />
-           <IntervalInput 
-            placeholder={"6"}
-            value={thirdInterval.pace}
-            handleChange={(e) => {
-              setThirdInterval({ ...thirdInterval, pace: e});
-            }}
-           />
+        ))}
+
+        <TouchableOpacity onPress={addInterval}>
+          <Text className='font-urbanist text-base text-blue-500 pt-2'>Add Interval</Text>
+        </TouchableOpacity>
           </View>
 
           <View className='self-center pt-2'>
