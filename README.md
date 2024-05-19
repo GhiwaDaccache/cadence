@@ -75,7 +75,7 @@
 </td>
     <td align="center">
       
-<img src="./readme/media/chat.mp4"/>
+<img src="./readme/media/chat.gif"/>
 </td>
     
 </table>
