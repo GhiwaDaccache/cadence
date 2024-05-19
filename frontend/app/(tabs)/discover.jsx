@@ -1,6 +1,10 @@
 // Dependencies
-import { View, Text, SafeAreaView, FlatList, TouchableOpacity } from 'react-native';
 import React from 'react';
+import { router } from 'expo-router';
+import { View, Text, SafeAreaView, FlatList, TouchableOpacity, Image } from 'react-native';
+
+// Assets 
+import icons from '../../assets/icons/icons';
 
 // Components
 import PrimaryButton from '../../components/PrimaryButton';
@@ -13,7 +17,7 @@ import { useDiscoverLogic } from './logic/discover-logic';
 
 const Discover = () => {
   const { intervals, setIntervalTime, setIntervalPace, addInterval, genres, renderGenreCard, handleGenerate } = useGeneratePlaylistLogic()
-  const{ renderPlans } = useDiscoverLogic();
+  const { renderPlans } = useDiscoverLogic();
   return (
     <SafeAreaView className='bg-white h-full pt-20 flex items-center'>
       <View className='py-3 bg-grey rounded mx-7 w-80 pl-2'>
@@ -71,9 +75,14 @@ const Discover = () => {
         {renderPlans()}
       </View>
 
-      <View className='absolute left-[270] bottom-6 rounded-full h-16 w-16 bg-primary flex items-center justify-center'>
-        <Text>Test</Text>
-      </View>
+      <TouchableOpacity       
+      className='absolute left-[270] bottom-6 rounded-full h-16 w-16 bg-primary flex items-center justify-center'
+      onPress={()=> {
+        router.push()
+      }}>
+        <Image source={icons.openai} className='w-12 h-12'/>
+      </TouchableOpacity>
+
     </SafeAreaView>
   )
 }

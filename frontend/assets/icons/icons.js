@@ -12,6 +12,7 @@ import history from "../icons/history.png";
 import calendar from "../icons/calendar.png";
 import distance from "../icons/distance.png";
 import schedule from "../icons/schedule.png";
+import openai from "../icons/openai.png";
 
 export default {
     profile,
@@ -27,5 +28,6 @@ export default {
     trophy,
     dot,
     road,
-    schedule
+    schedule, 
+    openai
 }
