@@ -61,7 +61,7 @@
 ### User Screens (Mobile)
 | Profile screen  | Generate Screen | Badges Screen |
 | ---| ---| ---|
-| <img src="./readme/media/profile.gif"/> | <img src="./readme/media/generate.gif"/> | <img src="./readme/media/badges.gif" width="212.85" height="473"/> |
+| <img src="./readme/media/profile.gif"/> | <img src="./readme/media/generate.gif"/> | <img src="./readme/media/badges.gif" width="391.49" height="869.96"/> |
 
 
 ### Videos
@@ -70,12 +70,12 @@
   <tr>
     <td align="center">
       
-<img src="./readme/media/pace.gif" width="212.85" height="473"/>
+<img src="./readme/media/pace.gif" width="391.49" height="869.96"/>
 
 </td>
     <td align="center">
       
-<img src="./readme/media/chat.gif" width="212.85" height="473"/>
+<img src="./readme/media/chat.gif" width="391.49" height="869.96"/>
 </td>
     
 </table>
