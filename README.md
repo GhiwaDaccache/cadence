@@ -92,6 +92,7 @@
 
 - This project leverages prompt engineering techniques to enhance interactions with language models. By integrating the OpenAI chat model, it customizes the model's behavior to ensure precise and efficient comprehension and generation of diverse user inputs.
 
+<img src="./readme/media/prompt.png"/>
 <br><br>
 
 <!-- AWS Deployment -->
