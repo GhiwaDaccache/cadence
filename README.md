@@ -176,19 +176,13 @@ cd backend
 pip install -r requirements.txt
 ```
 
-3. Install pip dependencies 
-
-```sh
-pip install -r requirements.txt
-```
-
-4. Set up any necessary configurations or keys
+3. Set up any necessary configurations or keys
 
 ```sh
 python manage.py configure
 ```
 
-5. Apply migrations or set up the database
+4. Apply migrations or set up the database
 
 ```sh
 python manage.py migrate
