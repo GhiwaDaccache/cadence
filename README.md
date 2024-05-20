@@ -92,6 +92,7 @@
 
 - This project leverages prompt engineering techniques to enhance interactions with language models. By integrating the OpenAI chat model, it customizes the model's behavior to ensure precise and efficient comprehension and generation of diverse user inputs.
 
+<img src="./readme/media/prompt.png"/>
 <br><br>
 
 <!-- AWS Deployment -->
@@ -176,19 +177,13 @@ cd backend
 pip install -r requirements.txt
 ```
 
-3. Install pip dependencies 
-
-```sh
-pip install -r requirements.txt
-```
-
-4. Set up any necessary configurations or keys
+3. Set up any necessary configurations or keys
 
 ```sh
 python manage.py configure
 ```
 
-5. Apply migrations or set up the database
+4. Apply migrations or set up the database
 
 ```sh
 python manage.py migrate
